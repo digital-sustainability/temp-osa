@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: "Yu Gothic UI Semibold", sans-serif;
+}
+
+h1 {
+    color: #4a83aa;
+    font-size: 2.6em;
+}
+
+h2 {
+    font-weight: 600;
+    color: #4a83aa;
+}
+
+.primary {
+    background: #697d91;
+    border: none;
+    color: white;
+    padding: 1em;
+    border-radius: 3px;
+}
+.primary:hover {
+    background: #699bbe;
+    cursor: pointer;
+}

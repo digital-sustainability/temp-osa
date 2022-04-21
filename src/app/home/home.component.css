@@ -1,0 +1,16 @@
+.home-wrapper {
+    height: 100% ;
+    padding-left: 3em;
+    background: rgb(239, 239, 239);
+}
+
+.image-placeholder {
+    background: red;
+    margin-left: -3em;
+    width: 80vw;
+    height: 30vh;
+}
+
+p {
+    max-width: 50ch;
+}
