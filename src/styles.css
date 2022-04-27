@@ -26,3 +26,7 @@ h2 {
     background: #699bbe;
     cursor: pointer;
 }
+
+.flex-spacer {
+    flex: 1 1 auto;
+}

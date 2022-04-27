@@ -1,14 +1,21 @@
 .home-wrapper {
     height: 100% ;
     padding-left: 3em;
-    background: rgb(239, 239, 239);
+    background: #fff;
 }
 
-.image-placeholder {
-    background: red;
+.image-container {
+    overflow: hidden;
     margin-left: -3em;
-    width: 80vw;
-    height: 30vh;
+    max-height: 18.5vh;
+    width: 83vw;
+}
+
+img {
+    margin-top: -15em;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 p {

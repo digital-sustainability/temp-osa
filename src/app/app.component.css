@@ -2,44 +2,71 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    gap: 3em;
 }
 
-nav {
-    margin-top: 1em;
+aside {
+    width: 17vw;
+    place-items: center;
     display: flex;
     flex-direction: column;
-    max-width: 10em;
-    background: #697d91;
+}
+
+img {
+    display: inline;
+    margin: 2em;
+    width: 100px;
+}
+
+.logo {
+    display: flex;
+    height: 18.5vh ;
+    place-items: center;
+    width: 100%;
+}
+
+h2 {
+    display: inline;
+}
+
+hr {
+    width: 100%;
+    border-top: 1px solid #eee;
+}
+nav {
+    display: flex;
+    flex-direction: column;
     padding: 1em;
     color: white;
     align-self: baseline;
+    flex-grow: 1;
 }
 
-nav div {
-    margin-bottom: 1em;
-}
 
-nav button {
+.nav-button {
+    background: white;
     border: none;
     padding: 1em;
-    color: #699bbe;
+    text-align: left;
     margin-bottom: 1px;
 }
 
 nav button:hover, .active {
-    background: #ddd;
+    background: #f9f9f9;
     cursor: pointer;
 }
 
 .router-wrapper {
-    width: 80vw;
+    width: 83vw;
 }
 
 .progress-bar {
+    place-self: center;
+    padding: 2em;
+    max-width: 12vw;
     margin-top: 2em;
     display: flex;
     flex-direction: column;
+    color: #666;
 }
 
 .progress-bar button:hover {
