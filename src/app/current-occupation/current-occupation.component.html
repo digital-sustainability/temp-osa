@@ -1,0 +1,13 @@
+<div class="content-wrapper">
+  <h1>Aktuelle Tätigkeit</h1>
+  <p>Was ist ihre aktuelle Tätigkeit?</p>
+  <p><i>Modus: interessierte wählen vorgegebene Angaben aus.</i></p>
+  <form [formGroup]="form" (submit)="updateModel()">
+    <mat-checkbox formControlName="checkbox1">Schüler*in</mat-checkbox>
+    <mat-checkbox formControlName="checkbox2">Student*in</mat-checkbox>
+    <mat-checkbox formControlName="checkbox3">In Berufsausbildung</mat-checkbox>
+    <mat-checkbox formControlName="checkbox4">Berufstätig (Vollzeit / Teilzeit)</mat-checkbox>
+    <mat-checkbox formControlName="checkbox5">Sonstiges</mat-checkbox>
+    <button class="primary" type="submit">Weiter</button>
+  </form>
+</div>

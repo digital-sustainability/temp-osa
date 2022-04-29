@@ -18,20 +18,14 @@
     <p>
         Haben Sie vor, den Test wahrheitsgemäss zu beantworten?
     </p>
-    <form [formGroup]="form">
-        <input type="radio" id="yes"
-               name="group1" value="yes"
-               formControlName="group1"
-        >
-        <label for="yes">Ja, ich möchte aussagekräftige Ergebnisse erhalten.</label>
+    <form [formGroup]="form" (submit)="updateModel()">
+      <mat-radio-group formControlName="group1">
+        <mat-radio-button>Ja, ich möchte aussagekräftige Ergebnisse erhalten.</mat-radio-button>
         <br>
-        <input type="radio" id="no"
-               name="group1" value="no"
-               formControlName="group1"
-        >
-        <label for="no">Nein, ich möchte den Test nur ausprobieren.</label>
-        <div>
-            <button type="submit" class="primary" (submit)="updateModel()">Weiter</button>
-        </div>
+        <br>
+        <mat-radio-button>Nein, ich möchte den Test bloss ausprobieren.</mat-radio-button>
+      </mat-radio-group>
+      <br>
+      <button type="submit" class="primary" >Weiter</button>
     </form>
 </div>

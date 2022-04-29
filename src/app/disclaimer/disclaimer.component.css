@@ -1,7 +1,3 @@
-p {
-    max-width: 75ch;
-}
-
 input, label {
     margin: 0.4em;
     cursor: pointer;

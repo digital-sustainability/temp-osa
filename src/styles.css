@@ -39,3 +39,14 @@ h2 {
     background: #fff;
 }
 
+p {
+  max-width: 75ch;
+}
+
+.footnote {
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,71 @@
+mat-radio-group {
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  width: 60em;
+}
+
+.formheader {
+  display: flex;
+  gap: 1.19em;
+}
+
+hr {
+  width: 100%;
+  border-top: 1px solid #fbfbfb;
+}
+
+button {
+  width: fit-content;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+button:disabled:hover {
+  background: #697d91;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 3em;
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.result {
+  padding: 3em;
+}
+
+#info-button {
+  padding: 1em;
+  background: #699bbe;
+  border-radius: 100em;
+  width: 1em;
+}
+
+#info {
+  visibility: hidden;
+  width: 30em;
+  padding: 3em;
+  border: 3px solid #eee;
+  background: white;
+  color: #000;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  top: 45%;
+  z-index: 1;
+}
+#info-button:hover #info {
+  visibility: visible;
+}

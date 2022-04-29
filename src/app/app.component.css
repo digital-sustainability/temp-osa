@@ -107,7 +107,8 @@ nav button:hover, .active {
     height: 18.5vh;
     max-height: 18.5vh;
     width: 83vw;
-    background: rgb(45,67, 78);
+    background-image: url("src/assets/office-space-sector.jpg");
+    background-position: center;
 }
 
 

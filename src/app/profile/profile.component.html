@@ -1,1 +1,66 @@
-<p>profile works!</p>
+<div class="content-wrapper">
+  <h1>Allgemeine Angaben</h1>
+  <p>
+    Diese Angaben sind freiwillig. Sie dienen ausschliesslich der Evaluation des Verfahrens und haben keinerlei Einfluss auf Ihre Ergebnisrückmeldung.
+    Möchten Sie eine Frage nicht beantworten, können Sie diese überspringen, indem Sie auf «Weiter» klicken.
+  </p>
+  <form [formGroup]="form" (submit)="updateModel()">
+    <div>
+      <mat-form-field>
+        <mat-label>Alter</mat-label>
+        <input matInput type="number" placeholder="Alter">
+      </mat-form-field>
+    </div>
+    <div>
+      <div class="flex-spacer"></div>
+      <mat-form-field >
+        <mat-label>Geschlecht</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option [value]="'m'">Männlich</mat-option>
+          <mat-option [value]="'w'">Weiblich</mat-option>
+          <mat-option [value]="'d'">Divers</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Kanton</mat-label>
+        <mat-select formControlName="canton">
+          <mat-option [value]="'bern'">Bern</mat-option>
+          <mat-option [value]="'zurich'">Zürich</mat-option>
+          <mat-option [value]="'luzern'">Luzern</mat-option>
+          <mat-option [value]="'uri'">Uri</mat-option>
+          <mat-option [value]="'schwyz'">Schwyz</mat-option>
+          <mat-option [value]="'obwalden'">Obwalden</mat-option>
+          <mat-option [value]="'nidwalden'">Nidwalden</mat-option>
+          <mat-option [value]="'glarus'">Glarus</mat-option>
+          <mat-option [value]="'zug'">Zug</mat-option>
+          <mat-option [value]="'fribourg'">Fribourg</mat-option>
+          <mat-option [value]="'solothurn'">Solothurn</mat-option>
+          <mat-option [value]="'basel-stadt'">Basel-Stadt</mat-option>
+          <mat-option [value]="'basel-landschaft'">Basel-Landschaft</mat-option>
+          <mat-option [value]="'schaffhausen'">Schaffhausen</mat-option>
+          <mat-option [value]="'appenzell-ausserrhoden'">Appenzell Ausserrhoden</mat-option>
+          <mat-option [value]="'appenzell-innerrhoden'">Appenzell Innerrhoden</mat-option>
+          <mat-option [value]="'st-gallen'">St. Gallen</mat-option>
+          <mat-option [value]="'graubunden'">Graubünden</mat-option>
+          <mat-option [value]="'aargau'">Aargau</mat-option>
+          <mat-option [value]="'thurgau'">Thurgau</mat-option>
+          <mat-option [value]="'ticino'">Ticino</mat-option>
+          <mat-option [value]="'vaud'">Vaud</mat-option>
+          <mat-option [value]="'wallis'">Wallis</mat-option>
+          <mat-option [value]="'neuchatel'">Neuchâtel</mat-option>
+          <mat-option [value]="'geneve'">Genève</mat-option>
+          <mat-option [value]="'jura'">Jura</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Wohnort</mat-label>
+        <input formControlName="city" matInput type="text">
+      </mat-form-field>
+    </div>
+    <button class="primary" type="submit">Weiter</button>
+  </form>
+</div>
