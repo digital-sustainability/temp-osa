@@ -1,15 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
+import {slideInAnimation} from "./animation";
+import {ChildrenOutletContexts} from "@angular/router";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [slideInAnimation]
 })
 export class AppComponent implements OnInit {
   title = 'OSA-eignungstool';
   currentPage = 'Startseite';
   progressPercent = new BehaviorSubject<number>(0)
+
+  constructor(private contexts: ChildrenOutletContexts) {
+  }
 
   ngOnInit() {
     this.progressPercent.subscribe(progress => {
@@ -27,5 +33,9 @@ export class AppComponent implements OnInit {
     } else {
       this.progressPercent.next(val)
     }
+  }
+
+  getRouteAnimationData() {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 }

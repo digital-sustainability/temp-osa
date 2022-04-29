@@ -1,0 +1,37 @@
+<div class="content-wrapper">
+    <div class="header-image-container">
+    </div>
+    <h2>Online-Test als verpflichtender Bestandteil in der Bewerbung für den Studiengang Soziale Arbeit </h2>
+    <p>
+        Falls Sie sich für den Bachelorstudiengang Soziale Arbeit an der Berner
+        Fachhochschule interessieren und sich bewerben möchten, ist die
+        Teilnahme an diesem Online-Selbsttest ein verpflichtender Bestandteil
+        einer vollständigen Bewerbung.
+    </p>
+    <p>
+        Es besteht aber auch die Möglichkeit, dass Sie den Online-Test als
+        Orientierungshilfe in Ihrer Studienwahl nutzen. Alle Angaben, die Sie im
+        Verlaufe der Bearbeitung machen, werden anonym gespeichert. Sie
+        werden einzig dazu verwendet, den Selbsttest anzupassen und zu
+        verbessern. Die Weitergabe von Daten an Dritte ist ausgeschlossen.
+    </p>
+    <p>
+        Haben Sie vor, den Test wahrheitsgemäss zu beantworten?
+    </p>
+    <form [formGroup]="form">
+        <input type="radio" id="yes"
+               name="group1" value="yes"
+               formControlName="group1"
+        >
+        <label for="yes">Ja, ich möchte aussagekräftige Ergebnisse erhalten.</label>
+        <br>
+        <input type="radio" id="no"
+               name="group1" value="no"
+               formControlName="group1"
+        >
+        <label for="no">Nein, ich möchte den Test nur ausprobieren.</label>
+        <div>
+            <button type="submit" (submit)="updateModel()">Weiter</button>
+        </div>
+    </form>
+</div>

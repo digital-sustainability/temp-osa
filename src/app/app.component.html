@@ -14,9 +14,9 @@
             <hr>
             <button class="nav-button" routerLink="time-management" routerLinkActive="active">Zeitmanagement</button>
             <hr>
-            <button class="nav-button" routerLink="profile" routerLinkActive="active">Einblick Studienalltag</button>
+            <button class="nav-button" routerLink="insights" routerLinkActive="active">Einblick Studienalltag</button>
             <hr>
-            <button class="nav-button" routerLink="profile" routerLinkActive="active">Gesamtfeedback</button>
+            <button class="nav-button" routerLink="feedback" routerLinkActive="active">Gesamtfeedback</button>
             <div class="progress-bar">
                 <h2>Ihr Fortschritt</h2>
                 <div id="progress-bar-empty">
@@ -28,7 +28,7 @@
             </div>
         </nav>
     </aside>
-    <div class="router-wrapper">
+    <div class="router-wrapper" [@routeAnimations]="getRouteAnimationData()">
         <router-outlet></router-outlet>
     </div>
 

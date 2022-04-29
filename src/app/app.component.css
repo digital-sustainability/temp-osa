@@ -5,6 +5,7 @@
 }
 
 aside {
+    z-index: 1;
     width: 17vw;
     place-items: center;
     display: flex;
