@@ -24,6 +24,9 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import { SchoolTypeComponent } from './school-type/school-type.component';
 import { SelfEfficacyScaleComponent } from './self-efficacy-scale/self-efficacy-scale.component';
 import { ResilienceComponent } from './resilience/resilience.component';
+import {MatIconModule} from "@angular/material/icon";
+import { EmpathyComponent } from './empathy/empathy.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 const routes: Route[] = [
   { path: 'home', component: HomeComponent, data: { animation: 'home'}},
@@ -36,6 +39,7 @@ const routes: Route[] = [
   { path: 'personality-trait-scales', component: PersonalityTraitScalesComponent, data: { animation: 'personality'}  },
   { path: 'self-efficacy-scale', component: SelfEfficacyScaleComponent, data: { animation: 'selfefficacyscale'}  },
   { path: 'resilience', component: ResilienceComponent, data: { animation: 'resilience'}  },
+  { path: 'empathy', component: EmpathyComponent, data: { animation: 'empathy'}  },
   { path: 'stereotypes', component: StereotypesComponent, data: { animation: 'stereotypes'}  },
   { path: 'time-management', component: TimeManagementComponent, data: { animation: 'timemanagement'}  },
   { path: 'insights', component: InsightsComponent, data: { animation: 'insights'}  },
@@ -62,6 +66,7 @@ const routes: Route[] = [
     SchoolTypeComponent,
     SelfEfficacyScaleComponent,
     ResilienceComponent,
+    EmpathyComponent,
   ],
   imports: [
     MatRadioModule,
@@ -73,7 +78,9 @@ const routes: Route[] = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

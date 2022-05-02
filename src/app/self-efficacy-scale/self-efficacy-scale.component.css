@@ -46,26 +46,32 @@ button:disabled:hover {
 }
 
 #info-button {
-  padding: 1em;
-  background: #699bbe;
+  color: #699bbe;
   border-radius: 100em;
-  width: 1em;
+  cursor: pointer;
+
 }
 
 #info {
-  visibility: hidden;
   width: 30em;
-  padding: 3em;
-  border: 3px solid #eee;
   background: white;
   color: #000;
   border-radius: 6px;
-
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  top: 45%;
-  z-index: 1;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 #info-button:hover #info {
   visibility: visible;
+}
+
+.active {
+  border: 2px solid #eee;
+  padding: 1em;
+
+}
+
+.mat-radio-group {
+  padding: 0.5em 0;
+  border-bottom: 1px solid #eee;
 }

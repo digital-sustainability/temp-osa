@@ -3,11 +3,11 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-self-efficacy-scale',
-  templateUrl: './self-efficacy-scale.component.html',
-  styleUrls: ['./self-efficacy-scale.component.css']
+  selector: 'app-empathy',
+  templateUrl: './empathy.component.html',
+  styleUrls: ['./empathy.component.css']
 })
-export class SelfEfficacyScaleComponent implements OnInit {
+export class EmpathyComponent implements OnInit {
   form: any;
   score = 0
   showResult = false;
@@ -54,9 +54,9 @@ export class SelfEfficacyScaleComponent implements OnInit {
   toggleCollapsible() {
     this.info.nativeElement.classList.toggle("active");
     if (this.info.nativeElement.style.maxHeight){
-     this.info.nativeElement.style.maxHeight = null;
+      this.info.nativeElement.style.maxHeight = null;
     } else {
-     this.info.nativeElement.style.maxHeight = this.info.nativeElement.scrollHeight + "px";
+      this.info.nativeElement.style.maxHeight = this.info.nativeElement.scrollHeight + "px";
     }
   }
 }

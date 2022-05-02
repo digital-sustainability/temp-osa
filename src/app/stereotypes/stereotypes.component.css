@@ -1,0 +1,48 @@
+/deep/ .mat-tab-header {
+  display: none!important;
+}
+
+.actions {
+  display: flex;
+  gap: 1em;
+}
+
+.mat-radio-group {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.wrong, .correct {
+  display: flex;
+  gap: 0.5em;
+  place-items: center;
+  margin-top: 2em;
+  padding: 1em;
+  width: fit-content;
+}
+
+.wrong {
+  color: #d25a50;
+  border: 2px solid #d25a50;
+}
+
+.correct {
+  color: #699673;
+  border: 2px solid #699673;
+}
+
+.explanation {
+  display: flex;
+  gap: 3em;
+}
+
+.explanation mat-icon {
+  color: #699bbe;
+  font-size: 4em;
+}
+
+.explanation p {
+  max-width: 50ch;
+}

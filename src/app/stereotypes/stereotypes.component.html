@@ -1,1 +1,50 @@
-<p>stereotypes works!</p>
+<div class="content-wrapper">
+  <h1>Bewertung Stereotypen zur Sozialen Arbeit</h1>
+  <p>Bitte beurteilen Sie die folgenden 12 Behauptungen zur Sozialen Arbeit. Wählen Sie jeweils zwischen "trifft zu", "trifft
+    teilweise" und "trifft nicht zu" aus.</p>
+  <form [formGroup]="form">
+    <mat-tab-group #grp class="invisible-tabs">
+      <mat-tab *ngFor="let claim of claims; let i = index">
+        <div>{{claim.claim}}</div>
+        <mat-radio-group [formControlName]="'claim' + i">
+          <mat-radio-button labelPosition="before" value="1">Trifft zu:</mat-radio-button>
+          <mat-radio-button labelPosition="before" value="2">Trifft teilweise zu:</mat-radio-button>
+          <mat-radio-button labelPosition="before" value="3">Trifft nicht zu</mat-radio-button>
+        </mat-radio-group>
+        <div class="actions">
+          <button class="primary" (click)="prev(grp)">Previous</button>
+          <button class="primary" (click)="check(claim, i)">Check</button>
+          <button class="primary" (click)="next(grp)">Next</button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </form>
+  <div class="wrong" *ngIf="selectionCorrect === false">
+    <mat-icon>close</mat-icon>
+    <span>This answer is incorrect</span>
+  </div>
+  <div class="correct" *ngIf="selectionCorrect === true">
+    <mat-icon>check_circle_outline</mat-icon>
+    <span>This is the correct answer</span>
+  </div>
+  <div class="explanation" *ngIf="selectionCorrect === true || selectionCorrect === false">
+    <mat-icon>info_outline</mat-icon>
+    <p>
+      Erläuterung: Die Soziale
+      Arbeit setzt sich
+      beispielsweise in der
+      wirtschaftlichen Sozialhilfe,
+      der Arbeitsintegration oder
+      durch aufsuchende Angebote
+      mit Armut und
+      armutsbetroffenen Menschen
+      auseinander. Daneben bewegt
+      sich Soziale Arbeit aber auch
+      in den Arbeitsfeldern Kinder
+      und Jugendliche, Beratung,
+      Gesundheit sowie im
+      internationalen und
+      transkulturellen Kontext.
+    </p>
+  </div>
+</div>
