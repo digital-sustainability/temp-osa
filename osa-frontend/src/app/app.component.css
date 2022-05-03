@@ -49,7 +49,6 @@ nav {
     display: flex;
     flex-direction: column;
     padding: 1em;
-    color: white;
     align-self: baseline;
     flex-grow: 1;
 }
@@ -72,19 +71,6 @@ nav button:hover, .active {
     width: 83vw;
 }
 
-.progress-bar {
-    place-self: center;
-    padding: 2em;
-    max-width: 12vw;
-    margin-top: 2em;
-    display: flex;
-    flex-direction: column;
-    color: #666;
-}
-
-.progress-bar button:hover {
-    background: #699bbe;
-}
 
 #progress-bar-empty {
     position: relative;
@@ -111,11 +97,20 @@ nav button:hover, .active {
     background-position: center;
 }
 
-
 .header-image {
     margin-left: -1em;
     margin-top: -15em;
     width: 100%;
     object-fit: cover;
     overflow: hidden;
+}
+
+.progress-bar .nav-button {
+  width: 100%;
+}
+
+.progress {
+  padding: 0 1em;
+  font-size: 0.8em;
+  color: #999;
 }

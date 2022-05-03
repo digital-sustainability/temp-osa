@@ -10,11 +10,6 @@ import {Router} from "@angular/router";
 export class ProfileComponent implements OnInit {
   form: any;
 
-  foods: any[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
   constructor(private formBuilder: FormBuilder,
               private router: Router) { }
 
