@@ -27,9 +27,21 @@ describe('MongoService', () => {
     expect ((await db.stats()).ok).toBe(1);
   });
 
+  it ('should create new collection on a new server', async() =>{
+    const db = service.getMongoDb();
+    const stats = await db.stats();
+    expect (stats.collections).toBe(0);
+    const spy = jest.spyOn(db, 'createCollection');
+    const collection = await service.createCollection('test');
+    expect (spy).toBeCalledTimes(1);
+    expect(await collection.countDocuments()).toBe(0);
+    const newStats = await db.stats();
+    expect (newStats.collections).toBe(1);
+  });
 
 
-  describe('should insert new document in collection', () => {
+
+  describe('should insert new document correctly', () => {
     const COLLECTIONNAME = 'test';
     let collection: Collection;
     beforeEach(async () => {
@@ -49,6 +61,15 @@ describe('MongoService', () => {
       const document = {id: 25, title: 'test'};
       await collection.insertOne (document);
       expect(await (await collection.findOne({id: 25})).title).toBe("test");
+    });
+    it ('should count documents correctly', async () =>{
+      const document = {title : "document1"};
+      const document2 = {title: "document2"};
+      expect(await collection.countDocuments()).toBe(0);
+      await collection.insertOne (document);
+      expect(await collection.countDocuments()).toBe(1);
+      await collection.insertOne (document2)
+      expect(await collection.countDocuments()).toBe(2);
     });
   });
 });
