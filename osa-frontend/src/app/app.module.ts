@@ -18,7 +18,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { InterestComponent } from './interest/interest.component';
-import {MatRadioButton, MatRadioModule} from "@angular/material/radio";
+import { MatRadioModule} from "@angular/material/radio";
 import { CurrentOccupationComponent } from './current-occupation/current-occupation.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { SchoolTypeComponent } from './school-type/school-type.component';
@@ -49,6 +49,7 @@ const routes: Route[] = [
   { path: 'time-management-planner', component: TimeManagementPlannerComponent, data: { animation: 'timemanagementplanner'}  },
   { path: 'time-management-feedback', component: TimeManagementFeedbackComponent, data: { animation: 'timemanagementfeedback'}  },
   { path: 'insights', component: InsightsComponent, data: { animation: 'insights'}  },
+  { path: 'expectations', component: ExpectationsComponent, data: { animation: 'expectations'}  },
   { path: 'feedback', component: FeedbackComponent, data: { animation: 'feedback'}  },
   { path: '**', redirectTo: 'home', pathMatch: 'full', data: { animation: 'any'}},
   { path: '', redirectTo: 'home', pathMatch: 'full', data: { animation: 'any'} },
