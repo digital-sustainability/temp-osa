@@ -14,19 +14,16 @@ export class SelfEfficacyScaleComponent implements OnInit {
   @ViewChild('info') info: any;
 
   questionnaire: {[key:string]:string} = {
-    q1:  'Frage N',
-    q2:  'Frage N',
-    q3:  'Frage N',
-    q4:  'Frage N',
-    q5:  'Frage N',
-    q6:  'Frage N',
-    q7:  'Frage N',
-    q8:  'Frage N',
-    q9:  'Frage N',
-    q10: 'Frage N',
-    q11: 'Frage N',
-    q12: 'Frage N',
-    q13: 'Frage N',
+    q1:  'Wenn sich Widerstände auftun, finde ich Mittel und Wege, mich durchzusetzen.',
+    q2:  'Die lösung schwieriger Probleme gelingt mir immer, wenn ich mich darum bemühe.',
+    q3:  'Es bereitet mir keine Schwierigkeiten, meine Absichten und Ziele zu verwirklichen.',
+    q4:  'In unerwarteten Situationen weiss ich immer, wie ich mich verhalten soll.',
+    q5:  'Auch bei überraschenden Ereignissen glaube ich, dass ich gut mit ihnen zurechtkommen kann.',
+    q6:  'Schwierigkeiten sehe ich gelassen entgegen, weil ich meinen Fähigkeiten immer vertrauen kann.',
+    q7:  'Was auch immer passiert, ich werde schon klarkommen.',
+    q8:  'Für jedes Problem kann ich eine Lösung finden.',
+    q9:  'Wenn eine neue Sache auf mich zukommt, weiss ich, wie ich damit umgehen kann.',
+    q10: 'Wenn ein Problem auftaucht kann ich es aus eigener Kraft meistern.',
   }
   keys = Object.keys(this.questionnaire);
 
