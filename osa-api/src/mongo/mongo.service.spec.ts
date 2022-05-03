@@ -11,6 +11,11 @@ describe('MongoService', () => {
     }).compile();
 
     service = module.get<MongoService>(MongoService);
+    await service.onModuleInit();
+  });
+
+  afterEach(async () => {
+    await service.onModuleDestroy();
   });
 
   it('should be defined', () => {
@@ -24,26 +29,26 @@ describe('MongoService', () => {
 
 
 
-   describe ('should insert new document into the collection', () =>{
+  describe('should insert new document in collection', () => {
+    const COLLECTIONNAME = 'test';
     let collection: Collection;
-    let collectionName = 'name';
-    beforeEach (async () => {
-      collection = await service.createCollection(collectionName);
+    beforeEach(async () => {
+      collection = await service.createCollection(COLLECTIONNAME);
     });
-    afterEach (async () => {
-      let db = service.getMongoDb();
-      await db.dropCollection(collectionName);
-    })
+    afterEach(async () => {
+      const db = service.getMongoDb();
+      await db.dropCollection(COLLECTIONNAME);
+    });
     it ('should insert new document into the db', async () =>{
-      let document = {title: 'title'};
+      const document = {title: 'title'};
       expect(await collection.countDocuments()).toBe(0);
       await collection.insertOne (document);
       expect(await collection.countDocuments()).toBe(1);
     });
     it ('should name inserted document correctly', async () =>{
-      let document = {id: 25, title: 'test'};
+      const document = {id: 25, title: 'test'};
       await collection.insertOne (document);
-      expect(await (await collection.findOne({id: 25})).id).toBe("test");
+      expect(await (await collection.findOne({id: 25})).title).toBe("test");
     });
   });
 });
