@@ -3,7 +3,7 @@
   <p>Bitte beurteilen Sie die folgenden 12 Behauptungen zur Sozialen Arbeit. Wählen Sie jeweils zwischen "trifft zu", "trifft
     teilweise" und "trifft nicht zu" aus.</p>
   <form [formGroup]="form">
-    <mat-tab-group #grp class="invisible-tabs">
+    <mat-tab-group #grp class="invisible-tabs" (selectedIndexChange)="setLastTab($event)">
       <mat-tab *ngFor="let claim of claims; let i = index">
         <div>{{claim.claim}}</div>
         <mat-radio-group [formControlName]="'claim' + i">

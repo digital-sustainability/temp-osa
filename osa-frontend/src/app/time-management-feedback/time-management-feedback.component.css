@@ -1,0 +1,13 @@
+td, th {
+  border: 1px solid #699bbe;
+  padding: 1em
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.tables-wrapper {
+  display: flex;
+  gap: 3em;
+}

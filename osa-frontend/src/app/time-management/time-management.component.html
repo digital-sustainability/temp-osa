@@ -1,1 +1,17 @@
-<p>time-management works!</p>
+<div class="content-wrapper">
+  <h1>Studium: Zeitmanagement</h1>
+  <p>
+    Ein Studium ist zeitintensiv und wird ihren bisherigen Alltag grösstenteils verändern. Mit einem gut überlegten
+    Zeitmanagement werden sie aber in der Lage sein, die Anforderungen des Studiums zu meistern und gleichzeitig
+    eine gesunde Work-Life Balance zu bewahren.   Um eine erste Einschätzung zu erhalten, wie ihr zukünftiger
+    Studienalltag aussehen könnte, bitten wir Sie nun einen Studientag zeitlich zu planen. Bitte beantworten Sie
+    zuerst folgende Frage:  Haben Sie vor Vollzeit oder Teilzeit zu studieren?
+  </p>
+  <form [formGroup]="form" (submit)="updateModel()">
+    <mat-radio-group>
+      <mat-radio-button value="vollzeit">Vollzeit</mat-radio-button>
+      <mat-radio-button value="teilzeit">Teilzeit</mat-radio-button>
+    </mat-radio-group>
+    <button class="primary" type="submit">Weiter</button>
+  </form>
+</div>

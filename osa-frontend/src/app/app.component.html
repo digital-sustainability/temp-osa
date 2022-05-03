@@ -1,39 +1,38 @@
 <div class="wrapper">
-    <header>
-        <div class="logo">
-            <img src="https://www.bfh.ch/dam/jcr:0d9ff345-1271-4195-9908-44f69806a035/Logo%20BFH_dunkler.svg/Logo%20BFH_weiss.svg">
-        </div>
-        <div class="header-image-container">
-        </div>
-    </header>
-    <aside>
-        <nav>
-            <button class="nav-button" routerLink="home" routerLinkActive="active">Startseite</button>
-            <hr>
-            <button class="nav-button" routerLink="profile" routerLinkActive="active">Persönliche Angaben</button>
-            <hr>
-            <button class="nav-button" routerLink="personality-trait-scales" routerLinkActive="active">Skalen zu Persönlichkeit und Charaktereigenschaften</button>
-            <hr>
-            <button class="nav-button" routerLink="stereotypes" routerLinkActive="active">Bewertung Stereotypen zur sozialen Arbeit</button>
-            <hr>
-            <button class="nav-button" routerLink="time-management" routerLinkActive="active">Zeitmanagement</button>
-            <hr>
-            <button class="nav-button" routerLink="insights" routerLinkActive="active">Einblick Studienalltag</button>
-            <hr>
-            <button class="nav-button" routerLink="feedback" routerLinkActive="active">Gesamtfeedback</button>
-            <div class="progress-bar">
-                <h2>Ihr Fortschritt</h2>
-                <div id="progress-bar-empty">
-                    <div id="progress-bar-fill"></div>
-                </div>
-                <div>{{progressPercent.value}}%</div>
-                <button class="primary">Self Assessment unterbrechen</button>
-                <button (click)="add(7)">plus progress</button>
-            </div>
-        </nav>
-    </aside>
-    <div class="router-wrapper" [@routeAnimations]="getRouteAnimationData()">
-        <router-outlet></router-outlet>
+  <header>
+    <div class="logo">
+      <img src="https://www.bfh.ch/dam/jcr:0d9ff345-1271-4195-9908-44f69806a035/Logo%20BFH_dunkler.svg/Logo%20BFH_weiss.svg">
     </div>
-
+    <div class="header-image-container">
+    </div>
+  </header>
+  <aside>
+    <nav>
+      <button class="nav-button" routerLink="home" routerLinkActive="active">Startseite</button>
+      <hr>
+      <button class="nav-button" routerLink="profile" routerLinkActive="active">Persönliche Angaben</button>
+      <hr>
+      <button class="nav-button" routerLink="personality-trait-scales" routerLinkActive="active">Skalen zu Persönlichkeit und Charaktereigenschaften</button>
+      <hr>
+      <button class="nav-button" routerLink="stereotypes" routerLinkActive="active">Bewertung Stereotypen zur sozialen Arbeit</button>
+      <hr>
+      <button class="nav-button" routerLink="time-management" routerLinkActive="active">Zeitmanagement</button>
+      <hr>
+      <button class="nav-button" routerLink="insights" routerLinkActive="active">Einblick Studienalltag</button>
+      <hr>
+      <button class="nav-button" routerLink="feedback" routerLinkActive="active">Gesamtfeedback</button>
+      <hr>
+      <button class="nav-button">Self Assessment unterbrechen</button>
+      <div class="progress">
+        <div style="margin-bottom: 5px">Ihr Fortschritt: {{progressPercent.value}}%</div>
+        <div id="progress-bar-empty">
+          <div id="progress-bar-fill"></div>
+        </div>
+        <button (click)="add(7)">plus progress</button>
+      </div>
+    </nav>
+  </aside>
+  <div class="router-wrapper" [@routeAnimations]="getRouteAnimationData()">
+      <router-outlet></router-outlet>
+  </div>
 </div>

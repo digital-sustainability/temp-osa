@@ -1,0 +1,44 @@
+.content-wrapper {
+  display: flex;
+  max-height: 50vh;
+  gap: 20%;
+}
+
+th {
+  padding: 0 0 1em 0;
+}
+
+td {
+  padding: 0 1em;
+}
+
+.valid {
+  padding: 1em;
+  border: 2px solid #699673;
+}
+
+.invalid {
+  padding: 1em;
+  position: relative;
+  border: 2px solid #d25a50;
+}
+
+.invalid::before {
+  position: absolute;
+  left: 110%;
+  top: -20%;
+  width: 15ch;
+  color: #d25a50;
+  content: 'Es müssen 24h eingeplant werden';
+  padding: 1em;
+}
+
+.chart {
+  place-self: center;
+  width: 35%;
+}
+
+.disabled {
+  background: #eeeeee;
+  pointer-events: none;
+}
