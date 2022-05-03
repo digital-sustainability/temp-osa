@@ -8,7 +8,7 @@ import { assert } from 'console';
 export class UserDataService {
   constructor() {}
 
-  getUserId(): number {
+  getUserIdFromURL(): number {
     let id = -1;
     let url = window.location;
     let params = new URLSearchParams(url.search);
@@ -17,4 +17,95 @@ export class UserDataService {
     }
     return id;
   }
+
+  // Todo: create new user ()
+
+  // Todo: get existing user by id ()
+
+  // Todo: patch user object in backend
+
+  // * ProfileComponent: patch profile
+  /*
+    age: number
+    gender: string
+    canton: string
+    city: string
+    */
+
+  // * InterestComponent: patch interest
+  /*
+    checkbox1: boolean,
+    checkbox2: boolean,
+    checkbox3: boolean,
+    checkbox4: boolean
+  */
+
+  // * CurrentOccupationComponent: patch current occupation
+  /*
+    checkbox1: boolean,
+    checkbox2: boolean,
+    checkbox3: boolean,
+    checkbox4: boolean,
+    checkbox5: boolean
+  */
+
+  // * SchoolTypeComponent: patch current occupation
+  /*
+    checkbox1: boolean,
+    checkbox2: boolean,
+    checkbox3: boolean,
+    checkbox4: boolean,
+    checkbox5: boolean
+  */
+
+  // * SelfEfficacyScaleComponent: patch self-efficacy
+  /*
+  q1:  number,
+  q2:  number,
+  q3:  number,
+  q4:  number,
+  q5:  number,
+  q6:  number,
+  q7:  number,
+  q8:  number,
+  q9:  number,
+  q10: number,
+  q11: number,
+  q12: number,
+  q13: number,
+  */
+
+  // * ResilienceComponent: patch resilience
+  /*
+  q1:  number,
+  q2:  number,
+  q3:  number,
+  q4:  number,
+  q5:  number,
+  q6:  number,
+  q7:  number,
+  q8:  number,
+  q9:  number,
+  q10: number,
+  q11: number,
+  q12: number,
+  q13: number,
+  */
+
+  // * EmpathyComponent: patch resilience
+  /*
+  q1:  number,
+  q2:  number,
+  q3:  number,
+  q4:  number,
+  q5:  number,
+  q6:  number,
+  q7:  number,
+  q8:  number,
+  q9:  number,
+  q10: number,
+  q11: number,
+  q12: number,
+  q13: number,
+  */
 }

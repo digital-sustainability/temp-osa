@@ -1,19 +1,26 @@
 <div class="content-wrapper">
   <h1>Allgemeine Angaben</h1>
   <p>
-    Diese Angaben sind freiwillig. Sie dienen ausschliesslich der Evaluation des Verfahrens und haben keinerlei Einfluss auf Ihre Ergebnisrückmeldung.
-    Möchten Sie eine Frage nicht beantworten, können Sie diese überspringen, indem Sie auf «Weiter» klicken.
+    Diese Angaben sind freiwillig. Sie dienen ausschliesslich der Evaluation des
+    Verfahrens und haben keinerlei Einfluss auf Ihre Ergebnisrückmeldung.
+    Möchten Sie eine Frage nicht beantworten, können Sie diese überspringen,
+    indem Sie auf «Weiter» klicken.
   </p>
   <form [formGroup]="form" (submit)="updateModel()">
     <div>
       <mat-form-field>
         <mat-label>Alter</mat-label>
-        <input matInput type="number" placeholder="Alter">
+        <input
+          matInput
+          formControlName="age"
+          type="number"
+          placeholder="Alter"
+        />
       </mat-form-field>
     </div>
     <div>
       <div class="flex-spacer"></div>
-      <mat-form-field >
+      <mat-form-field>
         <mat-label>Geschlecht</mat-label>
         <mat-select formControlName="gender">
           <mat-option [value]="'m'">Männlich</mat-option>
@@ -40,8 +47,12 @@
           <mat-option [value]="'basel-stadt'">Basel-Stadt</mat-option>
           <mat-option [value]="'basel-landschaft'">Basel-Landschaft</mat-option>
           <mat-option [value]="'schaffhausen'">Schaffhausen</mat-option>
-          <mat-option [value]="'appenzell-ausserrhoden'">Appenzell Ausserrhoden</mat-option>
-          <mat-option [value]="'appenzell-innerrhoden'">Appenzell Innerrhoden</mat-option>
+          <mat-option [value]="'appenzell-ausserrhoden'"
+            >Appenzell Ausserrhoden</mat-option
+          >
+          <mat-option [value]="'appenzell-innerrhoden'"
+            >Appenzell Innerrhoden</mat-option
+          >
           <mat-option [value]="'st-gallen'">St. Gallen</mat-option>
           <mat-option [value]="'graubunden'">Graubünden</mat-option>
           <mat-option [value]="'aargau'">Aargau</mat-option>
@@ -58,7 +69,7 @@
     <div>
       <mat-form-field>
         <mat-label>Wohnort</mat-label>
-        <input formControlName="city" matInput type="text">
+        <input formControlName="city" matInput type="text" />
       </mat-form-field>
     </div>
     <button class="primary" type="submit">Weiter</button>
