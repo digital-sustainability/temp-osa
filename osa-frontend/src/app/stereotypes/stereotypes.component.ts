@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-stereotypes',
@@ -31,7 +32,7 @@ export class StereotypesComponent implements OnInit {
   ];
   selectionCorrect?: boolean;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
 
   }
 
@@ -40,13 +41,17 @@ export class StereotypesComponent implements OnInit {
     this.claims.forEach((claim, index) => {
       controls['claim' + index] = [null, Validators.required]
     })
-    console.log(controls)
     this.form = this.formBuilder.group(controls)
   }
+
+  isLastTab: boolean = false
 
   next(element: any) {
     this.selectionCorrect = undefined
     element.selectedIndex += 1;
+    if (this.isLastTab) {
+      this.router.navigateByUrl('/time-management')
+    }
   }
 
   prev(element: any) {
@@ -56,5 +61,9 @@ export class StereotypesComponent implements OnInit {
 
   check(claim: any, index: number) {
     this.selectionCorrect = +this.form.value['claim'+index] === claim.correctAnswer
+  }
+
+  setLastTab(event: any) {
+    this.isLastTab = event === this.grp._tabs.length - 1
   }
 }

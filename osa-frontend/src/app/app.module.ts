@@ -27,6 +27,10 @@ import { ResilienceComponent } from './resilience/resilience.component';
 import {MatIconModule} from "@angular/material/icon";
 import { EmpathyComponent } from './empathy/empathy.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import { TimeManagementPlannerComponent } from './time-management-planner/time-management-planner.component';
+import { TimeManagementFeedbackComponent } from './time-management-feedback/time-management-feedback.component';
+import { ExpectationsComponent } from './expectations/expectations.component';
+import { NgChartsModule } from 'ng2-charts';
 
 const routes: Route[] = [
   { path: 'home', component: HomeComponent, data: { animation: 'home'}},
@@ -42,6 +46,8 @@ const routes: Route[] = [
   { path: 'empathy', component: EmpathyComponent, data: { animation: 'empathy'}  },
   { path: 'stereotypes', component: StereotypesComponent, data: { animation: 'stereotypes'}  },
   { path: 'time-management', component: TimeManagementComponent, data: { animation: 'timemanagement'}  },
+  { path: 'time-management-planner', component: TimeManagementPlannerComponent, data: { animation: 'timemanagementplanner'}  },
+  { path: 'time-management-feedback', component: TimeManagementFeedbackComponent, data: { animation: 'timemanagementfeedback'}  },
   { path: 'insights', component: InsightsComponent, data: { animation: 'insights'}  },
   { path: 'feedback', component: FeedbackComponent, data: { animation: 'feedback'}  },
   { path: '**', redirectTo: 'home', pathMatch: 'full', data: { animation: 'any'}},
@@ -67,6 +73,9 @@ const routes: Route[] = [
     SelfEfficacyScaleComponent,
     ResilienceComponent,
     EmpathyComponent,
+    TimeManagementPlannerComponent,
+    TimeManagementFeedbackComponent,
+    ExpectationsComponent,
   ],
   imports: [
     MatRadioModule,
@@ -80,7 +89,8 @@ const routes: Route[] = [
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
