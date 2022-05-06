@@ -1,22 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { MongoModule } from '../mongo/mongo.module';
 import { MongoService } from '../mongo/mongo.service';
-import { QuestionnaryService } from './questionnary.service';
+import { QuestionnaireService } from './questionnaire.service';
 
-describe('QuestionnaryService', () => {
-  let service: QuestionnaryService;
+describe('QuestionnaireService', () => {
+  let service: QuestionnaireService;
   let mongo: MongoService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [MongoModule],
       providers: [
-        QuestionnaryService,
+        QuestionnaireService,
         { provide: MongoService, useClass: MongoService },
       ],
     }).compile();
 
-    service = module.get<QuestionnaryService>(QuestionnaryService);
+    service = module.get<QuestionnaireService>(QuestionnaireService);
     mongo = module.get<MongoService>(MongoService)
   });
   
