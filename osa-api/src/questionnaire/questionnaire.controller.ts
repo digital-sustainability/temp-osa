@@ -12,6 +12,7 @@ export class QuestionnaireController {
     return this.questionnaireService.create(createQuestionnaireDto);
   }
 
+  //remove this eventually
   @Get()
   findAll() {
     return this.questionnaireService.findAll();
