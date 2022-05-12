@@ -40,9 +40,6 @@ describe('MongoService', () => {
   });
 
  
-
-
-
   describe('should insert new document correctly', () => {
     const COLLECTIONNAME = 'test';
     let collection: Collection;
@@ -75,7 +72,7 @@ describe('MongoService', () => {
     });
   });
 
-  it ('should find correct document by ObjectId', async () => {
+  it ('should find document by ObjectId', async () => {
     const COLLECTIONNAME = 'test';
     let collection: Collection;
     collection = await service.createCollection(COLLECTIONNAME);
@@ -85,7 +82,7 @@ describe('MongoService', () => {
     await collection.insertOne (document1);
     await collection.insertOne (document2);
     await collection.insertOne (document3);
-    const testDocument = await service.getDocument('test', new ObjectId("507f1f77bcf86cd799439011"));
+    const testDocument = await service.getDocument('test', "507f1f77bcf86cd799439011");
     expect(testDocument.title).toBe("document1");
   }
   )

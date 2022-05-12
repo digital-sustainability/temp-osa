@@ -12,15 +12,18 @@ export class QuestionnaireService {
     return `This action returns all questionnaire`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} questionnaire`;
   }
 
-  update(id: number, updateQuestionnaireDto: UpdateQuestionnaireDto) {
+  update(id: string, updateQuestionnaireDto: UpdateQuestionnaireDto) {
     return `This action updates a #${id} questionnaire`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} questionnaire`;
   }
+
+
+
 }

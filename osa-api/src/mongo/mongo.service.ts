@@ -21,8 +21,9 @@ export class MongoService implements OnModuleInit, OnModuleDestroy{
         return this.db;
     }
 
-    public getDocument (collection: string, id: ObjectId){
-        return this.db.collection(collection).findOne({_id: id})
+    public getDocument (collection: string, id: string){
+        let convertedId = new ObjectId(id)
+        return this.db.collection(collection).findOne({_id: convertedId})
     }
 
     
