@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Collection } from 'mongodb';
+import { Collection, ObjectId } from 'mongodb';
 import { MongoService } from './mongo.service';
 
 describe('MongoService', () => {
@@ -39,6 +39,8 @@ describe('MongoService', () => {
     expect (newStats.collections).toBe(1);
   });
 
+ 
+
 
 
   describe('should insert new document correctly', () => {
@@ -72,4 +74,19 @@ describe('MongoService', () => {
       expect(await collection.countDocuments()).toBe(2);
     });
   });
+
+  it ('should find correct document by ObjectId', async () => {
+    const COLLECTIONNAME = 'test';
+    let collection: Collection;
+    collection = await service.createCollection(COLLECTIONNAME);
+    const document1 = {title: "document1", _id: new ObjectId("507f1f77bcf86cd799439011")};
+    const document2 = {title: "document2"};
+    const document3= {title: "document3"};
+    await collection.insertOne (document1);
+    await collection.insertOne (document2);
+    await collection.insertOne (document3);
+    const testDocument = await service.getDocument('test', new ObjectId("507f1f77bcf86cd799439011"));
+    expect(testDocument.title).toBe("document1");
+  }
+  )
 });
