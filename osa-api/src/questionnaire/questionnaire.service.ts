@@ -13,7 +13,8 @@ export class QuestionnaireService {
 
   async create(createQuestionnaireDto: CreateQuestionnaireDto): Promise<string> {
     let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
-    let id = (await collection.insertOne(createQuestionnaireDto)).insertedId.valueOf().toString();
+    let result = await collection.insertOne(createQuestionnaireDto);
+    let id = result.insertedId.valueOf().toString();
     return id;
   }
 
