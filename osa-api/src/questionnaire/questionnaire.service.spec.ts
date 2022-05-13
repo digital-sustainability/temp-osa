@@ -1,6 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Collection, ObjectId } from 'mongodb';
-import { MongoModule } from '../mongo/mongo.module';
+import { ObjectId} from 'mongodb';
 import { MongoService } from '../mongo/mongo.service';
 import { QuestionnaireService } from './questionnaire.service';
 
@@ -10,19 +9,23 @@ describe('QuestionnaireService', () => {
   
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [MongoModule],
       providers: [
-        QuestionnaireService,
-        { provide: MongoService, useClass: MongoService }, MongoService
-      ]
+        { provide: MongoService,
+          useFactory: async () => {
+          const mongo = new MongoService();
+          await mongo.onModuleInit();
+          const COLLECTIONNAME = "osa-fragebogen";
+          await mongo.createCollection(COLLECTIONNAME);
+          const document1 = {title: "document1", _id: new ObjectId("507f1f77bcf86cd799439011")};
+          return mongo;
+        },
+      },
+      ],
     }).compile();
 
     service = module.get<QuestionnaireService>(QuestionnaireService);
-    mongo = module.get<MongoService>(MongoService);
-    await mongo.onModuleInit();
-    const COLLECTIONNAME = "osa-fragebogen";
-    let collection: Collection;
-    collection = await mongo.createCollection(COLLECTIONNAME);
+    mongo = await module.resolve<MongoService>(MongoService);
+    
   });
 
   afterEach(async () => {
@@ -32,6 +35,10 @@ describe('QuestionnaireService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('mongo should be defined', () => {
+    expect(mongo).toBeDefined();
   });
 
   it ('service should call mongoService getCollection', async() =>{
@@ -46,9 +53,4 @@ describe('QuestionnaireService', () => {
     await service.findOne("507f191e810c19729de860ea");
     expect(spy).toHaveBeenCalledTimes(1);
   });
-
-
-
-
-
 });

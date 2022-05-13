@@ -32,6 +32,10 @@ describe('SeedService', () => {
     expect(service).toBeDefined();
   });
 
+  it('db should be defined', () => {
+    expect(mongo).toBeDefined();
+  });
+
   it ('should create questionnaire collection on ApplicationBootstrap', async () => {
     const COLLECTIONNAME = 'osa-fragebogen'
     const spy = jest.spyOn (mongo, 'createCollection');
