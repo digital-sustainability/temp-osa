@@ -9,6 +9,6 @@ import { MongoModule } from './mongo/mongo.module';
 @Module({
   imports: [QuestionnaireModule, SeedModule, MongoModule],
   controllers: [AppController],
-  providers: [AppService, SeedService],
+  providers: [AppService],
 })
 export class AppModule {}
