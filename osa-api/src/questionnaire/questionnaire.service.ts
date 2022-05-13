@@ -1,23 +1,29 @@
 import { Injectable } from '@nestjs/common';
+import { Collection, Db } from 'mongodb';
 import { MongoService } from '../mongo/mongo.service';
 import { CreateQuestionnaireDto } from './dto/create-questionnaire.dto';
 import { UpdateQuestionnaireDto } from './dto/update-questionnaire.dto';
 
 @Injectable()
 export class QuestionnaireService {
-  private readonly CollectionName = 'osa-fragebogen';
-  constructor (private mongo: MongoService){}
-  create(createQuestionnaireDto: CreateQuestionnaireDto) {
-    return 'This action adds a new questionnaire';
+  private readonly COLLECTIONNAME = 'osa-fragebogen';
+
+  constructor (private mongo: MongoService){  
+  }
+
+  async create(createQuestionnaireDto: CreateQuestionnaireDto): Promise<string> {
+    let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
+    let id = (await collection.insertOne(createQuestionnaireDto)).insertedId.valueOf().toString();
+    return id;
   }
 
   async findAll() {
-    const collection = await this.mongo.getCollection(this.CollectionName);
+    let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
     return collection.find().toArray();
   }
 
   async findOne(id: string) {
-    const document = await this.mongo.getDocument(this.CollectionName, id);
+    const document = await this.mongo.getDocument(this.COLLECTIONNAME, id);
     return document;
   }
 

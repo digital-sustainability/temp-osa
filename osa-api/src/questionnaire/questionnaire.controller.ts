@@ -28,6 +28,8 @@ export class QuestionnaireController {
     return this.questionnaireService.update(id, updateQuestionnaireDto);
   }
 
+
+ //useless as well
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.questionnaireService.remove(id);
