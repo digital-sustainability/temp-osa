@@ -24,7 +24,9 @@ export class QuestionnaireService {
   }
 
   async findOne(id: string) {
-    const document = await this.mongo.getDocument(this.COLLECTIONNAME, id);
+    let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
+    let convertedId = new ObjectId(id);
+    let document = collection.findOne({_id: convertedId});
     return document;
   }
 

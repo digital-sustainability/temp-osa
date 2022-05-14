@@ -20,12 +20,6 @@ export class MongoService implements OnModuleInit, OnModuleDestroy{
     public getMongoDb(){
         return this.db;
     }
-
-    public getDocument (name: string, id: string){
-        let convertedId = new ObjectId(id);
-        return this.db.collection(name).findOne({_id: convertedId});
-    }
-
     
     async onModuleInit() {
     Logger.debug('Server is being initialized');
