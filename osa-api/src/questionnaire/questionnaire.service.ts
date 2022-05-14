@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { Collection, Db } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import { MongoService } from '../mongo/mongo.service';
 import { CreateQuestionnaireDto } from './dto/create-questionnaire.dto';
-import { UpdateQuestionnaireDto } from './dto/update-questionnaire.dto';
+import { ReplaceQuestionnaireDto } from './dto/replace-questionnaire.dto';
 
 @Injectable()
 export class QuestionnaireService {
@@ -28,12 +28,9 @@ export class QuestionnaireService {
     return document;
   }
 
-  update(id: string, updateQuestionnaireDto: UpdateQuestionnaireDto) {
-    return `This action updates a #${id} questionnaire`;
+  async replace(id: string, replaceQuestionnaireDto: ReplaceQuestionnaireDto) {
+    let convertedId = new ObjectId(id);
+    let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
+    collection.replaceOne({ _id: convertedId}, replaceQuestionnaireDto);
   }
-
-  remove(id: string) {
-    return `This action removes a #${id} questionnaire`;
-  }
-
 }

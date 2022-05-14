@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 import { QuestionnaireService } from './questionnaire.service';
 import { CreateQuestionnaireDto } from './dto/create-questionnaire.dto';
-import { UpdateQuestionnaireDto } from './dto/update-questionnaire.dto';
+import { ReplaceQuestionnaireDto } from './dto/replace-questionnaire.dto';
 
 @Controller('questionnaire')
 export class QuestionnaireController {
@@ -23,15 +23,9 @@ export class QuestionnaireController {
     return this.questionnaireService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateQuestionnaireDto: UpdateQuestionnaireDto) {
-    return this.questionnaireService.update(id, updateQuestionnaireDto);
+  @Put(':id')
+  replace(@Param('id') id: string, @Body() replaceQuestionnaireDto: ReplaceQuestionnaireDto) {
+    return this.questionnaireService.replace(id, replaceQuestionnaireDto);
   }
 
-
- //useless as well
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.questionnaireService.remove(id);
-  }
 }
