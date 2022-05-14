@@ -47,10 +47,4 @@ describe('QuestionnaireService', () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
-
-  it ('service should call mongoService getDocument', async() =>{
-    const spy = jest.spyOn (mongo, 'getDocument');
-    await service.findOne("507f191e810c19729de860ea");
-    expect(spy).toHaveBeenCalledTimes(1);
-  });
 });
