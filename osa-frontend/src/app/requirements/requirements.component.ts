@@ -47,8 +47,11 @@ export class RequirementsComponent implements OnInit {
   drawSVG() {
     this.draw = SVG().addTo('.svg').size(1200, 800);
     var polygon = this.draw
-      .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+      .path(
+        'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+      )
       .fill(this.ORANGE)
+      .size(250)
       .id('requirements')
       .attr({
         filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
@@ -64,7 +67,9 @@ export class RequirementsComponent implements OnInit {
     document.getElementById('requirements')?.addEventListener('click', () => {
       this.selected = 'requirements';
       var info = this.draw
-        .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+        .path(
+          'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+        )
         .id('requirementsInfo')
         .fill('white')
         .attr({
@@ -94,7 +99,9 @@ export class RequirementsComponent implements OnInit {
 
     ///MOTIVATION
     var motivationShape = this.draw
-      .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+      .path(
+        'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+      )
       .size(this.SIZE)
       .fill(this.GREEN)
       .id('motivation')
@@ -111,7 +118,9 @@ export class RequirementsComponent implements OnInit {
     document.getElementById('motivation')?.addEventListener('click', () => {
       this.selected = 'motivation';
       var info = this.draw
-        .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+        .path(
+          'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+        )
         .size(this.SIZE)
         .id('motivationInfo')
         .fill('white')
@@ -142,7 +151,9 @@ export class RequirementsComponent implements OnInit {
 
     //INITIATIVE
     var initiativeShape = this.draw
-      .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+      .path(
+        'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+      )
       .size(this.SIZE)
       .fill(this.BLUE)
       .id('initiative')
@@ -159,7 +170,9 @@ export class RequirementsComponent implements OnInit {
     document.getElementById('initiative')?.addEventListener('click', () => {
       this.selected = 'initiative';
       var info = this.draw
-        .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+        .path(
+          'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+        )
         .size(this.SIZE)
         .id('initiativeInfo')
         .fill('white')
@@ -190,7 +203,9 @@ export class RequirementsComponent implements OnInit {
 
     ////INTEREST
     var interestShape = this.draw
-      .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+      .path(
+        'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+      )
       .size(this.SIZE)
       .fill(this.PURPLE)
       .attr({
@@ -207,7 +222,9 @@ export class RequirementsComponent implements OnInit {
     document.getElementById('interest')?.addEventListener('click', () => {
       this.selected = 'interest';
       var info = this.draw
-        .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+        .path(
+          'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+        )
         .size(this.SIZE)
         .id('interestInfo')
         .fill('white')
@@ -238,7 +255,9 @@ export class RequirementsComponent implements OnInit {
 
     ///REFLEXION
     var reflectionShape = this.draw
-      .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+      .path(
+        'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+      )
       .size(this.SIZE)
       .id('reflexion')
       .fill(this.TEAL)
@@ -255,7 +274,9 @@ export class RequirementsComponent implements OnInit {
     document.getElementById('reflexion')?.addEventListener('click', () => {
       this.selected = 'reflection';
       var info = this.draw
-        .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+        .path(
+          'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+        )
         .size(this.SIZE)
         .id('reflectionInfo')
         .fill('white')
@@ -286,12 +307,15 @@ export class RequirementsComponent implements OnInit {
 
     //// SELBSTORGANISATION
     var selfOrganisationShape = this.draw
-      .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+      .path(
+        'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+      )
       .size(this.SIZE)
       .id('selbstOrganisation')
       .fill(this.RED)
       .attr({
         filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
+        linecap: 'round',
       })
       .center(this.X + 4 * this.X_DIFF, this.Y)
       .stroke({ width: 1, color: this.GREY });
@@ -334,7 +358,13 @@ export class RequirementsComponent implements OnInit {
           this.addClickEvent();
         }, 1000);
       });
+    this.draw
+      .polyline('0,0 0,400')
+      .fill('black')
+      .stroke({ width: 3 })
+      .center(this.X + 4 * this.X_DIFF, this.Y);
   }
+
   addClickEvent() {
     document.getElementById('svg')?.addEventListener('click', () => {
       this.onClick();
