@@ -2,8 +2,7 @@
 
 body {
     margin: 0;
-    overflow: hidden;
-    font-family: "Yu Gothic UI Semibold", sans-serif;
+    // overflow: hidden;
 }
 
 h1 {
@@ -21,8 +20,9 @@ h2 {
     border: none;
     color: white;
     padding: 1em;
-    margin-top: 1em;
     border-radius: 3px;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
 }
 .primary:hover {
     background: #699bbe;
@@ -66,6 +66,7 @@ nav{
   color:#4a83aa;
   letter-spacing: 3px;
   font-size: 20px;
+  font-weight: bold;
 }
 .nav-links li{
   list-style: none;
@@ -85,7 +86,7 @@ nav{
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Open Sans', sans-serif; font-size: 1.5rem; }
 
 @media screen and (max-width: 1000px){
   body{

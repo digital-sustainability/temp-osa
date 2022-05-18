@@ -31,10 +31,17 @@ img {
 }
 
 .logo {
-    display: flex;
+    position: absolute;
+    top: 55px;
     width: 17vw;
     height: 18.5vh ;
+    left: 0;
     place-items: center;
+}
+
+.container{
+  max-width: 1200px;
+  margin: auto;
 }
 
 h2 {
@@ -90,11 +97,17 @@ nav button:hover, .active {
 
 .header-image-container {
     overflow: hidden;
-    height: 18.5vh;
-    max-height: 18.5vh;
+    height: 35vh;
+    max-height:35vh;
     width: 100%;
-    background-image: url("../assets/home/rechner.jpg");
-    background-position: center;
+
+}
+
+
+.images > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .header-image {
@@ -109,10 +122,36 @@ nav button:hover, .active {
   width: 100%;
 }
 
+.header-grid{
+  --gap: 16px;
+  --num-cols: 4;
+  --row-height: 300px;
+  margin: 0;
+
+  box-sizing: border-box;
+  // padding: var(--gap);
+
+  display: grid;
+  grid-template-columns: repeat(var(--num-cols), 1fr);
+  grid-auto-rows: var(--row-height);
+
+}
+
+.header-grid > img {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .progress {
   padding: 0 1em;
   font-size: 0.8em;
   color: #999;
+}
+
+button{
+  font-size: larger;
 }
 
 
