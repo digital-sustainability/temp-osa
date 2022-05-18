@@ -1,0 +1,69 @@
+.header{
+  padding: 18px 5px 16px 30px;
+  background-color: #4b647d;
+  color: rgb(211, 211, 211);
+  overflow: visible;
+  text-align: middle;
+  position: relative;
+  margin-top: 15px;
+  font-family: "UnitRoundedPro","Helvetica","Arial",sans-serif;
+  font-weight: bold;
+}
+
+.options{
+  display: flex;
+  padding-right: 1px;
+}
+
+.option{
+  white-space: pre;
+  margin-left: 14.5em;
+}
+
+.option-seven{
+  white-space: pre;
+  margin-left: 14.5em;
+}
+
+.option-four{
+  white-space: pre;
+  margin-left: 3em
+}
+
+.option-five{
+  white-space: pre;
+  margin-left: 10.2em
+}
+
+.formheader {
+  display: flex;
+  gap: 1.19em;
+}
+
+
+.mat-radio-group {
+  padding: 0.5em 0;
+  border-bottom: 1px solid #eee;
+}
+
+.mat-radio-button{
+  margin-left: 5em;
+}
+
+mat-radio-group {
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  width: 70em;
+}
+
+.formheader {
+  display: flex;
+  gap: 1.19em;
+}
+
+

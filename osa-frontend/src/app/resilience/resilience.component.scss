@@ -32,7 +32,7 @@ button:disabled:hover {
 }
 
 .content-wrapper {
-  display: flex;
+  /* display: flex; */
   gap: 3em;
   max-height: 81.5vh;
   overflow-y: scroll;
@@ -41,13 +41,12 @@ button:disabled:hover {
 
 .flex-wrapper {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   height: 100vh;
 }
 
 .result {
-  margin-top: 8em;
-  padding: 3em;
+margin-left: 25px
 }
 
 #info-button {
@@ -58,7 +57,7 @@ button:disabled:hover {
 }
 
 #info {
-  width: 30em;
+  width: 100%;
   background: white;
   color: #000;
   border-radius: 6px;

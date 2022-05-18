@@ -5,13 +5,16 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-resilience',
   templateUrl: './resilience.component.html',
-  styleUrls: ['./resilience.component.css']
+  styleUrls: ['./resilience.component.scss']
 })
 export class ResilienceComponent implements OnInit {
   form: any;
   score = 0
   showResult = false;
   @ViewChild('info') info: any;
+  @ViewChild('scoreInfo') scoreInfo: any;
+
+  naming = {highest: 'ich stimme\nvöllig zu', lowest: 'ich stimme\nnicht zu'}
 
   questionnaire: {[key:string]:string} = {
     q1: 'Wenn ich Pläne habe, verfolge ich sie auch.',
@@ -30,8 +33,11 @@ export class ResilienceComponent implements OnInit {
   }
   keys = Object.keys(this.questionnaire);
 
+  headers = ['Ich stimme\n nicht zu', 'neutral', 'Ich stimme\n völlig zu']
 
   constructor(private formBuilder: FormBuilder, private router: Router) { }
+
+
 
   ngOnInit(): void {
     const controls: {[key: string]: any} = { }
@@ -50,12 +56,28 @@ export class ResilienceComponent implements OnInit {
     this.showResult = true
   }
 
+  assignValues(event: any)
+  {
+    this.form = event.form
+    this.score = event.score
+    this.showResult = true
+  }
+
   toggleCollapsible() {
     this.info.nativeElement.classList.toggle("active");
     if (this.info.nativeElement.style.maxHeight){
       this.info.nativeElement.style.maxHeight = null;
     } else {
       this.info.nativeElement.style.maxHeight = this.info.nativeElement.scrollHeight + "px";
+    }
+  }
+
+  toggleScoreInfo(){
+    this.scoreInfo.nativeElement.classList.toggle("active");
+    if (this.scoreInfo.nativeElement.style.maxHeight){
+     this.scoreInfo.nativeElement.style.maxHeight = null;
+    } else {
+     this.scoreInfo.nativeElement.style.maxHeight = this.scoreInfo.nativeElement.scrollHeight + "px";
     }
   }
 }

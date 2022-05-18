@@ -31,6 +31,9 @@ import { TimeManagementPlannerComponent } from './time-management-planner/time-m
 import { TimeManagementFeedbackComponent } from './time-management-feedback/time-management-feedback.component';
 import { ExpectationsComponent } from './expectations/expectations.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ResultTableComponent } from './result-table/result-table.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { ImageComponent } from './image/image.component';
 
 const routes: Route[] = [
   { path: 'home', component: HomeComponent, data: { animation: 'home'}},
@@ -77,6 +80,9 @@ const routes: Route[] = [
     TimeManagementPlannerComponent,
     TimeManagementFeedbackComponent,
     ExpectationsComponent,
+    ResultTableComponent,
+    QuestionnaireComponent,
+    ImageComponent,
   ],
   imports: [
     MatRadioModule,

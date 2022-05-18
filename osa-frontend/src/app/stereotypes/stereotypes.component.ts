@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-stereotypes',
   templateUrl: './stereotypes.component.html',
-  styleUrls: ['./stereotypes.component.css']
+  styleUrls: ['./stereotypes.component.scss']
 })
 export class StereotypesComponent implements OnInit {
 

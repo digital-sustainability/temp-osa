@@ -1,61 +1,53 @@
 <div class="content-wrapper">
+  <div style="width: 100%;"><h1>Selbstwirksamkeit</h1></div>
+  <hr>
   <div class="flex-wrapper">
-    <h1>Selbstwirksamkeit</h1>
-    <p>
-      Folgend finden Sie eine Reihe von Feststellungen. Bitte lesen Sie sich jede Feststellung durch und kreuzen Sie an, wie sehr die Aussagen im Allgemeinen auf Sie zutreffen, d.h. wie sehr Ihr Denken und Handeln durch diese Aussagen beschrieben wird.
+    <div class="wrap">
+    <p *ngIf="!showResult">
+      Folgend finden Sie eine Reihe von Aussagen. Bitte lesen Sie sich jede Aussage durch und kreuzen Sie an, inwiefern diese Aussage auf Sie zutrifft.
       <br>
-      <br>
-      1 = stimmt nicht<br>
-      2 = stimmt kaum<br>
-      3 = stimmt eher<br>
-      4 = stimmt genau<br>
     </p>
-    <p class="footnote">
-      Quelle: Jesusalem & Schwarzer (1999)
-    </p>
-    <form [formGroup]="form" (submit)="updateModel()">
-      <div class="formheader">
-        <div class="flex-spacer"></div>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div style="margin-right: 1em">4</div>
+    <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [questions]="questionnaire" [numberOfOptions]="4" [values]="form.value" [naming]="naming" [headers]="headers"></app-questionnaire>
+    <app-result-table *ngIf="showResult" [numberOfOptions]="4" [questions]="questionnaire" [values]="form.value" [naming]="naming"></app-result-table>
+    <div class="footnote" style="margin-top:20px ;"><p> Schwarzer, R., & Jerusalem, M. (1995). Generalized Self-Efficacy scale. In J. Weinman, S. Wright, & M. Johnston, Measures in health psychology: A user’s portfolio. Causal and control beliefs (pp. 35-37). Windsor, England: NFER-NELSON.</p></div>
+  </div>
+
+    <div *ngIf="showResult" class="result">
+      <div style="display: flex; align-items: center;">
+          <mat-icon id="info-button" (click)="toggleCollapsible()" style="width: 1.3em; font-size: 40px; margin-bottom: 15px;">info</mat-icon>
+        <h3 style="color: #4b647d;">Ihr Resilienz Wert ist:&nbsp;&nbsp;&nbsp;<span (click)="toggleScoreInfo()" style="font-size: 2.5rem; text-decoration: underline; cursor: pointer;">{{score}}</span></h3>
       </div>
-      <mat-radio-group *ngFor="let key of keys" [formControlName]="key">
-        <mat-label>{{questionnaire[key]}}</mat-label>
-        <div class="flex-spacer"></div>
-        <mat-radio-button value="1"></mat-radio-button>
-        <mat-radio-button value="2"></mat-radio-button>
-        <mat-radio-button value="3"></mat-radio-button>
-        <mat-radio-button value="4"></mat-radio-button>
-      </mat-radio-group>
-      <!--TODO: add form.invalid to [disabled], only not in there for dev purposes-->
-      <button class="primary" type="submit" [disabled]="false">Ergebnis Anzeigen</button>
-    </form>
-  </div>
-  <div *ngIf="showResult" class="result">
-    <h2>Ihr Resilienz Wert ist: {{score}}</h2>
-    <div id="info-button" (click)="toggleCollapsible()">
-      <mat-icon style="width: 2em;">info</mat-icon>
+      <hr>
+      <h3>Soeben haben Sie einen Fragebogenausgefüllt, mit der Ihre Selbstwirksamkeit bemessen wurde.</h3>
+      <p id="info" #info>
+        <span style="font-weight: bold;">Erläuterung:</span>
+        <br>
+        <br>
+      Soeben haben Sie einen Fragebogen zur Ermessung ihrer eigenen Resilienz ausgefüllt. Wie sollen Sie ihr Ergebnis nun interpretieren...? Mit der Resilienz Skala können
+          Werte in der Spannbreite von 10 bis 70 erhalten werden. Einen hohen Gesamtwert weist auf eine hohe persönliche Resilienz.
+    <br>
+    <br>
+        Grundsätzlich ist es in der Sozialen Arbeit von Vorteil, wenn sich die einzelnen Werte zur Resilienz im hohen Segment befinden. Resilient zu sein, ist für Sozialarbeitende ausschlaggebend, da sie täglich
+        mit Problemen auf gesellschaftlicher, institutioneller und individueller Ebene konfrontiert werden. Diesen Problemlagen müssen Sozialarbeitende die Stirn bieten und Widerstandsfähgikeit beweisen,
+         um ihre Dienst- und Unterstützungsleistungen sicherzustellen sowie auch ihre eigene Gesundheit zu bewahren.
+         <br>
+         <br>
+         (Eggli & Romano, 2022)
+      </p>
+      <p #scoreInfo id="info" style="margin-top: 0">Hinweise zur Auswertung:
+        Die Auswertung erfolgt über eine Addition
+        der Punktwerte.
+        Für die Interpretation der
+        Merkmalsausprägung für Selbstwirksamkeit
+        empfiehlt sich folgendes
+        Schema:<br>
+        <br>
+        Punktwerte 10 - 20 = niedrig<br><br>
+        Punktwerte 20 - 30 = moderat<br><br>
+        Punktwerte 30 - 40 = hoch</p>
+      <button class="primary" routerLink="/resilience">Weiter mit Self-Assessment</button>
     </div>
-    <p id="info" #info>
-      Selbstbeurteilungsverfahren mit 10 Items zur Erfassung von
-      allgemeinen optimistischen Selbstüberzeugungen. Es misst
-      die optimistische Kompetenzerwartung, also das Vertrauen
-      darauf, eine schwierige Lage zu meistern, wobei der Erfolg
-      der eigenen Kompetenz zugeschrieben wird.
-    </p>
-    <p class="footnote">Hinweise zur Auswertung:
-      Die Auswertung erfolgt über eine Addition
-      der Punktwerte.
-      Für die Interpretation der
-      Merkmalsausprägung für Selbstwirksamkeit
-      empfiehlt sich folgendes
-      Schema:<br>
-      Punktwerte 10 - 20 = niedrig<br>
-      Punktwerte 20 - 30 = moderat<br>
-      Punktwerte 30 - 40 = hoch</p>
-    <button class="primary" routerLink="/resilience">Weiter mit Self-Assessment</button>
   </div>
+
 </div>
 

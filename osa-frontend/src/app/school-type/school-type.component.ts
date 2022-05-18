@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-school-type',
   templateUrl: './school-type.component.html',
-  styleUrls: ['./school-type.component.css']
+  styleUrls: ['./school-type.component.scss']
 })
 export class SchoolTypeComponent implements OnInit {
   form: any;
