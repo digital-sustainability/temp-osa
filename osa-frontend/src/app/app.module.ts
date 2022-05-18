@@ -35,9 +35,11 @@ import { ResultTableComponent } from './result-table/result-table.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { ImageComponent } from './image/image.component';
 import { NavComponent } from './nav/nav.component';
+import { CardComponent } from './card/card.component';
 
 const routes: Route[] = [
   { path: 'home', component: HomeComponent, data: { animation: 'home'}},
+  { path: 'card', component: CardComponent},
   { path: 'disclaimer', component: DisclaimerComponent, data: { animation: 'disclaimer'}},
   { path: 'information', component: InformationComponent, data: { animation: 'information'}},
   { path: 'profile', component: ProfileComponent, data: { animation: 'profile'} },
@@ -85,6 +87,7 @@ const routes: Route[] = [
     QuestionnaireComponent,
     ImageComponent,
     NavComponent,
+    CardComponent,
   ],
   imports: [
     MatRadioModule,
