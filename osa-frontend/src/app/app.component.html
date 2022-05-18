@@ -1,12 +1,12 @@
 <div class="wrapper">
   <header>
-    <div class="logo">
+
+    <div class="header-image-container">
+      <app-nav></app-nav>
       <img src="https://www.bfh.ch/dam/jcr:0d9ff345-1271-4195-9908-44f69806a035/Logo%20BFH_dunkler.svg/Logo%20BFH_weiss.svg">
     </div>
-    <div class="header-image-container">
-    </div>
   </header>
-  <aside>
+  <!-- <aside>
     <nav>
       <button class="nav-button" routerLink="home" routerLinkActive="active">Startseite</button>
       <hr>
@@ -31,7 +31,7 @@
         <button (click)="add(7)">plus progress</button>
       </div>
     </nav>
-  </aside>
+  </aside> -->
   <div class="router-wrapper" [@routeAnimations]="getRouteAnimationData()">
       <router-outlet></router-outlet>
   </div>

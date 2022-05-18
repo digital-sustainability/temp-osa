@@ -92,7 +92,7 @@ nav button:hover, .active {
     overflow: hidden;
     height: 18.5vh;
     max-height: 18.5vh;
-    /* width: 83vw; */
+    width: 100%;
     background-image: url("../assets/home/rechner.jpg");
     background-position: center;
 }
@@ -114,3 +114,5 @@ nav button:hover, .active {
   font-size: 0.8em;
   color: #999;
 }
+
+

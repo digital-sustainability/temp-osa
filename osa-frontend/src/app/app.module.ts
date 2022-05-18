@@ -34,6 +34,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { ResultTableComponent } from './result-table/result-table.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { ImageComponent } from './image/image.component';
+import { NavComponent } from './nav/nav.component';
 
 const routes: Route[] = [
   { path: 'home', component: HomeComponent, data: { animation: 'home'}},
@@ -83,6 +84,7 @@ const routes: Route[] = [
     ResultTableComponent,
     QuestionnaireComponent,
     ImageComponent,
+    NavComponent,
   ],
   imports: [
     MatRadioModule,
