@@ -1,37 +1,41 @@
-body{
+body {
   line-height: 1.6;
   display: grid;
 }
-.card{
+.card {
   height: 100%;
   width: 100%;
   display: inline-block;
   color: white;
   background-size: cover;
-  padding: 10rem 0 0;
-  // max-width: 35ch;
-  background-image: url('../../assets/home/pencils.jpeg');
+  padding: 0;
+  max-width: 35ch;
+  background-image: url("../../assets/home/pencils.jpeg");
   transition: transform 500ms ease;
   overflow: hidden;
+  object-fit: cover;
 }
 
-.card:hover{
+.card:hover {
   transform: scale(1.05);
 }
-.card:hover .card-content{
+.card:hover .card-content {
   transform: translateY(0);
   transition-delay: 500ms;
 }
 
-.card-content{
+.card-content {
+  position: absolute;
+  bottom: 0;
   --padding: 1.5rem;
-  padding:var(--padding);
+  padding: var(--padding);
   background: linear-gradient(
-hsl(0 0% 0% / 0),
-  hsl(40, 0%, 0% / 0.3),
-hsl(0 0% 0% /1));
-transform: translateY(65%);
-transition: transform 500ms ease;
+    hsl(0 0% 0% / 0),
+    hsl(40, 0%, 0% / 0.3) 80%,
+    hsl(0 0% 0% /1)
+  );
+  transform: translateY(60%);
+  transition: transform 500ms ease;
 }
 
 .card-content > *:not(.card-title) {
@@ -44,13 +48,12 @@ transition: transform 500ms ease;
   transition-delay: 800ms;
 }
 
-
-.card-title{
+.card-title {
   position: relative;
   width: max-content;
 }
 
-.card-title::after{
+.card-title::after {
   content: "";
   position: absolute;
   height: 4px;
@@ -63,7 +66,7 @@ transition: transform 500ms ease;
   transition: transform 500ms ease;
 }
 
-.button{
+.button {
   cursor: pointer;
   display: inline;
   text-decoration: none;
@@ -72,7 +75,7 @@ transition: transform 500ms ease;
   padding: 0.5em 1.25em;
 }
 
-.card:hover .card-title::after{
+.card:hover .card-title::after {
   transform: scaleX(1);
 }
 
@@ -81,6 +84,6 @@ transition: transform 500ms ease;
   background-color: whitesmoke;
 }
 
-.card-body{
-  color: rgb(255 255 255 / 0.8);
+.card-body {
+  color: white;
 }
