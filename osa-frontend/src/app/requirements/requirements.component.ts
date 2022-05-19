@@ -129,13 +129,13 @@ export class RequirementsComponent implements OnInit {
       .attr({
         filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
       })
-      .center(this.X, this.Y)
+      .center(this.X + 100, this.Y - 100)
       .stroke({ width: 1, color: this.GREY });
     var motivation = this.draw
       .text('Motivation')
       .font({ family: this.FONT })
       .attr({ fill: this.TEXT_GREY })
-      .center(this.X, this.Y);
+      .center(this.X + 100, this.Y - 100);
 
     document.getElementById('motivation')?.addEventListener('click', () => {
       this.selected = 'motivation';
@@ -149,7 +149,7 @@ export class RequirementsComponent implements OnInit {
         .attr({
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
-        .center(this.X, this.Y)
+        .center(this.X + 100, this.Y - 100)
         .stroke({ width: 8, color: this.GREEN })
         .animate(1500, 50, 'now')
         .size(this.SIZE * 3, 0)
@@ -159,7 +159,7 @@ export class RequirementsComponent implements OnInit {
         .id('motivationText')
         .font({ family: this.FONT, size: '15px' })
         .attr({ fill: this.TEXT_GREY, opacity: 0 })
-        .center(this.X, this.Y)
+        .center(this.X + 100, this.Y - 100)
         .animate(1500, 50, 'now')
         .attr({
           fill: this.TEXT_GREY,
@@ -171,7 +171,7 @@ export class RequirementsComponent implements OnInit {
         .id('motivationTitle')
         .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
         .attr({ fill: this.GREEN, opacity: 0 })
-        .center(this.X, this.Y)
+        .center(this.X + 100, this.Y - 100)
         .animate(1500, 50, 'now')
         .attr({
           fill: this.GREEN,
@@ -390,14 +390,14 @@ export class RequirementsComponent implements OnInit {
         filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         linecap: 'round',
       })
-      .center(this.X + 4 * this.X_DIFF, this.Y)
+      .center(this.X + 4 * this.X_DIFF - 100, this.Y - 100)
       .stroke({ width: 1, color: this.GREY });
 
     var selfOrganisation = this.draw
       .text('Selbst-\norganisation')
       .font({ family: this.FONT })
       .attr({ fill: this.TEXT_GREY })
-      .center(this.X + 4 * this.X_DIFF, this.Y);
+      .center(this.X + 4 * this.X_DIFF - 100, this.Y - 100);
 
     document
       .getElementById('selbstOrganisation')
@@ -413,7 +413,7 @@ export class RequirementsComponent implements OnInit {
           .attr({
             filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
           })
-          .center(this.X + 4 * this.X_DIFF, this.Y)
+          .center(this.X + 4 * this.X_DIFF - 100, this.Y - 100)
           .stroke({ width: 8, color: this.RED })
           .animate(1500, 50, 'now')
           .size(this.SIZE * 3, 0)
@@ -423,7 +423,7 @@ export class RequirementsComponent implements OnInit {
           .id('selfOrganisationText')
           .font({ family: this.FONT, size: '15px' })
           .attr({ fill: this.TEXT_GREY, opacity: 0 })
-          .center(this.X + 4 * this.X_DIFF, this.Y)
+          .center(this.X + 4 * this.X_DIFF - 100, this.Y - 100)
           .animate(1500, 50, 'now')
           .attr({
             fill: this.TEXT_GREY,
@@ -435,7 +435,7 @@ export class RequirementsComponent implements OnInit {
           .id('selfOrganisationTitle')
           .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
           .attr({ fill: this.RED, opacity: 0 })
-          .center(this.X + 4 * this.X_DIFF, this.Y)
+          .center(this.X + 4 * this.X_DIFF - 100, this.Y - 100)
           .animate(1500, 50, 'now')
           .attr({
             fill: this.RED,
