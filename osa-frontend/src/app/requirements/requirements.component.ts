@@ -11,7 +11,7 @@ const TEXTS = {
   initiative:
     'Der Erfolg im Studium hängt stark mit dem\neigenen Engagement zusammen. Sie sind bereit,\nimmer wieder selbst die Initiative zu ergreifen. Sie\nbeteiligen sich aktiv am Unterricht und nehmen sich\nim Selbststudium eigeninitiativ, eigenverantwortlich\nund selbstorganisiert der Vor- und Nachbereitung\nder Veranstaltungen sowie der Vertiefung von\nThemen an.',
   selfOrganisation:
-    'Sich selbst organisieren zu können,\nden Überblick zu behalten, ist von zentraler\nBedeutung im Studium. Hierzu gehört beispielsweise\ndie Organisation des eigenen Stundenplans, die\nEinschreibung in Lehrveranstaltungen, das\nKoordinieren verschiedener Termine und\nGruppenarbeiten, das fristgerechte Einreichen von\nKompetenznachweisen, sowie die selbstständige\nInformationsbeschaffung. Sie tragen zu Ihrem\nStudienerfolg bei, indem Sie Ihren eigenen\nLernprozess fortlaufend planen, sich ausreichend\nZeit für Lernphasen einzuplanen, aber\nauch Zeit für Unvorhersehbares und Zeit für die\neigene Erholung reservieren.',
+    'Sich selbst organisieren zu können, den\nÜberblick zu behalten, ist von zentraler Bedeutung\nim Studium. Hierzu gehört beispielsweise die\nOrganisation des eigenen Stundenplans, die\nEinschreibung in Lehrveranstaltungen, das\nKoordinieren verschiedener Termine und\nGruppenarbeiten, das fristgerechte Einreichen von\nKompetenznachweisen, sowie die selbstständige\nInformationsbeschaffung. Sie tragen zu Ihrem\nStudienerfolg bei, indem Sie Ihren eigenen\nLernprozess fortlaufend planen, sich ausreichend\nZeit für Lernphasen einzuplanen, aber auch Zeit\nfür Unvorhersehbares und Zeit für die eigene\nErholung reservieren.',
   reflection:
     'Bildungsprozesse bedürfen kritischer\nAuseinandersetzung und Selbstreflexion. Sie bringen\ndie Bereitschaft mit, Fragen zu stellen, Informationen\nkritisch zu hinterfragen, über sich und andere\nnachzudenken und das eigene sowie das Handeln\nDritter zu analysieren. Sie sind bereit, an sich zu\narbeiten und sich stetig weiterzuentwickeln.',
 };
@@ -404,7 +404,9 @@ export class RequirementsComponent implements OnInit {
       ?.addEventListener('click', () => {
         this.selected = 'selfOrganisation';
         var selfOrganisationInfo = this.draw
-          .polygon('150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5')
+          .path(
+            'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
+          )
           .size(this.SIZE)
           .id('selfOrganisationInfo')
           .fill('white')
@@ -452,20 +454,21 @@ export class RequirementsComponent implements OnInit {
   }
 
   addClickEvent() {
-    document.getElementById('svg')?.addEventListener('click', () => {
-      this.onClick();
-    });
+    document
+      .getElementById('svg')
+      ?.addEventListener('click', this.clickFunction);
   }
-  onClick() {
+  clickFunction = () => {
     document.getElementById(this.selected + 'Info')?.remove();
     document.getElementById(this.selected + 'Text')?.remove();
     document.getElementById(this.selected + 'Title')?.remove();
     console.log(document.getElementById('svg'));
     this.removeClick();
-  }
+  };
+
   removeClick() {
-    document.getElementById('svg')?.removeEventListener('click', () => {
-      this.onClick();
-    });
+    document
+      .getElementById('svg')
+      ?.removeEventListener('click', this.clickFunction);
   }
 }
