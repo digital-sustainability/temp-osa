@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserDataService {
-  private env_url = 'http://localhost:3000';
+  private env_url = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {}
 
@@ -19,10 +19,12 @@ export class UserDataService {
     return id;
   }
 
+
   // Todo: create new user ()
   createUser(): void {
+    console.log("here")
     this.http
-      .post<any>(`${this.env_url}/questionnaire`, {})
+      .post(this.env_url + "questionnaire", {"name": "hanspeter"})
       .subscribe((res) => {
         console.log(res);
       });
