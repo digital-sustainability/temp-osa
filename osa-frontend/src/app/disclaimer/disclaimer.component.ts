@@ -28,7 +28,7 @@ export class DisclaimerComponent implements OnInit {
 
       // display id to user
 
-      // * this.router.navigateByUrl('/information/' + id);
+      // * this.router.navigateByUrl('/information?id=' + id);
     }
     this.router.navigateByUrl('/information');
   }
