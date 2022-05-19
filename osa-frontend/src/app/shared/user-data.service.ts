@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserDataService {
-  private env_url = 'localhost:3000/';
+  private env_url = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
