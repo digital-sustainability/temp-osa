@@ -86,7 +86,7 @@ export class RequirementsComponent implements OnInit {
         })
         .center(600, 150)
         .stroke({ width: 8, color: GRADIENT })
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .size(this.SIZE * 3, 0)
         .center(600, 300);
       var infoText = this.draw
@@ -95,7 +95,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '15px' })
         .attr({ fill: this.TEXT_GREY, opacity: 0 })
         .center(600, 150)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.TEXT_GREY,
           opacity: 100,
@@ -107,7 +107,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
         .attr({ fill: this.GREY, opacity: 0 })
         .center(600, 150)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.GREY,
           opacity: 100,
@@ -151,7 +151,7 @@ export class RequirementsComponent implements OnInit {
         })
         .center(this.X, this.Y)
         .stroke({ width: 8, color: this.GREEN })
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .size(this.SIZE * 3, 0)
         .center(600, 300);
       var infoText = this.draw
@@ -160,7 +160,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '15px' })
         .attr({ fill: this.TEXT_GREY, opacity: 0 })
         .center(this.X, this.Y)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.TEXT_GREY,
           opacity: 100,
@@ -172,7 +172,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
         .attr({ fill: this.GREEN, opacity: 0 })
         .center(this.X, this.Y)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.GREEN,
           opacity: 100,
@@ -216,7 +216,7 @@ export class RequirementsComponent implements OnInit {
         })
         .center(this.X + this.X_DIFF, this.Y + this.Y_DIFF)
         .stroke({ width: 8, color: this.BLUE })
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .size(this.SIZE * 3, 0)
         .center(600, 300);
       var infoText = this.draw
@@ -225,7 +225,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '15px' })
         .attr({ fill: this.TEXT_GREY, opacity: 0 })
         .center(this.X + this.X_DIFF, this.Y + this.Y_DIFF)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.TEXT_GREY,
           opacity: 100,
@@ -237,7 +237,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
         .attr({ fill: this.BLUE, opacity: 0 })
         .center(this.X + this.X_DIFF, this.Y + this.Y_DIFF)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.BLUE,
           opacity: 100,
@@ -281,7 +281,7 @@ export class RequirementsComponent implements OnInit {
         })
         .center(this.X + 2 * this.X_DIFF, this.Y + 2 * this.Y_DIFF)
         .stroke({ width: 8, color: this.PURPLE })
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .size(this.SIZE * 3, 0)
         .center(600, 300);
       var infoText = this.draw
@@ -290,7 +290,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '15px' })
         .attr({ fill: this.TEXT_GREY, opacity: 0 })
         .center(this.X + 2 * this.X_DIFF, this.Y + 2 * this.Y_DIFF)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.TEXT_GREY,
           opacity: 100,
@@ -302,7 +302,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
         .attr({ fill: this.PURPLE, opacity: 0 })
         .center(this.X + 2 * this.X_DIFF, this.Y + 2 * this.Y_DIFF)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.PURPLE,
           opacity: 100,
@@ -346,7 +346,7 @@ export class RequirementsComponent implements OnInit {
         })
         .center(this.X + 3 * this.X_DIFF, this.Y + this.Y_DIFF)
         .stroke({ width: 8, color: this.ORANGE })
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .size(this.SIZE * 3, 0)
         .center(600, 300);
       var infoText = this.draw
@@ -355,7 +355,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '15px' })
         .attr({ fill: this.TEXT_GREY, opacity: 0 })
         .center(this.X + 3 * this.X_DIFF, this.Y + this.Y_DIFF)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.TEXT_GREY,
           opacity: 100,
@@ -367,7 +367,7 @@ export class RequirementsComponent implements OnInit {
         .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
         .attr({ fill: this.ORANGE, opacity: 0 })
         .center(this.X + 3 * this.X_DIFF, this.Y + this.Y_DIFF)
-        .animate(1500, 500, 'now')
+        .animate(1500, 50, 'now')
         .attr({
           fill: this.ORANGE,
           opacity: 100,
@@ -415,7 +415,7 @@ export class RequirementsComponent implements OnInit {
           })
           .center(this.X + 4 * this.X_DIFF, this.Y)
           .stroke({ width: 8, color: this.RED })
-          .animate(1500, 500, 'now')
+          .animate(1500, 50, 'now')
           .size(this.SIZE * 3, 0)
           .center(600, 300);
         var selfOrganisationInfoText = this.draw
@@ -424,7 +424,7 @@ export class RequirementsComponent implements OnInit {
           .font({ family: this.FONT, size: '15px' })
           .attr({ fill: this.TEXT_GREY, opacity: 0 })
           .center(this.X + 4 * this.X_DIFF, this.Y)
-          .animate(1500, 500, 'now')
+          .animate(1500, 50, 'now')
           .attr({
             fill: this.TEXT_GREY,
             opacity: 100,
@@ -436,7 +436,7 @@ export class RequirementsComponent implements OnInit {
           .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
           .attr({ fill: this.RED, opacity: 0 })
           .center(this.X + 4 * this.X_DIFF, this.Y)
-          .animate(1500, 500, 'now')
+          .animate(1500, 50, 'now')
           .attr({
             fill: this.RED,
             opacity: 100,
