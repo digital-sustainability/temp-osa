@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserDataService } from '../shared/user-data.service';
 
 @Component({
   selector: 'app-disclaimer',
@@ -11,7 +12,11 @@ export class DisclaimerComponent implements OnInit {
   // @ts-ignore
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserDataService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -25,6 +30,7 @@ export class DisclaimerComponent implements OnInit {
       console.log('saving user data');
 
       // create new user object in backend
+      this.userService.createUser();
 
       // display id to user
 
