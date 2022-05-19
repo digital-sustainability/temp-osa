@@ -446,11 +446,6 @@ export class RequirementsComponent implements OnInit {
           this.addClickEvent();
         }, 1000);
       });
-    this.draw
-      .polyline('0,0 0,400')
-      .fill('black')
-      .stroke({ width: 3 })
-      .center(this.X + 4 * this.X_DIFF, this.Y);
   }
 
   addClickEvent() {
