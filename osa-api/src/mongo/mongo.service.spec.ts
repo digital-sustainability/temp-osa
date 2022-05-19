@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Collection } from 'mongodb';
+import { Collection, ObjectId } from 'mongodb';
 import { MongoService } from './mongo.service';
 
 describe('MongoService', () => {
@@ -39,8 +39,7 @@ describe('MongoService', () => {
     expect (newStats.collections).toBe(1);
   });
 
-
-
+ 
   describe('should insert new document correctly', () => {
     const COLLECTIONNAME = 'test';
     let collection: Collection;

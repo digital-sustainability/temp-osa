@@ -1,5 +1,5 @@
 import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
-import { Collection, Db, MongoClient } from 'mongodb';
+import { Collection, Db, MongoClient, ObjectId } from 'mongodb';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 
 @Injectable()
@@ -13,15 +13,14 @@ export class MongoService implements OnModuleInit, OnModuleDestroy{
         return this.db.createCollection(name);
     }
 
-    public getCollection (collection: string){
-        return this.db.collection(collection);
+    public getCollection (name: string){
+        return this.db.collection(name);
     }
 
     public getMongoDb(){
         return this.db;
     }
     
-
     async onModuleInit() {
     Logger.debug('Server is being initialized');
     this.mongoMemoryServer = await MongoMemoryServer.create();

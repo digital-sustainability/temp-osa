@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder} from "@angular/forms";
-import {Router} from "@angular/router";
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserDataService } from '../shared/user-data.service';
 
 @Component({
   selector: 'app-current-occupation',
   templateUrl: './current-occupation.component.html',
-  styleUrls: ['./current-occupation.component.css']
+  styleUrls: ['./current-occupation.component.css'],
 })
 export class CurrentOccupationComponent implements OnInit {
   form: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserDataService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -19,12 +24,17 @@ export class CurrentOccupationComponent implements OnInit {
       checkbox3: [false],
       checkbox4: [false],
       checkbox5: [false],
-    })
+    });
   }
 
   updateModel() {
     //todo
-    this.router.navigateByUrl('/school-type')
+    const id = this.userService.getUserIdFromURL();
+    if (id == -1) {
+      this.router.navigateByUrl('/school-type');
+    } else {
+      // save user data
+      this.router.navigateByUrl(`/school-type?id=${id}`);
+    }
   }
-
 }

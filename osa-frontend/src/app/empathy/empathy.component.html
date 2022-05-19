@@ -2,8 +2,11 @@
   <div class="flex-wrapper">
     <h1>Wahrscheinlich hier noch falsche texte vorhanden</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-    <p class="footnote">Quelle: Leppert, K., Koch, B., Brähler, E. & Strauß, B., (2008). Die Resilienzskala (RS) – Überprüfung der
-      Langform RS-25 und einer Kurzform RS-13. Klin. Diagnostik u. Evaluation, 1. Jg., 226‐243, 2008.</p>
+    <p class="footnote">
+      Quelle: Leppert, K., Koch, B., Brähler, E. & Strauß, B., (2008). Die
+      Resilienzskala (RS) – Überprüfung der Langform RS-25 und einer Kurzform
+      RS-13. Klin. Diagnostik u. Evaluation, 1. Jg., 226‐243, 2008.
+    </p>
     <form [formGroup]="form" (submit)="updateModel()">
       <div class="formheader">
         <div class="flex-spacer"></div>
@@ -16,7 +19,7 @@
         <div style="margin-right: 1em">7</div>
       </div>
       <mat-radio-group *ngFor="let key of keys" [formControlName]="key">
-        <mat-label>{{questionnaire[key]}}</mat-label>
+        <mat-label>{{ questionnaire[key] }}</mat-label>
         <div class="flex-spacer"></div>
         <mat-radio-button value="1"></mat-radio-button>
         <mat-radio-button value="2"></mat-radio-button>
@@ -27,28 +30,31 @@
         <mat-radio-button value="7"></mat-radio-button>
       </mat-radio-group>
       <!--TODO: add form.invalid to [disabled], only not in there for dev purposes-->
-      <button class="primary" type="submit" [disabled]="false">Ergebnis Anzeigen</button>
+      <button class="primary" type="submit" [disabled]="false">
+        Ergebnis Anzeigen
+      </button>
     </form>
   </div>
   <div *ngIf="showResult" class="result">
-    <h2>Ihr Resilienz Wert ist: {{score}}</h2>
+    <h2>Ihr Resilienz Wert ist: {{ score }}</h2>
     <div id="info-button" (click)="toggleCollapsible()">
-      <mat-icon style="width: 2em;">info</mat-icon>
+      <mat-icon style="width: 2em">info</mat-icon>
     </div>
     <p id="info" #info>
       <!-- TODO: -->
-      Auch diese Erläuterung sollte besser noch einmal überprüft werden, nicht dass noch schwachsinn erzählt wird.
+      Auch diese Erläuterung sollte besser noch einmal überprüft werden, nicht
+      dass noch schwachsinn erzählt wird.
     </p>
-    <p class="footnote">Hinweise zur Auswertung:
-      Die Auswertung erfolgt über eine Addition
-      der Punktwerte.
-      Für die Interpretation der
-      Merkmalsausprägung für Resilienz
-      empfiehlt sich folgendes
-      Schema:<br>
-      Punktwerte 13‐63 & 64‐66 = niedrig<br>
-      Punktwerte 67‐69 & 70‐72 = moderat<br>
-      Punktwerte 73‐76 & 77‐91 = hoch</p>
-    <button class="primary" routerLink="/stereotypes">Weiter mit Self-Assessment</button>
+    <p class="footnote">
+      Hinweise zur Auswertung: Die Auswertung erfolgt über eine Addition der
+      Punktwerte. Für die Interpretation der Merkmalsausprägung für Resilienz
+      empfiehlt sich folgendes Schema:<br />
+      Punktwerte 13‐63 & 64‐66 = niedrig<br />
+      Punktwerte 67‐69 & 70‐72 = moderat<br />
+      Punktwerte 73‐76 & 77‐91 = hoch
+    </p>
+    <button class="primary" (click)="advanceSite()">
+      Weiter mit Self-Assessment
+    </button>
   </div>
 </div>
