@@ -3,17 +3,17 @@ import { SVG } from '@svgdotjs/svg.js';
 
 const TEXTS = {
   requirements:
-    'Ein Studium stellt gewissen Anforderungen an die Studierenden.\nNachfolgende Darstellung gibt einen Überblick über Aspekte, die für\nein erfolgreiches Studium erforderlich sind.\nIndem Sie mit der Maus über die einzelnen Begriffe fahren,\nerfahren Sie mehr dazu.',
+    'Ein Studium stellt gewissen Anforderungen\nan die Studierenden. Nachfolgende Darstellung gibt\neinen Überblick über Aspekte, die für ein erfolgreiches\nStudium erforderlich sind. Indem Sie mit der Maus\nüber die einzelnen Begriffe fahren,\nerfahren Sie mehr dazu.',
   interests:
-    'Als Studierende der Sozialen Arbeiten bringen Sie ein Interesse\nan sozialen, gesellschaftlichen und politischen Fragestellungen\nmit. Mit Hilfe der Tagespresse informieren Sie sich laufend über\ndas Weltgeschehen.\nIhre fachspezifischen Interessen zu Themen der Sozialen Arbeit\nentwickeln und vertiefen Sie stetig weiter und schaffen damit\neinen Grundstein, um erfolgreich, lustvoll und persönlich\nbereichernd zu studieren. Dank Ihres breiten fachlichen\nInteresses fällt es Ihnen leicht, sich im Studium mit\nunterschiedlichen Inhalten vertieft auseinanderzusetzen und\nschließlich ein Thema für Ihre Studien- und Bachelorarbeit zu\nfinden.',
+    'Als Studierende der Sozialen Arbeiten bringen\nSie ein Interesse an sozialen, gesellschaftlichen\nund politischen Fragestellungen mit. Mit Hilfe der\nTagespresse informieren Sie sich laufend über das\nWeltgeschehen. Ihre fachspezifischen Interessen\nzu Themen der Sozialen Arbeit entwickeln und\nvertiefen Sie stetig weiter und schaffen damit einen\nGrundstein, um erfolgreich, lustvoll und persönlich\nbereichernd zu studieren. Dank Ihres breiten\nfachlichen Interesses fällt es Ihnen leicht, sich im\nStudium mit unterschiedlichen Inhalten vertieft\nauseinanderzusetzen und schließlich ein Thema für\nIhre Studien- und Bachelorarbeit zu finden.',
   motivation:
-    'Sich selbst motivieren zu können, sich zu überwinden und auch\nbei allfälligen „Durststrecken“ durchzuhalten, sind wertvolle\nFähigkeiten für ein erfolgreiches Studium. Zu wissen, weshalb\nSie studieren, ein Ziel zu haben und dieses zu verfolgen kann\ndabei sehr hilfreich sein. Mit Ihrer positiven Haltung gegenüber\nHerausforderungen gelingt es Ihnen, auch weniger beliebte\nInhalte zu bearbeiten. Nicht für jedes Thema werden Sie\ndas gleiche Interesse entwickeln. Zu einem Studium gehört es auch,\nLehrveranstaltungen zu absolvieren, auf die Sie keine Lust\nhaben. ',
+    'Sich selbst motivieren zu können, sich zu überwinden\nund auch bei allfälligen „Durststrecken“ durchzuhalten,\nsind wertvolle Fähigkeiten für ein erfolgreiches Studium.\nZu wissen, weshalb Sie studieren, ein Ziel zu haben\nund dieses zu verfolgen kann dabei sehr hilfreich sein.\nMit Ihrer positiven Haltung gegenüber \nHerausforderungen gelingt es Ihnen, auch weniger \nbeliebte Inhalte zu bearbeiten. Nicht für jedes Thema\nwerden Sie das gleiche Interesse entwickeln. Zu einem \nStudium gehört es auch, Lehrveranstaltungen zu \nabsolvieren, auf die Sie keine Lust haben. ',
   initiative:
-    'Der Erfolg im Studium hängt stark mit dem eigenen Engagement\nzusammen. Sie sind bereit, immer wieder selbst die Initiative zu\nergreifen. Sie beteiligen sich aktiv am Unterricht und nehmen\nsich im Selbststudium eigeninitiativ, eigenverantwortlich und\nselbstorganisiert der Vor- und Nachbereitung der Veranstaltungen\nsowie der Vertiefung von Themen an.',
+    'Der Erfolg im Studium hängt stark mit dem\neigenen Engagement zusammen. Sie sind bereit,\nimmer wieder selbst die Initiative zu ergreifen. Sie\nbeteiligen sich aktiv am Unterricht und nehmen sich\nim Selbststudium eigeninitiativ, eigenverantwortlich\nund selbstorganisiert der Vor- und Nachbereitung\nder Veranstaltungen sowie der Vertiefung von\nThemen an.',
   selfOrganisation:
-    'Sich selbst organisieren zu können, den Überblick zu behalten,\nist von zentraler Bedeutung im Studium. Hierzu gehört\nbeispielsweise die Organisation des eigenen Stundenplans, die\n Einschreibung in Lehrveranstaltungen, das Koordinieren\nverschiedener Termine und Gruppenarbeiten, das fristgerechte\nEinreichen von Kompetenznachweisen, sowie die selbstständige\nInformationsbeschaffung. Sie tragen zu Ihrem Studienerfolg bei,\nindem Sie Ihren eigenen Lernprozess fortlaufend planen, sich\nausreichend Zeit für Lernphasen einzuplanen, aber auch Zeit für\nUnvorhersehbares und Zeit für die eigene Erholung reservieren.',
+    'Sich selbst organisieren zu können,\nden Überblick zu behalten, ist von zentraler\nBedeutung im Studium. Hierzu gehört beispielsweise\ndie Organisation des eigenen Stundenplans, die\nEinschreibung in Lehrveranstaltungen, das\nKoordinieren verschiedener Termine und\nGruppenarbeiten, das fristgerechte Einreichen von\nKompetenznachweisen, sowie die selbstständige\nInformationsbeschaffung. Sie tragen zu Ihrem\nStudienerfolg bei, indem Sie Ihren eigenen\nLernprozess fortlaufend planen, sich ausreichend\nZeit für Lernphasen einzuplanen, aber\nauch Zeit für Unvorhersehbares und Zeit für die\neigene Erholung reservieren.',
   reflection:
-    'Bildungsprozesse bedürfen kritischer Auseinandersetzung und\nSelbstreflexion. Sie bringen die Bereitschaft mit, Fragen zu\nstellen, Informationen kritisch zu hinterfragen, über sich\nund andere nachzudenken und das eigene sowie das Handeln Dritter\nzu analysieren. Sie sind bereit, an sich zu arbeiten und sich stetig\nweiterzuentwickeln.',
+    'Bildungsprozesse bedürfen kritischer\nAuseinandersetzung und Selbstreflexion. Sie bringen\ndie Bereitschaft mit, Fragen zu stellen, Informationen\nkritisch zu hinterfragen, über sich und andere\nnachzudenken und das eigene sowie das Handeln\nDritter zu analysieren. Sie sind bereit, an sich zu\narbeiten und sich stetig weiterzuentwickeln.',
 };
 
 @Component({
@@ -23,6 +23,7 @@ const TEXTS = {
 })
 export class RequirementsComponent implements OnInit {
   constructor() {}
+  TEXT_GREY = '4b647d';
   GREY = '#697d91';
   GREEN = '#8caf82';
   BLUE = '#87b9c8';
@@ -30,12 +31,12 @@ export class RequirementsComponent implements OnInit {
   TEAL = '#b99164';
   RED = '#e1917d';
   ORANGE = '#fcbe3e';
-
+  WHITE = 'white';
   SIZE = 140;
   X = 150;
   Y = 300;
   X_DIFF = 220;
-  Y_DIFF = 150;
+  Y_DIFF = 100;
   FONT = 'UnitRoundedWebPro-Light, sans-serif';
   draw: any;
 
@@ -45,23 +46,31 @@ export class RequirementsComponent implements OnInit {
   selected = '';
 
   drawSVG() {
-    this.draw = SVG().addTo('.svg').size(1200, 800);
+    this.draw = SVG().addTo('.svg').size(1200, 600);
+    const GRADIENT = this.draw.gradient('linear', (add: any) => {
+      add.stop(0, this.GREEN);
+      add.stop(0.25, this.BLUE);
+      add.stop(0.5, this.PURPLE);
+      add.stop(0.75, this.ORANGE);
+      add.stop(1, this.RED);
+    });
     var polygon = this.draw
       .path(
         'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
       )
-      .fill(this.ORANGE)
-      .size(250)
+      .fill(this.GREY)
+      .size(200)
       .id('requirements')
       .attr({
         filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
       })
       .center(600, 150)
-      .stroke({ width: 1, color: this.GREY });
+      .stroke({ width: 8, color: GRADIENT });
 
     var text = this.draw
       .text('Anforderungen an \nSie als Studierende')
-      .font({ family: this.FONT })
+      .font({ family: this.FONT, weight: 'bold' })
+      .attr({ fill: this.TEXT_GREY })
       .center(600, 150);
 
     document.getElementById('requirements')?.addEventListener('click', () => {
@@ -76,22 +85,34 @@ export class RequirementsComponent implements OnInit {
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
         .center(600, 150)
-        .stroke({ width: 1, color: this.GREY })
+        .stroke({ width: 8, color: GRADIENT })
         .animate(1500, 500, 'now')
-        .size(this.SIZE * 4, 0)
-        .center(600, 400);
+        .size(this.SIZE * 3, 0)
+        .center(600, 300);
       var infoText = this.draw
         .text(TEXTS.requirements)
         .id('requirementsText')
-        .font({ family: this.FONT, size: '17px' })
+        .font({ family: this.FONT, size: '15px' })
+        .attr({ fill: this.TEXT_GREY, opacity: 0 })
+        .center(600, 150)
+        .animate(1500, 500, 'now')
+        .attr({
+          fill: this.TEXT_GREY,
+          opacity: 100,
+        })
+        .center(600, 300);
+      var infoTitle = this.draw
+        .text('ANFORDERUNGEN')
+        .id('requirementsTitle')
+        .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
         .attr({ fill: this.GREY, opacity: 0 })
-        .center(this.X, this.Y)
+        .center(600, 150)
         .animate(1500, 500, 'now')
         .attr({
           fill: this.GREY,
           opacity: 100,
         })
-        .center(600, 400);
+        .center(600, 150);
       setTimeout(() => {
         this.addClickEvent();
       }, 1000);
@@ -113,6 +134,7 @@ export class RequirementsComponent implements OnInit {
     var motivation = this.draw
       .text('Motivation')
       .font({ family: this.FONT })
+      .attr({ fill: this.TEXT_GREY })
       .center(this.X, this.Y);
 
     document.getElementById('motivation')?.addEventListener('click', () => {
@@ -128,22 +150,34 @@ export class RequirementsComponent implements OnInit {
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
         .center(this.X, this.Y)
-        .stroke({ width: 1, color: this.GREY })
+        .stroke({ width: 8, color: this.GREEN })
         .animate(1500, 500, 'now')
-        .size(this.SIZE * 4, 0)
-        .center(600, 400);
+        .size(this.SIZE * 3, 0)
+        .center(600, 300);
       var infoText = this.draw
         .text(TEXTS.motivation)
         .id('motivationText')
-        .font({ family: this.FONT, size: '17px' })
-        .attr({ fill: this.GREY, opacity: 0 })
+        .font({ family: this.FONT, size: '15px' })
+        .attr({ fill: this.TEXT_GREY, opacity: 0 })
         .center(this.X, this.Y)
         .animate(1500, 500, 'now')
         .attr({
-          fill: this.GREY,
+          fill: this.TEXT_GREY,
           opacity: 100,
         })
-        .center(600, 400);
+        .center(600, 300);
+      var infoTitle = this.draw
+        .text('MOTIVATION')
+        .id('motivationTitle')
+        .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
+        .attr({ fill: this.GREEN, opacity: 0 })
+        .center(this.X, this.Y)
+        .animate(1500, 500, 'now')
+        .attr({
+          fill: this.GREEN,
+          opacity: 100,
+        })
+        .center(600, 150);
       setTimeout(() => {
         this.addClickEvent();
       }, 1000);
@@ -165,6 +199,7 @@ export class RequirementsComponent implements OnInit {
     var initiative = this.draw
       .text('Eigen-\ninitiative')
       .font({ family: this.FONT })
+      .attr({ fill: this.TEXT_GREY })
       .center(this.X + this.X_DIFF, this.Y + this.Y_DIFF);
 
     document.getElementById('initiative')?.addEventListener('click', () => {
@@ -180,22 +215,34 @@ export class RequirementsComponent implements OnInit {
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
         .center(this.X + this.X_DIFF, this.Y + this.Y_DIFF)
-        .stroke({ width: 1, color: this.GREY })
+        .stroke({ width: 8, color: this.BLUE })
         .animate(1500, 500, 'now')
-        .size(this.SIZE * 4, 0)
-        .center(600, 400);
+        .size(this.SIZE * 3, 0)
+        .center(600, 300);
       var infoText = this.draw
         .text(TEXTS.initiative)
         .id('initiativeText')
-        .font({ family: this.FONT, size: '17px' })
-        .attr({ fill: this.GREY, opacity: 0 })
+        .font({ family: this.FONT, size: '15px' })
+        .attr({ fill: this.TEXT_GREY, opacity: 0 })
         .center(this.X + this.X_DIFF, this.Y + this.Y_DIFF)
         .animate(1500, 500, 'now')
         .attr({
-          fill: this.GREY,
+          fill: this.TEXT_GREY,
           opacity: 100,
         })
-        .center(600, 400);
+        .center(600, 300);
+      var infoTitle = this.draw
+        .text('EIGENNITIATIVE')
+        .id('initiativeTitle')
+        .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
+        .attr({ fill: this.BLUE, opacity: 0 })
+        .center(this.X + this.X_DIFF, this.Y + this.Y_DIFF)
+        .animate(1500, 500, 'now')
+        .attr({
+          fill: this.BLUE,
+          opacity: 100,
+        })
+        .center(600, 150);
       setTimeout(() => {
         this.addClickEvent();
       }, 1000);
@@ -217,6 +264,7 @@ export class RequirementsComponent implements OnInit {
     var interest = this.draw
       .text('Interesse')
       .font({ family: this.FONT })
+      .attr({ fill: this.TEXT_GREY })
       .center(this.X + 2 * this.X_DIFF, this.Y + 2 * this.Y_DIFF);
 
     document.getElementById('interest')?.addEventListener('click', () => {
@@ -232,22 +280,34 @@ export class RequirementsComponent implements OnInit {
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
         .center(this.X + 2 * this.X_DIFF, this.Y + 2 * this.Y_DIFF)
-        .stroke({ width: 1, color: this.GREY })
+        .stroke({ width: 8, color: this.PURPLE })
         .animate(1500, 500, 'now')
-        .size(this.SIZE * 4, 0)
-        .center(600, 400);
+        .size(this.SIZE * 3, 0)
+        .center(600, 300);
       var infoText = this.draw
         .text(TEXTS.interests)
         .id('interestText')
-        .font({ family: this.FONT, size: '17px' })
-        .attr({ fill: this.GREY, opacity: 0 })
+        .font({ family: this.FONT, size: '15px' })
+        .attr({ fill: this.TEXT_GREY, opacity: 0 })
         .center(this.X + 2 * this.X_DIFF, this.Y + 2 * this.Y_DIFF)
         .animate(1500, 500, 'now')
         .attr({
-          fill: this.GREY,
+          fill: this.TEXT_GREY,
           opacity: 100,
         })
-        .center(600, 400);
+        .center(600, 300);
+      var infoTitle = this.draw
+        .text('INTERESSE')
+        .id('interestTitle')
+        .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
+        .attr({ fill: this.PURPLE, opacity: 0 })
+        .center(this.X + 2 * this.X_DIFF, this.Y + 2 * this.Y_DIFF)
+        .animate(1500, 500, 'now')
+        .attr({
+          fill: this.PURPLE,
+          opacity: 100,
+        })
+        .center(600, 150);
       setTimeout(() => {
         this.addClickEvent();
       }, 1000);
@@ -260,7 +320,7 @@ export class RequirementsComponent implements OnInit {
       )
       .size(this.SIZE)
       .id('reflexion')
-      .fill(this.TEAL)
+      .fill(this.ORANGE)
       .attr({
         filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
       })
@@ -269,6 +329,7 @@ export class RequirementsComponent implements OnInit {
     var reflection = this.draw
       .text('Reflexion')
       .font({ family: this.FONT })
+      .attr({ fill: this.TEXT_GREY })
       .center(this.X + 3 * this.X_DIFF, this.Y + this.Y_DIFF);
 
     document.getElementById('reflexion')?.addEventListener('click', () => {
@@ -284,22 +345,34 @@ export class RequirementsComponent implements OnInit {
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
         .center(this.X + 3 * this.X_DIFF, this.Y + this.Y_DIFF)
-        .stroke({ width: 1, color: this.GREY })
+        .stroke({ width: 8, color: this.ORANGE })
         .animate(1500, 500, 'now')
-        .size(this.SIZE * 4, 0)
-        .center(600, 400);
+        .size(this.SIZE * 3, 0)
+        .center(600, 300);
       var infoText = this.draw
         .text(TEXTS.reflection)
         .id('reflectionText')
-        .font({ family: this.FONT, size: '17px' })
-        .attr({ fill: this.GREY, opacity: 0 })
+        .font({ family: this.FONT, size: '15px' })
+        .attr({ fill: this.TEXT_GREY, opacity: 0 })
         .center(this.X + 3 * this.X_DIFF, this.Y + this.Y_DIFF)
         .animate(1500, 500, 'now')
         .attr({
-          fill: this.GREY,
+          fill: this.TEXT_GREY,
           opacity: 100,
         })
-        .center(600, 400);
+        .center(600, 300);
+      var infoTitle = this.draw
+        .text('REFLEXION')
+        .id('reflectionTitle')
+        .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
+        .attr({ fill: this.ORANGE, opacity: 0 })
+        .center(this.X + 3 * this.X_DIFF, this.Y + this.Y_DIFF)
+        .animate(1500, 500, 'now')
+        .attr({
+          fill: this.ORANGE,
+          opacity: 100,
+        })
+        .center(600, 150);
       setTimeout(() => {
         this.addClickEvent();
       }, 1000);
@@ -323,6 +396,7 @@ export class RequirementsComponent implements OnInit {
     var selfOrganisation = this.draw
       .text('Selbst-\norganisation')
       .font({ family: this.FONT })
+      .attr({ fill: this.TEXT_GREY })
       .center(this.X + 4 * this.X_DIFF, this.Y);
 
     document
@@ -338,22 +412,34 @@ export class RequirementsComponent implements OnInit {
             filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
           })
           .center(this.X + 4 * this.X_DIFF, this.Y)
-          .stroke({ width: 1, color: this.GREY })
+          .stroke({ width: 8, color: this.RED })
           .animate(1500, 500, 'now')
-          .size(this.SIZE * 4, 0)
-          .center(600, 400);
+          .size(this.SIZE * 3, 0)
+          .center(600, 300);
         var selfOrganisationInfoText = this.draw
           .text(TEXTS.selfOrganisation)
           .id('selfOrganisationText')
-          .font({ family: this.FONT, size: '17px' })
-          .attr({ fill: this.GREY, opacity: 0 })
+          .font({ family: this.FONT, size: '15px' })
+          .attr({ fill: this.TEXT_GREY, opacity: 0 })
           .center(this.X + 4 * this.X_DIFF, this.Y)
           .animate(1500, 500, 'now')
           .attr({
-            fill: this.GREY,
+            fill: this.TEXT_GREY,
             opacity: 100,
           })
-          .center(600, 400);
+          .center(600, 300);
+        var infoTitle = this.draw
+          .text('SELBSTORGANISATION')
+          .id('selfOrganisationTitle')
+          .font({ family: this.FONT, size: '17px', 'font-weight': 'bold' })
+          .attr({ fill: this.RED, opacity: 0 })
+          .center(this.X + 4 * this.X_DIFF, this.Y)
+          .animate(1500, 500, 'now')
+          .attr({
+            fill: this.RED,
+            opacity: 100,
+          })
+          .center(600, 150);
         setTimeout(() => {
           this.addClickEvent();
         }, 1000);
@@ -373,6 +459,7 @@ export class RequirementsComponent implements OnInit {
   onClick() {
     document.getElementById(this.selected + 'Info')?.remove();
     document.getElementById(this.selected + 'Text')?.remove();
+    document.getElementById(this.selected + 'Title')?.remove();
     console.log(document.getElementById('svg'));
     this.removeClick();
   }
