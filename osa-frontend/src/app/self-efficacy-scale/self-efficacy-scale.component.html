@@ -2,17 +2,18 @@
   <div class="flex-wrapper">
     <h1>Selbstwirksamkeit</h1>
     <p>
-      Folgend finden Sie eine Reihe von Feststellungen. Bitte lesen Sie sich jede Feststellung durch und kreuzen Sie an, wie sehr die Aussagen im Allgemeinen auf Sie zutreffen, d.h. wie sehr Ihr Denken und Handeln durch diese Aussagen beschrieben wird.
-      <br>
-      <br>
-      1 = stimmt nicht<br>
-      2 = stimmt kaum<br>
-      3 = stimmt eher<br>
-      4 = stimmt genau<br>
+      Folgend finden Sie eine Reihe von Feststellungen. Bitte lesen Sie sich
+      jede Feststellung durch und kreuzen Sie an, wie sehr die Aussagen im
+      Allgemeinen auf Sie zutreffen, d.h. wie sehr Ihr Denken und Handeln durch
+      diese Aussagen beschrieben wird.
+      <br />
+      <br />
+      1 = stimmt nicht<br />
+      2 = stimmt kaum<br />
+      3 = stimmt eher<br />
+      4 = stimmt genau<br />
     </p>
-    <p class="footnote">
-      Quelle: Jesusalem & Schwarzer (1999)
-    </p>
+    <p class="footnote">Quelle: Jesusalem & Schwarzer (1999)</p>
     <form [formGroup]="form" (submit)="updateModel()">
       <div class="formheader">
         <div class="flex-spacer"></div>
@@ -22,7 +23,7 @@
         <div style="margin-right: 1em">4</div>
       </div>
       <mat-radio-group *ngFor="let key of keys" [formControlName]="key">
-        <mat-label>{{questionnaire[key]}}</mat-label>
+        <mat-label>{{ questionnaire[key] }}</mat-label>
         <div class="flex-spacer"></div>
         <mat-radio-button value="1"></mat-radio-button>
         <mat-radio-button value="2"></mat-radio-button>
@@ -30,32 +31,32 @@
         <mat-radio-button value="4"></mat-radio-button>
       </mat-radio-group>
       <!--TODO: add form.invalid to [disabled], only not in there for dev purposes-->
-      <button class="primary" type="submit" [disabled]="false">Ergebnis Anzeigen</button>
+      <button class="primary" type="submit" [disabled]="false">
+        Ergebnis Anzeigen
+      </button>
     </form>
   </div>
   <div *ngIf="showResult" class="result">
-    <h2>Ihr Resilienz Wert ist: {{score}}</h2>
+    <h2>Ihr Resilienz Wert ist: {{ score }}</h2>
     <div id="info-button" (click)="toggleCollapsible()">
-      <mat-icon style="width: 2em;">info</mat-icon>
+      <mat-icon style="width: 2em">info</mat-icon>
     </div>
     <p id="info" #info>
-      Selbstbeurteilungsverfahren mit 10 Items zur Erfassung von
-      allgemeinen optimistischen Selbstüberzeugungen. Es misst
-      die optimistische Kompetenzerwartung, also das Vertrauen
-      darauf, eine schwierige Lage zu meistern, wobei der Erfolg
-      der eigenen Kompetenz zugeschrieben wird.
+      Selbstbeurteilungsverfahren mit 10 Items zur Erfassung von allgemeinen
+      optimistischen Selbstüberzeugungen. Es misst die optimistische
+      Kompetenzerwartung, also das Vertrauen darauf, eine schwierige Lage zu
+      meistern, wobei der Erfolg der eigenen Kompetenz zugeschrieben wird.
     </p>
-    <p class="footnote">Hinweise zur Auswertung:
-      Die Auswertung erfolgt über eine Addition
-      der Punktwerte.
-      Für die Interpretation der
-      Merkmalsausprägung für Selbstwirksamkeit
-      empfiehlt sich folgendes
-      Schema:<br>
-      Punktwerte 10 - 20 = niedrig<br>
-      Punktwerte 20 - 30 = moderat<br>
-      Punktwerte 30 - 40 = hoch</p>
-    <button class="primary" routerLink="/resilience">Weiter mit Self-Assessment</button>
+    <p class="footnote">
+      Hinweise zur Auswertung: Die Auswertung erfolgt über eine Addition der
+      Punktwerte. Für die Interpretation der Merkmalsausprägung für
+      Selbstwirksamkeit empfiehlt sich folgendes Schema:<br />
+      Punktwerte 10 - 20 = niedrig<br />
+      Punktwerte 20 - 30 = moderat<br />
+      Punktwerte 30 - 40 = hoch
+    </p>
+    <button class="primary" (click)="advanceSite()">
+      Weiter mit Self-Assessment
+    </button>
   </div>
 </div>
-

@@ -1,26 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserDataService } from '../shared/user-data.service';
 
 @Component({
   selector: 'app-time-management',
   templateUrl: './time-management.component.html',
-  styleUrls: ['./time-management.component.css']
+  styleUrls: ['./time-management.component.css'],
 })
 export class TimeManagementComponent implements OnInit {
   form: any;
 
-  constructor(private formBuilder: FormBuilder,
-              private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserDataService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      pensum: [null, Validators.required]
-    })
+      pensum: [null, Validators.required],
+    });
   }
 
   updateModel() {
     //todo
-    this.router.navigateByUrl('/time-management-planner')
+    const id = this.userService.getUserIdFromURL();
+    if (id == -1) {
+      this.router.navigateByUrl('/time-management-planner');
+    } else {
+      // save user data
+      this.router.navigateByUrl(`/time-management-planner?id=${id}`);
+    }
   }
 }

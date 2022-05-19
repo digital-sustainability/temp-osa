@@ -1,6 +1,4 @@
-import { NonNullAssert } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { assert } from 'console';
 
 @Injectable({
   providedIn: 'root',
@@ -92,7 +90,7 @@ export class UserDataService {
   q13: number,
   */
 
-  // * EmpathyComponent: patch resilience
+  // * EmpathyComponent: patch empathy
   /*
   q1:  number,
   q2:  number,
