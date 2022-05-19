@@ -25,11 +25,6 @@ export class QuestionnaireController {
   }
 
   @Put(':id')
-  replace(@Param('id') id: string, @Body() replaceQuestionnaireDto: ReplaceQuestionnaireDto) {
-    return this.questionnaireService.replace(id, replaceQuestionnaireDto);
-  }
-
-  @Patch(':id')
   update(@Param('id') id: string, @Body() updateQuestionnaireDto: UpdateQuestionnaireDto) {
     return this.questionnaireService.update(id, updateQuestionnaireDto);
   }
