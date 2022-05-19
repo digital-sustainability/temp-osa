@@ -1,29 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-disclaimer',
   templateUrl: './disclaimer.component.html',
-  styleUrls: ['./disclaimer.component.css']
+  styleUrls: ['./disclaimer.component.css'],
 })
 export class DisclaimerComponent implements OnInit {
-
   // @ts-ignore
-  form: FormGroup
+  form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      group1: ['yes'],
-    })
+      save_data: ['no'],
+    });
   }
 
   updateModel() {
-    //todo
-    console.log('ye')
-    this.router.navigateByUrl('/information')
-  }
+    // console.log(this.form.value.save_data);
+    if (this.form.value.save_data == 'yes') {
+      console.log('saving user data');
 
+      // create new user object in backend
+
+      // display id to user
+
+      // * this.router.navigateByUrl('/information/' + id);
+    }
+    this.router.navigateByUrl('/information');
+  }
 }
