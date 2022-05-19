@@ -16,7 +16,7 @@ export class QuestionnaireService {
     let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
     let result = await collection.insertOne(createQuestionnaireDto);
     let id = result.insertedId.valueOf().toString();
-    return {"id": id};
+    return {"userId": id};
   }
 
   async findAll() {
