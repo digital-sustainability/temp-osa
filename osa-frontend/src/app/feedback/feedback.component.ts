@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PdfGeneratorService} from "../shared/pdf-generator.service";
 
 @Component({
   selector: 'app-feedback',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pdfGeneratorService: PdfGeneratorService) { }
 
   ngOnInit(): void {
   }
 
+  generatePDF() {
+    this.pdfGeneratorService.generateConfirmation()
+  }
 }
