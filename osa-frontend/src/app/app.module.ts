@@ -32,6 +32,7 @@ import { TimeManagementFeedbackComponent } from './time-management-feedback/time
 import { ExpectationsComponent } from './expectations/expectations.component';
 import { NgChartsModule } from 'ng2-charts';
 import { RequirementsComponent } from './requirements/requirements.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Route[] = [
   { path: 'home', component: HomeComponent, data: { animation: 'home' } },
@@ -172,6 +173,7 @@ const routes: Route[] = [
     MatIconModule,
     MatTabsModule,
     NgChartsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,41 +8,81 @@ h1 {
   margin-bottom: 0;
 }
 
-.testimonial img {
-  height: 10em;
-}
-
-.testimonials {
+#videos {
   display: flex;
-  gap: 3em;
+  max-width:800px;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
-.testimonial {
+#horizontal-scroller {
+  position: relative;
+  max-width:800px;
+
+}
+
+#shorizontal-scroller button {
+  background: #699bbe;
+  color: white;
+  border-radius: 100%;
+  padding: 1em;
+
+}
+#left,#right {
+  z-index: 10;
+  position: absolute;
+  padding: 1em;
+  color: #01B9CE;
+  background: #ffffff06;
+  border-radius: 100em;
+  border: none;
+  cursor: pointer;
+  top: 42%;
   display: flex;
   place-items: center;
-  gap: 1em;
-  color: #666;
-  border: 1px dashed #699bbe;
-  padding: 0.5em;
-  max-width: 30%;
+  width: fit-content;
+  transition: background 0.2s ease-in;
+  flex-direction: column;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
 
-.testimonial p {
-  max-width: 50ch;
+#left {
+  left: 1em
 }
 
-.videos {
-  display: flex;
-  gap: 1em;
+#right {
+  right: 1em;
 }
 
+#left:hover,#right:hover {
+  background: #fff6;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .video-placeholder {
   background: #161616;
   color: white;
   display: flex;
   border: 1px solid #ddd;
   place-items: center;
-  width: 33%;
+  height: 450px;
   aspect-ratio: 16 / 9;
 }
 
