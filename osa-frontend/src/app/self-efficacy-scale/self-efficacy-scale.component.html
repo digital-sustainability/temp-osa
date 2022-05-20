@@ -1,12 +1,14 @@
 <div class="content-wrapper">
+  <div class="container">
   <div style="width: 100%;"><h1>Selbstwirksamkeit</h1></div>
+  <p *ngIf="!showResult">
+    Folgend finden Sie eine Reihe von Aussagen. Bitte lesen Sie sich jede Aussage durch und kreuzen Sie an, inwiefern diese Aussage auf Sie zutrifft.
+    <br>
+  </p>
+</div>
   <hr>
   <div class="flex-wrapper">
     <div class="wrap">
-    <p *ngIf="!showResult">
-      Folgend finden Sie eine Reihe von Aussagen. Bitte lesen Sie sich jede Aussage durch und kreuzen Sie an, inwiefern diese Aussage auf Sie zutrifft.
-      <br>
-    </p>
     <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [questions]="questionnaire" [numberOfOptions]="4" [values]="form.value" [naming]="naming" [headers]="headers"></app-questionnaire>
     <app-result-table *ngIf="showResult" [numberOfOptions]="4" [questions]="questionnaire" [values]="form.value" [naming]="naming"></app-result-table>
     <div class="footnote" style="margin-top:20px ;"><p> Schwarzer, R., & Jerusalem, M. (1995). Generalized Self-Efficacy scale. In J. Weinman, S. Wright, & M. Johnston, Measures in health psychology: A user’s portfolio. Causal and control beliefs (pp. 35-37). Windsor, England: NFER-NELSON.</p></div>

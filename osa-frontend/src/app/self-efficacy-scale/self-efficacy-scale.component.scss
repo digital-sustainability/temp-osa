@@ -56,8 +56,8 @@ button:disabled:hover {
 .content-wrapper {
   /* display: flex; */
   gap: 3em;
-  max-height: 81.5vh;
-  overflow-y: scroll;
+  // max-height: 81.5vh;
+  // overflow-y: scroll;
   overflow-x: hidden;
 }
 
@@ -68,7 +68,7 @@ button:disabled:hover {
 .flex-wrapper {
   display: flex;
   /* flex-direction: column; */
-  height: 90vh;
+  // height: 90vh;
 }
 
 

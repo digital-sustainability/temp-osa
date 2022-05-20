@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {slideInAnimation} from "./animation";
-import {ChildrenOutletContexts} from "@angular/router";
+import {ChildrenOutletContexts, NavigationStart, Router} from "@angular/router";
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,37 @@ export class AppComponent implements OnInit {
   currentPage = 'Startseite';
   progressPercent = new BehaviorSubject<number>(0)
 
-  constructor(private contexts: ChildrenOutletContexts) {
+  images: string[] = []
+
+  constructor(protected dataService: DataService, private contexts: ChildrenOutletContexts, private router: Router) {
+    router.events.forEach((event) => {
+      if(event instanceof NavigationStart) {
+        const currentImages = this.dataService.getCurrentImages()
+        const allImages  = this.dataService.getImageList()
+        const newImages: number[] = []
+        for(let i = 0; i < 4; i+=1){
+          let notValidImage = true
+          while(notValidImage){
+            debugger
+            const idx = this.getRandomInt(allImages.length)
+            if(!currentImages.includes(idx) && !newImages.includes(idx)){
+              newImages.push(idx)
+              notValidImage = false
+            }
+          }
+        }
+        this.dataService.setCurrentImages(newImages);
+        this.images = []
+        for(const img of newImages){
+          this.images.push(allImages[img])
+        }
+      }
+    });
   }
+
+getRandomInt(max: number){
+  return Math.floor(Math.random() * max);
+}
 
   ngOnInit() {
     this.progressPercent.subscribe(progress => {

@@ -1,7 +1,14 @@
 <div>
   <header>
-    <div class="header-image-container">
-      <app-nav></app-nav>
+    <div class="header-container" style="width: 50%;">
+      <div style="background-image:url(assets/home/{{images[0]}})"></div>
+      <div style="background-image:url(assets/home/{{images[1]}})"></div>
+    </div>
+    <div class="header-container" style="width: 50%;">
+      <div style="background-image:url(assets/home/{{images[2]}})"></div>
+      <div style="background-image:url(assets/home/{{images[3]}})"></div>
+    </div>
+    <!-- <div class="header-image-container">
       <div class="header-grid">
         <img src="../../assets/home/bank.jpeg" alt="">
         <img src="../../assets/home/lawngroup.jpg" alt="">
@@ -11,9 +18,9 @@
       <div class="logo">
       <img src="https://www.bfh.ch/dam/jcr:0d9ff345-1271-4195-9908-44f69806a035/Logo%20BFH_dunkler.svg/Logo%20BFH_weiss.svg">
     </div>
-    </div>
+    </div> -->
   </header>
-  <div class="container" [@routeAnimations]="getRouteAnimationData()">
+  <div [@routeAnimations]="getRouteAnimationData()">
       <router-outlet></router-outlet>
   </div>
 </div>

@@ -31,6 +31,20 @@ h2 {
     cursor: pointer;
 }
 
+.primary-small {
+  background: #697d91;
+  border: none;
+  color: white;
+  padding: .6em;
+  border-radius: 2px;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+}
+.primary-small:hover {
+  background: #699bbe;
+  cursor: pointer;
+}
+
 .flex-spacer {
     flex: 1 1 auto;
 }
@@ -48,6 +62,11 @@ p {
 .footnote {
   font-size: 0.8em;
   opacity: 0.8;
+}
+
+.container{
+  max-width: 1200px;
+  margin: auto;
 }
 
 nav{

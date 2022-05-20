@@ -155,3 +155,42 @@ button{
 }
 
 
+.header-container {
+  display: flex;
+  min-height: 300px;
+  margin-bottom:20px;
+}
+
+
+.header-container>div {
+  flex: 1;
+  background-size:0 0;
+  position:relative;
+  z-index:-1;
+}
+.header-container>div::before {
+  content:"";
+  position:absolute;
+  background-image:inherit;
+  background-size:cover;
+  background-position:center;
+  z-index:-1;
+  top:0;
+  bottom:0;
+}
+.header-container>div:first-child::before {
+  left:0;
+  right:-50px;
+  -webkit-mask:linear-gradient(to left,transparent ,#fff 50px);
+  mask:linear-gradient(to left,transparent ,#fff 50px);
+  right:0;
+  left:-50px;
+  -webkit-mask:linear-gradient(to right,transparent ,#fff 50px);
+  mask:linear-gradient(to right,transparent ,#fff 50px);
+}
+.header-container>div:last-child::before {
+  right:0;
+  left:-50px;
+  -webkit-mask:linear-gradient(to right,transparent ,#fff 50px);
+          mask:linear-gradient(to right,transparent ,#fff 50px);
+}
