@@ -23,15 +23,16 @@ const TEXTS = {
 })
 export class RequirementsComponent implements OnInit {
   constructor() {}
-  TEXT_GREY = '4b647d';
+  TEXT_GREY = '#4b647d';
+  TEXT_LIGHT = '#eff1f3';
   GREY = '#697d91';
-  GREEN = '#8caf82';
-  BLUE = '#87b9c8';
-  PURPLE = '#a087aa';
-  TEAL = '#b99164';
-  RED = '#e1917d';
-  ORANGE = '#fcbe3e';
-  WHITE = 'white';
+  GREEN = '#556455';
+  BLUE = '#506e96';
+  PURPLE = '#645078';
+  TEAL = '786450';
+  RED = '#b41428';
+  ORANGE = '#faa500';
+  WHITE = '#eff1f3';
   SIZE = 140;
   X = 150;
   Y = 300;
@@ -58,7 +59,7 @@ export class RequirementsComponent implements OnInit {
       .path(
         'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
       )
-      .fill(this.GREY)
+      .fill(this.TEXT_LIGHT)
       .size(200)
       .id('requirements')
       .attr({
@@ -80,7 +81,7 @@ export class RequirementsComponent implements OnInit {
           'M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444z'
         )
         .id('requirementsInfo')
-        .fill('white')
+        .fill(this.WHITE)
         .attr({
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
@@ -130,11 +131,11 @@ export class RequirementsComponent implements OnInit {
         filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
       })
       .center(this.X + 100, this.Y - 100)
-      .stroke({ width: 1, color: this.GREY });
+      .stroke({ width: 1, color: this.TEXT_LIGHT });
     var motivation = this.draw
       .text('Motivation')
       .font({ family: this.FONT })
-      .attr({ fill: this.TEXT_GREY })
+      .attr({ fill: this.TEXT_LIGHT })
       .center(this.X + 100, this.Y - 100);
 
     document.getElementById('motivation')?.addEventListener('click', () => {
@@ -145,7 +146,7 @@ export class RequirementsComponent implements OnInit {
         )
         .size(this.SIZE)
         .id('motivationInfo')
-        .fill('white')
+        .fill(this.WHITE)
         .attr({
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
@@ -195,11 +196,11 @@ export class RequirementsComponent implements OnInit {
         filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
       })
       .center(this.X + this.X_DIFF, this.Y + this.Y_DIFF)
-      .stroke({ width: 1, color: this.GREY });
+      .stroke({ width: 1, color: this.TEXT_LIGHT });
     var initiative = this.draw
       .text('Eigen-\ninitiative')
       .font({ family: this.FONT })
-      .attr({ fill: this.TEXT_GREY })
+      .attr({ fill: this.TEXT_LIGHT })
       .center(this.X + this.X_DIFF, this.Y + this.Y_DIFF);
 
     document.getElementById('initiative')?.addEventListener('click', () => {
@@ -210,7 +211,7 @@ export class RequirementsComponent implements OnInit {
         )
         .size(this.SIZE)
         .id('initiativeInfo')
-        .fill('white')
+        .fill(this.WHITE)
         .attr({
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
@@ -260,11 +261,11 @@ export class RequirementsComponent implements OnInit {
       })
       .id('interest')
       .center(this.X + 2 * this.X_DIFF, this.Y + 2 * this.Y_DIFF)
-      .stroke({ width: 1, color: this.GREY });
+      .stroke({ width: 1, color: this.TEXT_LIGHT });
     var interest = this.draw
       .text('Interesse')
       .font({ family: this.FONT })
-      .attr({ fill: this.TEXT_GREY })
+      .attr({ fill: this.TEXT_LIGHT })
       .center(this.X + 2 * this.X_DIFF, this.Y + 2 * this.Y_DIFF);
 
     document.getElementById('interest')?.addEventListener('click', () => {
@@ -275,7 +276,7 @@ export class RequirementsComponent implements OnInit {
         )
         .size(this.SIZE)
         .id('interestInfo')
-        .fill('white')
+        .fill(this.WHITE)
         .attr({
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
@@ -325,11 +326,11 @@ export class RequirementsComponent implements OnInit {
         filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
       })
       .center(this.X + 3 * this.X_DIFF, this.Y + this.Y_DIFF)
-      .stroke({ width: 1, color: this.GREY });
+      .stroke({ width: 1, color: this.TEXT_LIGHT });
     var reflection = this.draw
       .text('Reflexion')
       .font({ family: this.FONT })
-      .attr({ fill: this.TEXT_GREY })
+      .attr({ fill: this.TEXT_LIGHT })
       .center(this.X + 3 * this.X_DIFF, this.Y + this.Y_DIFF);
 
     document.getElementById('reflexion')?.addEventListener('click', () => {
@@ -340,7 +341,7 @@ export class RequirementsComponent implements OnInit {
         )
         .size(this.SIZE)
         .id('reflectionInfo')
-        .fill('white')
+        .fill(this.WHITE)
         .attr({
           filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
         })
@@ -391,12 +392,12 @@ export class RequirementsComponent implements OnInit {
         linecap: 'round',
       })
       .center(this.X + 4 * this.X_DIFF - 100, this.Y - 100)
-      .stroke({ width: 1, color: this.GREY });
+      .stroke({ width: 1, color: this.TEXT_LIGHT });
 
     var selfOrganisation = this.draw
       .text('Selbst-\norganisation')
       .font({ family: this.FONT })
-      .attr({ fill: this.TEXT_GREY })
+      .attr({ fill: this.TEXT_LIGHT })
       .center(this.X + 4 * this.X_DIFF - 100, this.Y - 100);
 
     document
@@ -409,7 +410,7 @@ export class RequirementsComponent implements OnInit {
           )
           .size(this.SIZE)
           .id('selfOrganisationInfo')
-          .fill('white')
+          .fill(this.WHITE)
           .attr({
             filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.4))',
           })
