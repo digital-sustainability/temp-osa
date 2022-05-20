@@ -20,4 +20,15 @@ export class InsightsComponent implements OnInit {
       this.router.navigateByUrl(`/expectations?id=${id}`);
     }
   }
+
+  scroll(dir: string, amount: number) {
+    amount += 2
+    let elementToScroll = document.getElementById('videos')
+    if (elementToScroll)
+    elementToScroll.scrollBy({
+      top: 0,
+      left: dir === 'left'?-amount:amount,
+      behavior: 'smooth'
+    });
+  }
 }

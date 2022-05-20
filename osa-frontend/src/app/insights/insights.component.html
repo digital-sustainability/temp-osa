@@ -1,53 +1,30 @@
 <div class="content-wrapper">
   <h1>Einblick Studienalltag</h1>
-  <div class="testimonials">
-    <div class="testimonial">
-      <img src="assets/avatar-07af2d2c4c9694e2f51dba1ea9d27f03.jpg" />
-      <div>
-        <h3>Pensum: Teilzeit</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum.
-        </p>
+  <p>
+    Die folgenden vier Kurzfilme geben Ihnen einen Einblick in den Studienalltag
+    von (ehemaligen) Studierenden des Bachelorstudiengangs Soziale Arbeit (BFH).
+    Die porträtierten Personen absolvieren bzw. absolvierten ihr Studium in
+    unterschiedlichen Studienmodi wie Vollzeitstudium und Teilzeitstudium und befinden
+    sich in unterschiedlichen Lebenssituationen.
+    Wir wünschen viel Vergnügen beim Anschauen der Videos!
+  </p>
+  <div id="horizontal-scroller">
+    <button id="left" (click)="scroll('left', 800)"><mat-icon>arrow_left</mat-icon></button>
+    <div id="videos">
+      <div class="video-placeholder">
+        <p>video1</p>
+      </div>
+      <div class="video-placeholder">
+        <p>video2</p>
+      </div>
+      <div class="video-placeholder">
+        <p>video3</p>
+      </div>
+      <div class="video-placeholder">
+        <p>video4</p>
       </div>
     </div>
-    <div class="testimonial">
-      <img src="assets/avatar-211c0efeb0f12a00bbe0314c44a7f14c.jpg" />
-      <div>
-        <h3>Pensum: Vollzeit</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum.
-        </p>
-      </div>
-    </div>
-    <div class="testimonial">
-      <img src="assets/avatar-dd24c63b505b35bbe39025e5a6536c9e.jpg" />
-      <div>
-        <h3>Pensum: Teilzeit</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="videos">
-    <div class="video-placeholder">
-      <p>video1</p>
-    </div>
-    <div class="video-placeholder">
-      <p>video2</p>
-    </div>
-    <div class="video-placeholder">
-      <p>video3</p>
-    </div>
+    <button id="right" (click)="scroll('right', 800)"><mat-icon>arrow_right</mat-icon></button>
   </div>
   <button class="primary" (click)="advanceSite()">Weiter</button>
 </div>
