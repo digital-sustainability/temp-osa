@@ -14,19 +14,21 @@
 
 <div class="container">
   <div class="image-grid">
-    <div class="card first image-grid-col-2">
-      <div class="card-content">
+    <div [ngClass]="{'card-disable': modal, card: !modal}" class="first temp image-grid-col-2">
+      <div class="card-content" id="card-disable">
         <h3 class="card-title">Willkommensvideo</h3>
         <p class="card-body">
-          Starten Sie hier Ihren Self-Assessment Test, um mehr über sich selbst zu erfahren.
+          <a href="https://www.youtube.com/watch?v=F7EWw9SDbnM" class="btn-video btn-iframe"
+            (click)="showVideoModal($event)">
+            <fa-icon [icon]="faPlay"></fa-icon>
+          </a>
         </p>
-        <a href="https://www.youtube.com/watch?v=F7EWw9SDbnM" class="btn-video btn-iframe"
-          (click)="showVideoModal($event)"><i class="icon-play">play</i></a>
+
       </div>
     </div>
     <div class="card second">
       <div class="card-content">
-        <h3 class="card-title">Stereotypen</h3>
+        <h3 class="card-title">Soziale Arbeit</h3>
         <p class="card-body">
           Erfahren Sie mehr über den Studienalltag an der BFH
         </p>
@@ -57,7 +59,6 @@
         <p class="card-body">
           Wollen Sie Vollzeit oder doch eher Teilzeit studieren?
         </p>
-        <button class="primary-small" routerLink="/disclaimer">Learn More</button>
       </div>
     </div>
     <div class="card fourth image-grid-col-2">

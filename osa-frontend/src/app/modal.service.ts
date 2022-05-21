@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal, NgbModalOptions, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Subject } from 'rxjs';
 import { VideoModalComponent } from './video-modal/video-modal.component';
 
 @Injectable({
@@ -9,24 +10,18 @@ export class ModalService {
 
   constructor(private modalService: NgbModal) { }
 
+  private modalClosed = new Subject()
+
+  modalInstance!: NgbModalRef
+
   private modalOption3: NgbModalOptions = {
     centered: true,
     size: 'xl',
     scrollable: false,
     windowClass: "vb-modal",
-    // beforeDismiss: async () => {
-    //   document.querySelector('body')?.classList.remove('modal-open');
+    backdrop: "static",
+    keyboard: false
 
-    //   await new Promise((resolve) => {
-    //     setTimeout(() => {
-    //       resolve('success');
-    //     }, 300)
-    //   });
-
-    //   (document.querySelector('.logo') as HTMLElement).focus({ preventScroll: true });
-
-    //   return true;
-    // }
   };
 
   showVideoModal() {
@@ -35,6 +30,16 @@ export class ModalService {
       this.modalOption3
     )
   }
+
+  modalClosedEvent() {
+    this.modalClosed.next("closed")
+  }
+
+  getModalActive() {
+    return this.modalClosed
+  }
+
+
 
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalService } from '../modal.service';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'molla-video-modal',
@@ -9,14 +11,16 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class VideoModalComponent implements OnInit {
 
-  constructor(private modalService: NgbActiveModal) {
+  constructor(private activeModal: NgbActiveModal, private modalService: ModalService) {
   }
+
+  faClose = faClose
 
   ngOnInit(): void {
   }
 
   closeModal() {
-    console.log("getting executed")
-    this.modalService.close();
+    this.activeModal.close();
+    this.modalService.modalClosedEvent()
   }
 }

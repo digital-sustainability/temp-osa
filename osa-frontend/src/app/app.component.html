@@ -1,3 +1,4 @@
+<app-sidenav></app-sidenav>
 <div>
   <header>
     <div class="header-container" style="width: 50%;">
@@ -8,6 +9,7 @@
       <div style="background-image:url(assets/home/{{images[2]}})"></div>
       <div style="background-image:url(assets/home/{{images[3]}})"></div>
     </div>
+
     <!-- <div class="header-image-container">
       <div class="header-grid">
         <img src="../../assets/home/bank.jpeg" alt="">
@@ -15,12 +17,10 @@
         <img src="../../assets/home/pencils.jpeg" alt="">
         <img src="../../assets/home/tisch.jpg" alt="">
       </div>
-      <div class="logo">
-      <img src="https://www.bfh.ch/dam/jcr:0d9ff345-1271-4195-9908-44f69806a035/Logo%20BFH_dunkler.svg/Logo%20BFH_weiss.svg">
-    </div>
     </div> -->
   </header>
+
   <div [@routeAnimations]="getRouteAnimationData()">
-      <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </div>
 </div>

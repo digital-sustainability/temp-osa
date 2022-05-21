@@ -41,9 +41,6 @@
   right: 15px;
 }
 
-.wrapper {
-}
-
 .card {
   position: relative;
   color: white;
@@ -117,6 +114,10 @@ body {
   overflow: hidden;
 }
 
+.temp {
+  background-size: cover;
+}
+
 .card:hover {
   transform: scale(1.05);
 }
@@ -129,7 +130,7 @@ body {
   height: 5.4rem;
   font-size: 1.6rem;
   line-height: 1;
-  color: #cc9966;
+  color: #4a83aa;
   background-color: #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1.5rem rgba(255, 255, 255, 0.2);
@@ -158,13 +159,17 @@ body {
     hsl(40, 0%, 0% / 0.3) 80%,
     hsl(0 0% 0% /1)
   );
-  // transform: translateY(60%);
+  transform: translateY(60%);
   transition: transform 500ms ease;
 }
 
 .card:hover .card-content {
   transform: translateY(0);
   transition-delay: 500ms;
+}
+
+.card-disable {
+  pointer-events: none;
 }
 
 .first {
@@ -209,7 +214,7 @@ body {
 .card-title::after {
   content: "";
   position: absolute;
-  height: 4px;
+  height: 3px;
   background: red;
   width: calc(100% + var(--padding));
   left: calc(var(--padding) * -1);
