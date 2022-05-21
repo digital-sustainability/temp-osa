@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from '../modal.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected modalService: ModalService) { }
 
   ngOnInit(): void {
+  }
+
+  showVideoModal(event: Event) {
+    event.preventDefault();
+    this.modalService.showVideoModal();
   }
 
 }

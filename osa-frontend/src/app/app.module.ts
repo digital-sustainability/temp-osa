@@ -36,6 +36,8 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 import { ImageComponent } from './image/image.component';
 import { NavComponent } from './nav/nav.component';
 import { CardComponent } from './card/card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { VideoModalComponent } from './video-modal/video-modal.component';
 
 const routes: Route[] = [
   { path: 'home', component: HomeComponent, data: { animation: 'home'}},
@@ -88,6 +90,7 @@ const routes: Route[] = [
     ImageComponent,
     NavComponent,
     CardComponent,
+    VideoModalComponent,
   ],
   imports: [
     MatRadioModule,
@@ -102,7 +105,8 @@ const routes: Route[] = [
     ReactiveFormsModule,
     MatIconModule,
     MatTabsModule,
-    NgChartsModule
+    NgChartsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
