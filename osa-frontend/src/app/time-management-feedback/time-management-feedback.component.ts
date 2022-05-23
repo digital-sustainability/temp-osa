@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserDataService } from '../shared/user-data.service';
 
 @Component({
   selector: 'app-time-management-feedback',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./time-management-feedback.component.scss']
 })
 export class TimeManagementFeedbackComponent implements OnInit {
+  constructor(private router: Router, private userService: UserDataService) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  advanceSite() {
+    const id = this.userService.getUserIdFromURL();
+    if (id == -1) {
+      this.router.navigateByUrl('/insights');
+    } else {
+      this.router.navigateByUrl(`/insights?id=${id}`);
+    }
   }
-
 }

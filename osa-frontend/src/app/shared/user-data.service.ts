@@ -1,12 +1,13 @@
-import { NonNullAssert } from '@angular/compiler';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { assert } from 'console';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService {
-  constructor() {}
+
+  constructor(private http: HttpClient) {}
 
   getUserIdFromURL(): number {
     let id = -1;
@@ -18,7 +19,16 @@ export class UserDataService {
     return id;
   }
 
+
   // Todo: create new user ()
+  createUser(): void {
+    console.log("here")
+    this.http
+      .post(`${environment.apiUrl}/questionnaire`, {"name": "hanspeter"})
+      .subscribe((res) => {
+        console.log(res);
+      });
+  }
 
   // Todo: get existing user by id ()
 
@@ -92,7 +102,7 @@ export class UserDataService {
   q13: number,
   */
 
-  // * EmpathyComponent: patch resilience
+  // * EmpathyComponent: patch empathy
   /*
   q1:  number,
   q2:  number,

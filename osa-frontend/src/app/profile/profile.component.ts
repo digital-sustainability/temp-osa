@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserDataService } from '../shared/user-data.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   form: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserDataService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -23,6 +28,12 @@ export class ProfileComponent implements OnInit {
 
   updateModel() {
     //todo
-    this.router.navigateByUrl('/interest');
+    const id = this.userService.getUserIdFromURL();
+    if (id == -1) {
+      this.router.navigateByUrl('/interest');
+    } else {
+      // save user data
+      this.router.navigateByUrl(`/interest?id=${id}`);
+    }
   }
 }

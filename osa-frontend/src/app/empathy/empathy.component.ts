@@ -1,6 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserDataService } from '../shared/user-data.service';
 
 @Component({
   selector: 'app-empathy',
@@ -9,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class EmpathyComponent implements OnInit {
   form: any;
-  score = 0
+  score = 0;
   showResult = false;
   @ViewChild('info') info: any;
   @ViewChild('scoreInfo') scoreInfo: any;
@@ -49,31 +50,41 @@ export class EmpathyComponent implements OnInit {
   this.showResult = true
 }
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private userService: UserDataService,private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
-    const controls: {[key: string]: any} = { }
+    const controls: { [key: string]: any } = {};
     this.keys.forEach((key: string) => {
-      controls[key] = [null, Validators.required]
-    })
-    this.form = this.formBuilder.group(controls)
+      controls[key] = [null, Validators.required];
+    });
+    this.form = this.formBuilder.group(controls);
   }
 
   updateModel() {
-    let total = 0
-    Object.keys(this.form.value).forEach(key => {
-      total += +this.form.value[key]
-    })
-    this.score = total
-    this.showResult = true
+    let total = 0;
+    Object.keys(this.form.value).forEach((key) => {
+      total += +this.form.value[key];
+    });
+    this.score = total;
+    this.showResult = true;
   }
 
   toggleCollapsible() {
-    this.info.nativeElement.classList.toggle("active");
-    if (this.info.nativeElement.style.maxHeight){
+    this.info.nativeElement.classList.toggle('active');
+    if (this.info.nativeElement.style.maxHeight) {
       this.info.nativeElement.style.maxHeight = null;
     } else {
-      this.info.nativeElement.style.maxHeight = this.info.nativeElement.scrollHeight + "px";
+      this.info.nativeElement.style.maxHeight =
+        this.info.nativeElement.scrollHeight + 'px';
+    }
+  }
+
+  advanceSite() {
+    const id = this.userService.getUserIdFromURL();
+    if (id == -1) {
+      this.router.navigateByUrl('/stereotypes');
+    } else {
+      this.router.navigateByUrl(`/stereotypes?id=${id}`);
     }
   }
 

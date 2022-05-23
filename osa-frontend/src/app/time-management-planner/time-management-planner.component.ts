@@ -1,9 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, Validators} from "@angular/forms";
-import {BehaviorSubject, debounceTime} from "rxjs";
-import {ChartConfiguration, ChartData} from "chart.js";
-import {BaseChartDirective} from "ng2-charts";
-import {Router} from "@angular/router";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { BehaviorSubject, debounceTime } from 'rxjs';
+import { ChartConfiguration, ChartData } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
+import { Router } from '@angular/router';
+import { UserDataService } from '../shared/user-data.service';
 
 @Component({
   selector: 'app-time-management-planner',
@@ -21,11 +22,11 @@ export class TimeManagementPlannerComponent implements OnInit {
         display: true,
         position: 'top',
       },
-    }
-  }
-  model: any =  {
-    pensum: 'vollzeit'
-  }
+    },
+  };
+  model: any = {
+    pensum: 'vollzeit',
+  };
 
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
     labels: [
@@ -35,30 +36,37 @@ export class TimeManagementPlannerComponent implements OnInit {
       'Schlafen, Essen, Körperpflege',
       'Anreise (Pendeln)',
     ],
-    datasets: [  ]
+    datasets: [],
   };
 
-  formTotal = new BehaviorSubject(0)
+  formTotal = new BehaviorSubject(0);
 
-  constructor(private formBuilder: FormBuilder,
-              private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserDataService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      studies: [{value: this.model.pensum === 'vollzeit' ? 7 : 4, disabled: true}],
+      studies: [
+        { value: this.model.pensum === 'vollzeit' ? 7 : 4, disabled: true },
+      ],
       work: [0, Validators.required],
       leisure: [0, Validators.required],
       necessities: [0, Validators.required],
-      commute: [0, Validators.required]
-    })
-    this.form.controls.work.valueChanges.pipe(debounceTime(200))
+      commute: [0, Validators.required],
+    });
+    this.form.controls.work.valueChanges
+      .pipe(debounceTime(200))
       .subscribe((val: any) => {
-      this.recalculateTotal()
-    })
-    Object.keys(this.form.controls).forEach(key => {
-      this.form.controls[key].valueChanges.pipe(debounceTime(200))
+        this.recalculateTotal();
+      });
+    Object.keys(this.form.controls).forEach((key) => {
+      this.form.controls[key].valueChanges
+        .pipe(debounceTime(200))
         .subscribe(() => {
-          this.recalculateTotal()
+          this.recalculateTotal();
           this.pieChartData.datasets[0] = {
             data: [
               this.form.controls.studies.value,
@@ -66,13 +74,13 @@ export class TimeManagementPlannerComponent implements OnInit {
               this.form.controls.leisure.value,
               this.form.controls.necessities.value,
               this.form.controls.commute.value,
-            ]
+            ],
+          };
+          if (this.chart) {
+            this.chart.update();
           }
-          if (this.chart){
-            this.chart.update()
-          }
-        })
-    })
+        });
+    });
     this.pieChartData.datasets.push({
       data: [
         this.form.controls.studies.value,
@@ -80,19 +88,25 @@ export class TimeManagementPlannerComponent implements OnInit {
         this.form.controls.leisure.value,
         this.form.controls.necessities.value,
         this.form.controls.commute.value,
-      ]
-    })
+      ],
+    });
   }
 
   private recalculateTotal() {
-    let total: number = 0
-    Object.keys(this.form.controls).forEach(key => {
-      total += this.form.controls[key].value
-    })
-    this.formTotal.next(total)
+    let total: number = 0;
+    Object.keys(this.form.controls).forEach((key) => {
+      total += this.form.controls[key].value;
+    });
+    this.formTotal.next(total);
   }
 
   updateModel() {
-    this.router.navigateByUrl('/time-management-feedback')
+    const id = this.userService.getUserIdFromURL();
+    if (id == -1) {
+      this.router.navigateByUrl('/time-management-feedback');
+    } else {
+      // save user data
+      this.router.navigateByUrl(`/time-management-feedback?id=${id}`);
+    }
   }
 }
