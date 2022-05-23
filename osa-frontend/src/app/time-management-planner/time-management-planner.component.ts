@@ -9,7 +9,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-time-management-planner',
   templateUrl: './time-management-planner.component.html',
-  styleUrls: ['./time-management-planner.component.css'],
+  styleUrls: ['./time-management-planner.component.scss']
 })
 export class TimeManagementPlannerComponent implements OnInit {
   form: any;

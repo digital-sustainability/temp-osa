@@ -4,7 +4,7 @@ import {PdfGeneratorService} from "../shared/pdf-generator.service";
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.css']
+  styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
 

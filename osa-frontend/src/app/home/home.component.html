@@ -1,12 +1,75 @@
-<div class="content-wrapper">
+<div class="container">
+  <div style="margin-bottom: 10px;">
     <h1>Herzlich Willkommen!</h1>
     <p>
-        Soll ich Soziale Arbeit studieren? Der Online-Selbsttest
-        Soziale Arbeit erleichtert Ihnen die Entscheidung für oder
-        gegen ein Studium in Sozialer Arbeit. Der Test hilft Ihnen,
-        Ihre Interessen und Fähigkeiten besser kennen zu lernen
-        und sich mit dem Bachelorstudiengang Soziale Arbeit der
-        Berner Fachhochschule vertraut zu machen.
+      Soll ich Soziale Arbeit studieren? Der Online-Selbsttest
+      Soziale Arbeit erleichtert Ihnen die Entscheidung für oder
+      gegen ein Studium in Sozialer Arbeit. Der Test hilft Ihnen,
+      Ihre Interessen und Fähigkeiten besser kennen zu lernen
+      und sich mit dem Bachelorstudiengang Soziale Arbeit der
+      Berner Fachhochschule vertraut zu machen.
     </p>
-    <button class="primary" routerLink="/disclaimer">Self-Assessment starten -></button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="image-grid">
+    <div [ngClass]="{'card-disable': modal, card: !modal}" class="first temp image-grid-col-2">
+      <div class="card-content" id="card-disable">
+        <h3 class="card-title">Willkommensvideo</h3>
+        <p class="card-body">
+          <a class="btn-video btn-iframe"
+            (click)="showVideoModal($event)">
+            <fa-icon [icon]="faPlay"></fa-icon>
+          </a>
+        </p>
+
+      </div>
+    </div>
+    <div class="card second">
+      <div class="card-content">
+        <h3 class="card-title">Soziale Arbeit</h3>
+        <p class="card-body">
+          Erfahren Sie mehr über den Studienalltag an der BFH
+        </p>
+        <!-- <button class="primary-small" routerLink="/disclaimer">Learn More</button> -->
+      </div>
+    </div>
+    <div class="card third">
+      <div class="card-content">
+        <h3 class="card-title">Anforderungen</h3>
+        <p class="card-body">
+          Wollen Sie Vollzeit oder doch eher Teilzeit studieren?
+        </p>
+        <!-- <button class="primary-small" routerLink="/disclaimer">Learn More</button> -->
+      </div>
+    </div>
+    <div class="card fifth">
+      <div class="card-content">
+        <h3 class="card-title">Studienalltag /<br>Zeitmanagment</h3>
+        <p class="card-body">
+          Wollen Sie Vollzeit oder doch eher Teilzeit studieren?
+        </p>
+        <!-- <button class="primary-small" routerLink="/disclaimer">Learn More</button> -->
+      </div>
+    </div>
+    <div class="card sixth">
+      <div class="card-content">
+        <h3 class="card-title">Persönlichkeits - <br>merkmale</h3>
+        <p class="card-body">
+          Wollen Sie Vollzeit oder doch eher Teilzeit studieren?
+        </p>
+      </div>
+    </div>
+    <div class="card fourth image-grid-col-2">
+      <div class="card-content">
+        <h3 class="card-title">Self-Assessment Starten</h3>
+        <p class="card-body">
+          Starten Sie hier Ihren Self-Assessment Test, um mehr über sich selbst zu erfahren.
+        </p>
+        <button class="primary" routerLink="/disclaimer">Zum Quiz</button>
+      </div>
+    </div>
+
+  </div>
 </div>

@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-time-management',
   templateUrl: './time-management.component.html',
-  styleUrls: ['./time-management.component.css'],
+  styleUrls: ['./time-management.component.scss']
 })
 export class TimeManagementComponent implements OnInit {
   form: any;

@@ -6,7 +6,7 @@ import {UserDataService} from '../shared/user-data.service';
 @Component({
   selector: 'app-stereotypes',
   templateUrl: './stereotypes.component.html',
-  styleUrls: ['./stereotypes.component.css'],
+  styleUrls: ['./stereotypes.component.scss']
 })
 export class StereotypesComponent implements OnInit {
   form: any;

@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-current-occupation',
   templateUrl: './current-occupation.component.html',
-  styleUrls: ['./current-occupation.component.css'],
+  styleUrls: ['./current-occupation.component.scss']
 })
 export class CurrentOccupationComponent implements OnInit {
   form: any;

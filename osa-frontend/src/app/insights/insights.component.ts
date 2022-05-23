@@ -5,7 +5,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-insights',
   templateUrl: './insights.component.html',
-  styleUrls: ['./insights.component.css'],
+  styleUrls: ['./insights.component.scss']
 })
 export class InsightsComponent implements OnInit {
   constructor(private router: Router, private userService: UserDataService) {}
