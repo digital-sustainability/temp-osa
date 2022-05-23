@@ -41,6 +41,7 @@ import { VideoModalComponent } from './video-modal/video-modal.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Route[] = [
@@ -98,6 +99,7 @@ const routes: Route[] = [
     SidenavComponent,
   ],
   imports: [
+    HttpClientModule,
     FontAwesomeModule,
     MatSidenavModule,
     MatRadioModule,
