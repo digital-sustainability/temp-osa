@@ -1,12 +1,12 @@
 <div class="content-wrapper">
   <div class="container">
   <div style="width: 100%;"><h1>Selbstwirksamkeit</h1></div>
-  <p *ngIf="!showResult">
+  <div *ngIf="!showResult">
     Folgend finden Sie eine Reihe von Aussagen. Bitte lesen Sie sich jede Aussage durch und kreuzen Sie an, inwiefern diese Aussage auf Sie zutrifft.
     <br>
-  </p>
+  </div>
 </div>
-  <hr>
+<hr>
   <div class="flex-wrapper">
     <div class="wrap">
     <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [questions]="questionnaire" [numberOfOptions]="4" [values]="form.value" [naming]="naming" [headers]="headers"></app-questionnaire>
@@ -47,7 +47,7 @@
         Punktwerte 10 - 20 = niedrig<br><br>
         Punktwerte 20 - 30 = moderat<br><br>
         Punktwerte 30 - 40 = hoch</p>
-      <button class="primary" routerLink="/resilience">Weiter mit Self-Assessment</button>
+      <button class="primary" routerLink="/empathy">Weiter mit Self-Assessment</button>
     </div>
   </div>
 

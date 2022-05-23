@@ -38,7 +38,7 @@ form {
 
 hr {
   width: 100%;
-  border-top: 1px solid #fbfbfb;
+  border-top: 1px solid #070707;
 }
 
 button {
@@ -67,10 +67,12 @@ button:disabled:hover {
 
 .result{
   margin-left: 25px;
+  font-size: 1.3rem;
 }
 
 .flex-wrapper {
   display: flex;
+  justify-content: center;
   /* flex-direction: column; */
   // height: 90vh;
 }

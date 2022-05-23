@@ -1,12 +1,14 @@
 <div class="content-wrapper">
+  <div class="container">
   <div style="width: 100%;"><h1>Empathie & Perspektivenübernahme</h1></div>
+    <div *ngIf="!showResult">
+      Die folgenden Aussagen beschreiben Handlungen und Empfindungen im Umgang mit anderen Menschen. Kreuzen Sie bitte für jede Aussage an, wie selten oder oft Sie so handeln oder empfinden.
+      <br>
+    </div>
+  </div>
   <hr>
   <div class="flex-wrapper">
     <div class="wrap">
-    <p *ngIf="!showResult">
-      Die folgenden Aussagen beschreiben Handlungen und Empfindungen im Umgang mit anderen Menschen. Kreuzen Sie bitte für jede Aussage an, wie selten oder oft Sie so handeln oder empfinden.
-      <br>
-    </p>
     <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [questions]="questionnaire" [numberOfOptions]="5" [values]="form.value" [naming]="naming" [headers]="headers"></app-questionnaire>
     <app-result-table *ngIf="showResult" [numberOfOptions]="5" [questions]="questionnaire" [values]="form.value" [naming]="naming"></app-result-table>
     <div style="margin-top:20px;" class="footnote">

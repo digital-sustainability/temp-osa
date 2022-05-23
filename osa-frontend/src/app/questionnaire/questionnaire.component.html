@@ -1,3 +1,4 @@
+<div class="wrapping">
 <form *ngIf="!showResult" [formGroup]="form" (submit)="updateModel()">
   <div class="header">
     <div class="options">
@@ -16,3 +17,4 @@
   <!--TODO: add form.invalid to [disabled], only not in there for dev purposes-->
   <button class="primary" style="width: 100%;" type="submit">Ergebnis Anzeigen</button>
 </form>
+</div>
