@@ -2,6 +2,9 @@
   <h1>Schulform</h1>
   <p>Welche Schulform besuchen Sie aktuell?</p>
   <p><i>Modus: interessierte wählen vorgegebene Angaben aus.</i></p>
+  </div>
+<hr>
+<div class="container content-wrapper">
   <form [formGroup]="form" (submit)="updateModel()">
     <mat-checkbox formControlName="checkbox1">Gymnasium</mat-checkbox>
     <mat-checkbox formControlName="checkbox2">Berufsmaturitätsschule</mat-checkbox>
