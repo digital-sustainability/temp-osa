@@ -1,7 +1,10 @@
-<div class="content-wrapper">
+<div class="container content-wrapper">
   <h1>Aktuelle Tätigkeit</h1>
   <p>Was ist ihre aktuelle Tätigkeit?</p>
   <p><i>Modus: interessierte wählen vorgegebene Angaben aus.</i></p>
+</div>
+<hr>
+<div class="container content-wrapper">
   <form [formGroup]="form" (submit)="updateModel()">
     <mat-checkbox formControlName="checkbox1">Schüler*in</mat-checkbox>
     <mat-checkbox formControlName="checkbox2">Student*in</mat-checkbox>

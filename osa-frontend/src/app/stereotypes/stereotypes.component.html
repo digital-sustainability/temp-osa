@@ -1,11 +1,15 @@
-<div class="content-wrapper">
+<div class="container content-wrapper">
   <h1>Bewertung Stereotypen zur Sozialen Arbeit</h1>
   <p>Bitte beurteilen Sie die folgenden 12 Behauptungen zur Sozialen Arbeit. Wählen Sie jeweils zwischen "trifft zu", "trifft
     teilweise" und "trifft nicht zu" aus.</p>
+</div>
+<hr>
+<div class="container content-wrapper">
   <form [formGroup]="form">
     <mat-tab-group #grp class="invisible-tabs" (selectedIndexChange)="setLastTab($event)">
       <mat-tab *ngFor="let claim of claims; let i = index">
-        <div>{{claim.claim}}</div>
+        <h5>Behauptung {{i + 1}}:</h5>
+        <h6>{{claim.claim}}</h6>
         <mat-radio-group [formControlName]="'claim' + i">
           <mat-radio-button labelPosition="before" value="1">Trifft zu:</mat-radio-button>
           <mat-radio-button labelPosition="before" value="2">Trifft teilweise zu:</mat-radio-button>
@@ -16,35 +20,20 @@
           <button class="primary" (click)="check(claim, i)">Check</button>
           <button class="primary" (click)="next(grp)">Next</button>
         </div>
+        <div class="wrong" *ngIf="selectionCorrect === false">
+          <mat-icon>close</mat-icon>
+          <span>This answer is incorrect</span>
+        </div>
+        <div class="correct" *ngIf="selectionCorrect === true">
+          <mat-icon>check_circle_outline</mat-icon>
+          <span>This is the correct answer</span>
+        </div>
+        <div class="explanation" *ngIf="selectionCorrect === true || selectionCorrect === false">
+          <mat-icon>info_outline</mat-icon>
+          <p [innerHTML]="claim.elaboration"></p>
+
+        </div>
       </mat-tab>
     </mat-tab-group>
   </form>
-  <div class="wrong" *ngIf="selectionCorrect === false">
-    <mat-icon>close</mat-icon>
-    <span>This answer is incorrect</span>
-  </div>
-  <div class="correct" *ngIf="selectionCorrect === true">
-    <mat-icon>check_circle_outline</mat-icon>
-    <span>This is the correct answer</span>
-  </div>
-  <div class="explanation" *ngIf="selectionCorrect === true || selectionCorrect === false">
-    <mat-icon>info_outline</mat-icon>
-    <p>
-      Erläuterung: Die Soziale
-      Arbeit setzt sich
-      beispielsweise in der
-      wirtschaftlichen Sozialhilfe,
-      der Arbeitsintegration oder
-      durch aufsuchende Angebote
-      mit Armut und
-      armutsbetroffenen Menschen
-      auseinander. Daneben bewegt
-      sich Soziale Arbeit aber auch
-      in den Arbeitsfeldern Kinder
-      und Jugendliche, Beratung,
-      Gesundheit sowie im
-      internationalen und
-      transkulturellen Kontext.
-    </p>
-  </div>
 </div>

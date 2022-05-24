@@ -1,0 +1,41 @@
+<div class="navigation">
+    <img
+        src="https://www.bfh.ch/dam/jcr:0d9ff345-1271-4195-9908-44f69806a035/Logo%20BFH_dunkler.svg/Logo%20BFH_weiss.svg">
+    <div class="toggle">
+        <button (click)="toggleSideBar()" [ngClass]="opened ? 'is-active' : ''"
+            class="hamburger toggle hamburger--collapse" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    </div>
+</div>
+<mat-drawer-container>
+    <mat-sidenav #sidenav class="side-nav-left" position="start" role="directory" [opened]="opened">
+        <div class="backdrop" (click)="opened = false"></div>
+        <div class="side-nav-content">
+            <div class="wrapper">
+                <h3>Berner Fachhochschule</h3>
+                <hr>
+                <ul class="nav-tabs">
+                    <li><a routerLink="/">Home</a></li>
+                    <hr>
+                    <li>Persönliche Angaben</li>
+                    <hr>
+                    <li>Persönlichkeitsmerkmale</li>
+                    <hr>
+                    <li>Vorstellung Soziale Arbeit</li>
+                    <hr>
+                    <li>Einblich ins Studium - <br> Zeitmanagement</li>
+                    <hr>
+                    <li>Einblich ins Studium <br> Studienalltag</li>
+                    <hr>
+                    <li>Anforderungen an Studierende</li>
+                    <hr>
+                    <li>Gesamtfeedback</li>
+                </ul>
+            </div>
+        </div>
+    </mat-sidenav>
+</mat-drawer-container>
+<div class="cover"></div>

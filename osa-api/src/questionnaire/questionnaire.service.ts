@@ -12,11 +12,11 @@ export class QuestionnaireService {
   constructor (private mongo: MongoService){  
   }
 
-  async create(createQuestionnaireDto: CreateQuestionnaireDto): Promise<string> {
+  async create(createQuestionnaireDto: CreateQuestionnaireDto): Promise<any> {
     let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
     let result = await collection.insertOne(createQuestionnaireDto);
     let id = result.insertedId.valueOf().toString();
-    return id;
+    return {"userId": id};
   }
 
   async findAll() {

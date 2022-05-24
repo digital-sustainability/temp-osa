@@ -1,7 +1,13 @@
-<div class="content-wrapper">
+<div class="container content-wrapper">
   <h1>Interesse</h1>
+
+
+
   <p>Aus welchem Interesse möchte Sie den Test bearbeiten? (Mehrfachnennung möglich)</p>
   <p><i>Modus: Interessierte wählen (mehrere) vorgegebene Aussagen aus. </i></p>
+</div>
+  <hr>
+  <div class="container content-wrapper">
   <form [formGroup]="form" (submit)="updateModel()">
     <mat-checkbox formControlName="checkbox1">Ich interessiere mich für das Studium in Sozialer Arbeit allgemein</mat-checkbox>
     <mat-checkbox formControlName="checkbox2">Ich möchte mir den Test nur aus Interesse anschauen.</mat-checkbox>

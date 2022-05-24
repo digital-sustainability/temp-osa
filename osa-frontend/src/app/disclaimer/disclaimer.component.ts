@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-disclaimer',
   templateUrl: './disclaimer.component.html',
-  styleUrls: ['./disclaimer.component.css'],
+  styleUrls: ['./disclaimer.component.scss']
 })
 export class DisclaimerComponent implements OnInit {
   // @ts-ignore

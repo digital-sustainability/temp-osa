@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-school-type',
   templateUrl: './school-type.component.html',
-  styleUrls: ['./school-type.component.css'],
+  styleUrls: ['./school-type.component.scss']
 })
 export class SchoolTypeComponent implements OnInit {
   form: any;

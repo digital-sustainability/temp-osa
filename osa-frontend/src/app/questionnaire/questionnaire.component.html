@@ -1,0 +1,20 @@
+<div class="wrapping">
+<form *ngIf="!showResult" [formGroup]="form" (submit)="updateModel()">
+  <div class="header">
+    <div class="options">
+    <div class="flex-spacer"></div>
+    <div [ngClass]="{'option-seven' : optionSeven, 'option-four': optionFour, 'option-five' : optionFive}" *ngFor="let header of headers">{{header}}</div>
+  </div>
+  </div>
+  <div class="formheader">
+    <div class="flex-spacer"></div>
+  </div>
+  <mat-radio-group *ngFor="let key of keys; index as i" [formControlName]="key">
+    <mat-label>{{questions[key]}}</mat-label>
+    <div class="flex-spacer"></div>
+    <mat-radio-button *ngFor="let number of numbers"  [value]="number" ></mat-radio-button>
+  </mat-radio-group>
+  <!--TODO: add form.invalid to [disabled], only not in there for dev purposes-->
+  <button class="primary" style="width: 100%;" type="submit">Ergebnis Anzeigen</button>
+</form>
+</div>

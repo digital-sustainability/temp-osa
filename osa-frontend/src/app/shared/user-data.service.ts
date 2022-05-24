@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService {
-  private env_url = 'http://localhost:3000';
-
   constructor(private http: HttpClient) {}
 
   getUserIdFromURL(): number {
@@ -21,14 +20,9 @@ export class UserDataService {
 
   // Todo: create new user ()
   createUser(): void {
-    console.log('trying http post');
+    console.log('here');
     this.http
-      .post<any>(`${this.env_url}/questionnaire`, {
-        alter: 0,
-        geschlecht: '',
-        wohnkanton: '',
-        plz: '',
-      })
+      .post(`${environment.apiUrl}/questionnaire`, { name: 'hanspeter' })
       .subscribe((res) => {
         console.log(res);
       });

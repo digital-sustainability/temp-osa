@@ -1,39 +1,26 @@
-<div class="wrapper">
+<app-sidenav></app-sidenav>
+<div>
   <header>
-    <div class="logo">
-      <img src="https://www.bfh.ch/dam/jcr:0d9ff345-1271-4195-9908-44f69806a035/Logo%20BFH_dunkler.svg/Logo%20BFH_weiss.svg">
+    <div class="header-container" style="width: 50%;">
+      <div style="background-image:url(assets/home/{{images[0]}})"></div>
+      <div style="background-image:url(assets/home/{{images[1]}})"></div>
     </div>
-    <div class="header-image-container">
+    <div class="header-container" style="width: 50%;">
+      <div style="background-image:url(assets/home/{{images[2]}})"></div>
+      <div style="background-image:url(assets/home/{{images[3]}})"></div>
     </div>
-  </header>
-  <aside>
-    <nav>
-      <button class="nav-button" routerLink="home" routerLinkActive="active">Startseite</button>
-      <hr>
-      <button class="nav-button" routerLink="profile" routerLinkActive="active">Persönliche Angaben</button>
-      <hr>
-      <button class="nav-button" routerLink="personality-trait-scales" routerLinkActive="active">Skalen zu Persönlichkeit und Charaktereigenschaften</button>
-      <hr>
-      <button class="nav-button" routerLink="stereotypes" routerLinkActive="active">Bewertung Stereotypen zur sozialen Arbeit</button>
-      <hr>
-      <button class="nav-button" routerLink="time-management" routerLinkActive="active">Zeitmanagement</button>
-      <hr>
-      <button class="nav-button" routerLink="insights" routerLinkActive="active">Einblick Studienalltag</button>
-      <hr>
-      <button class="nav-button" routerLink="feedback" routerLinkActive="active">Gesamtfeedback</button>
-      <hr>
-      <button class="nav-button">Self Assessment unterbrechen</button>
-      <div class="progress">
-        <div style="margin-bottom: 5px">Ihr Fortschritt: {{progressPercent.value}}%</div>
-        <div id="progress-bar-empty">
-          <div id="progress-bar-fill"></div>
-        </div>
-        <button (click)="add(7)">plus progress</button>
+
+    <!-- <div class="header-image-container">
+      <div class="header-grid">
+        <img src="../../assets/home/bank.jpeg" alt="">
+        <img src="../../assets/home/lawngroup.jpg" alt="">
+        <img src="../../assets/home/pencils.jpeg" alt="">
+        <img src="../../assets/home/tisch.jpg" alt="">
       </div>
-    </nav>
-  </aside>
-  <div class="router-wrapper" [@routeAnimations]="getRouteAnimationData()">
-      <router-outlet></router-outlet>
+    </div> -->
+  </header>
+
+  <div [@routeAnimations]="getRouteAnimationData()">
+    <router-outlet></router-outlet>
   </div>
 </div>
- <footer>© Berner Fachhochschule, Soziale Arbeit</footer> 

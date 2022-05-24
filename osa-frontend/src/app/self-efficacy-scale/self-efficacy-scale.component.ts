@@ -6,13 +6,14 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-self-efficacy-scale',
   templateUrl: './self-efficacy-scale.component.html',
-  styleUrls: ['./self-efficacy-scale.component.css'],
+  styleUrls: ['./self-efficacy-scale.component.scss']
 })
 export class SelfEfficacyScaleComponent implements OnInit {
   form: any;
   score = 0;
   showResult = false;
   @ViewChild('info') info: any;
+  @ViewChild('scoreInfo') scoreInfo: any;
 
   questionnaire: { [key: string]: string } = {
     q1: 'Wenn sich Widerstände auftun, finde ich Mittel und Wege, mich durchzusetzen.',
@@ -25,14 +26,17 @@ export class SelfEfficacyScaleComponent implements OnInit {
     q8: 'Für jedes Problem kann ich eine Lösung finden.',
     q9: 'Wenn eine neue Sache auf mich zukommt, weiss ich, wie ich damit umgehen kann.',
     q10: 'Wenn ein Problem auftaucht kann ich es aus eigener Kraft meistern.',
-  };
+  }
+
   keys = Object.keys(this.questionnaire);
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private userService: UserDataService
-  ) {}
+  headers = ['stimmt\n nicht', 'stimmt\n kaum', 'stimmt\n eher', 'stimmt\n genau']
+
+  naming = {highest: 'stimmt\ngenau', lowest: 'stimmt\nnicht'}
+
+
+
+  constructor(private userService: UserDataService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     const controls: { [key: string]: any } = {};
@@ -51,6 +55,12 @@ export class SelfEfficacyScaleComponent implements OnInit {
     this.showResult = true;
   }
 
+  assignValues(event: any)
+{
+  this.form = event.form
+  this.score = event.score
+  this.showResult = true
+}
   toggleCollapsible() {
     this.info.nativeElement.classList.toggle('active');
     if (this.info.nativeElement.style.maxHeight) {
@@ -67,6 +77,15 @@ export class SelfEfficacyScaleComponent implements OnInit {
       this.router.navigateByUrl('/resilience');
     } else {
       this.router.navigateByUrl(`/resilience?id=${id}`);
+    }
+  }
+
+  toggleScoreInfo(){
+    this.scoreInfo.nativeElement.classList.toggle("active");
+    if (this.scoreInfo.nativeElement.style.maxHeight){
+     this.scoreInfo.nativeElement.style.maxHeight = null;
+    } else {
+     this.scoreInfo.nativeElement.style.maxHeight = this.scoreInfo.nativeElement.scrollHeight + "px";
     }
   }
 }

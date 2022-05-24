@@ -1,0 +1,121 @@
+mat-radio-group {
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  width: 70em;
+}
+
+.formheader {
+  display: flex;
+  gap: 1.19em;
+}
+
+
+.header{
+  padding: 18px 5px 16px 30px;
+  background-color: #4b647d;
+  color: rgb(211, 211, 211);
+  overflow: visible;
+  text-align: middle;
+  position: relative;
+  margin-top: 15px;
+  font-family: "UnitRoundedPro","Helvetica","Arial",sans-serif;
+  font-weight: bold;
+}
+
+.options{
+  display: flex;
+  padding-right: 1px;
+}
+
+.option{
+  margin-left: 3em;
+}
+
+
+
+
+button {
+  width: fit-content;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+button:disabled:hover {
+  background: #697d91;
+}
+
+.content-wrapper {
+  /* display: flex; */
+  gap: 3em;
+  // max-height: 81.5vh;
+  // overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.result{
+  font-size: 1.3rem;
+  margin-left: 25px;
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+  // height: 90vh;
+}
+
+
+#info-button {
+  color: #699bbe;
+  border-radius: 100em;
+  cursor: pointer;
+  font-size: larger;
+}
+
+.mat-icon{
+  vertical-align: middle;
+}
+
+#info {
+  width: 100%;
+  background: white;
+  color: #000;
+  border-radius: 6px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+#info-button:hover #info {
+  visibility: visible;
+}
+
+#scoreInfo {
+  width: 100%;
+  background: white;
+  color: #000;
+  border-radius: 6px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.active {
+  border: 2px solid #eee;
+  padding: 1em;
+}
+
+.mat-radio-group {
+  padding: 0.5em 0;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.mat-radio-button{
+  margin-left: 5em;
+}

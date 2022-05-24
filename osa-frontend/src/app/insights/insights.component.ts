@@ -5,7 +5,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-insights',
   templateUrl: './insights.component.html',
-  styleUrls: ['./insights.component.css'],
+  styleUrls: ['./insights.component.scss']
 })
 export class InsightsComponent implements OnInit {
   constructor(private router: Router, private userService: UserDataService) {}
@@ -19,5 +19,16 @@ export class InsightsComponent implements OnInit {
     } else {
       this.router.navigateByUrl(`/expectations?id=${id}`);
     }
+  }
+
+  scroll(dir: string, amount: number) {
+    amount += 2
+    let elementToScroll = document.getElementById('videos')
+    if (elementToScroll)
+    elementToScroll.scrollBy({
+      top: 0,
+      left: dir === 'left'?-amount:amount,
+      behavior: 'smooth'
+    });
   }
 }

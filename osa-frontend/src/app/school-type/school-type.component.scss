@@ -1,0 +1,16 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+button {
+  width: fit-content;
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+  // height: 90vh;
+}

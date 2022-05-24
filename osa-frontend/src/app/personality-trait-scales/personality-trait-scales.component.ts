@@ -5,7 +5,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-personality-trait-scales',
   templateUrl: './personality-trait-scales.component.html',
-  styleUrls: ['./personality-trait-scales.component.css'],
+  styleUrls: ['./personality-trait-scales.component.scss']
 })
 export class PersonalityTraitScalesComponent implements OnInit {
   constructor(private router: Router, private userService: UserDataService) {}
