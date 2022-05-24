@@ -35,18 +35,8 @@ export class QuestionnaireService {
     let convertedId = new ObjectId(id);
     let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
     let doc = await collection.findOne({_id: convertedId});
-    let alreadyExisting = false;
     for (var updateKey in updateQuestionnaireDto){
-      alreadyExisting = false;
-      for (var oldKey in doc){
-        if (oldKey == updateKey){
-          doc[oldKey] = updateQuestionnaireDto[updateKey];
-          alreadyExisting = true;
-        }
-      }
-      if (alreadyExisting == false) {
-        doc[updateKey] = updateQuestionnaireDto[updateKey];
-      }
+          doc[updateKey] = updateQuestionnaireDto[updateKey];
     }
     collection.replaceOne({_id: convertedId}, doc);
   }
