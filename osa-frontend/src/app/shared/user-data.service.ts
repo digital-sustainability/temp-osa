@@ -9,14 +9,14 @@ import { environment } from '../../environments/environment';
 export class UserDataService {
   constructor(private http: HttpClient) {}
 
-  getUserIdFromURL(): number {
-    let id = -1;
+  getUserIdFromURL(): string {
+    let id = '';
     let url = window.location;
     let params = new URLSearchParams(url.search);
     if (!(params.get('id') === null)) {
-      id = +params.get('id')!;
+      id = params.get('id')!;
     }
-    return id;
+    return id.toString();
   }
 
   postEmptyUser(): Observable<any> {
@@ -24,6 +24,9 @@ export class UserDataService {
   }
 
   // Todo: get existing user by id ()
+  getUserById(id: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/questionnaire/${id}`);
+  }
 
   // Todo: patch user object in backend
 

@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-school-type',
   templateUrl: './school-type.component.html',
-  styleUrls: ['./school-type.component.scss']
+  styleUrls: ['./school-type.component.scss'],
 })
 export class SchoolTypeComponent implements OnInit {
   form: any;
@@ -30,7 +30,7 @@ export class SchoolTypeComponent implements OnInit {
   updateModel() {
     //todo
     const id = this.userService.getUserIdFromURL();
-    if (id == -1) {
+    if (id == '') {
       this.router.navigateByUrl('/personality-trait-scales');
     } else {
       // save user data

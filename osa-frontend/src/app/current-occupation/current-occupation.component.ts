@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-current-occupation',
   templateUrl: './current-occupation.component.html',
-  styleUrls: ['./current-occupation.component.scss']
+  styleUrls: ['./current-occupation.component.scss'],
 })
 export class CurrentOccupationComponent implements OnInit {
   form: any;
@@ -30,7 +30,7 @@ export class CurrentOccupationComponent implements OnInit {
   updateModel() {
     //todo
     const id = this.userService.getUserIdFromURL();
-    if (id == -1) {
+    if (id == '') {
       this.router.navigateByUrl('/school-type');
     } else {
       // save user data

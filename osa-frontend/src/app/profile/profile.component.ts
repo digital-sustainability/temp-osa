@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   updateModel() {
     //todo
     const id = this.userService.getUserIdFromURL();
-    if (id == -1) {
+    if (id == '') {
       this.router.navigateByUrl('/interest');
     } else {
       // save user data

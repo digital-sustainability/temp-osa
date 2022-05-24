@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-interest',
   templateUrl: './interest.component.html',
-  styleUrls: ['./interest.component.scss']
+  styleUrls: ['./interest.component.scss'],
 })
 export class InterestComponent implements OnInit {
   form: any;
@@ -29,7 +29,7 @@ export class InterestComponent implements OnInit {
   updateModel() {
     //todo
     const id = this.userService.getUserIdFromURL();
-    if (id == -1) {
+    if (id == '') {
       this.router.navigateByUrl('/current-occupation');
     } else {
       // save user data

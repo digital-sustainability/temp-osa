@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-resilience',
   templateUrl: './resilience.component.html',
-  styleUrls: ['./resilience.component.scss']
+  styleUrls: ['./resilience.component.scss'],
 })
 export class ResilienceComponent implements OnInit {
   form: any;
@@ -15,7 +15,7 @@ export class ResilienceComponent implements OnInit {
   @ViewChild('info') info: any;
   @ViewChild('scoreInfo') scoreInfo: any;
 
-  naming = {highest: 'ich stimme\nvöllig zu', lowest: 'ich stimme\nnicht zu'}
+  naming = { highest: 'ich stimme\nvöllig zu', lowest: 'ich stimme\nnicht zu' };
 
   questionnaire: { [key: string]: string } = {
     q1: 'Wenn ich Pläne habe, verfolge ich sie auch.',
@@ -34,11 +34,13 @@ export class ResilienceComponent implements OnInit {
   };
   keys = Object.keys(this.questionnaire);
 
-  headers = ['Ich stimme\n nicht zu', 'neutral', 'Ich stimme\n völlig zu']
+  headers = ['Ich stimme\n nicht zu', 'neutral', 'Ich stimme\n völlig zu'];
 
-  constructor(private userService: UserDataService, private formBuilder: FormBuilder, private router: Router) { }
-
-
+  constructor(
+    private userService: UserDataService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const controls: { [key: string]: any } = {};
@@ -57,11 +59,10 @@ export class ResilienceComponent implements OnInit {
     this.showResult = true;
   }
 
-  assignValues(event: any)
-  {
-    this.form = event.form
-    this.score = event.score
-    this.showResult = true
+  assignValues(event: any) {
+    this.form = event.form;
+    this.score = event.score;
+    this.showResult = true;
   }
 
   toggleCollapsible() {
@@ -76,19 +77,20 @@ export class ResilienceComponent implements OnInit {
 
   advanceSite() {
     const id = this.userService.getUserIdFromURL();
-    if (id == -1) {
+    if (id == '') {
       this.router.navigateByUrl('/empathy');
     } else {
       this.router.navigateByUrl(`/empathy?id=${id}`);
     }
   }
 
-  toggleScoreInfo(){
-    this.scoreInfo.nativeElement.classList.toggle("active");
-    if (this.scoreInfo.nativeElement.style.maxHeight){
-     this.scoreInfo.nativeElement.style.maxHeight = null;
+  toggleScoreInfo() {
+    this.scoreInfo.nativeElement.classList.toggle('active');
+    if (this.scoreInfo.nativeElement.style.maxHeight) {
+      this.scoreInfo.nativeElement.style.maxHeight = null;
     } else {
-     this.scoreInfo.nativeElement.style.maxHeight = this.scoreInfo.nativeElement.scrollHeight + "px";
+      this.scoreInfo.nativeElement.style.maxHeight =
+        this.scoreInfo.nativeElement.scrollHeight + 'px';
     }
   }
 }

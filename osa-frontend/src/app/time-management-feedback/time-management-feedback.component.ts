@@ -5,7 +5,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-time-management-feedback',
   templateUrl: './time-management-feedback.component.html',
-  styleUrls: ['./time-management-feedback.component.scss']
+  styleUrls: ['./time-management-feedback.component.scss'],
 })
 export class TimeManagementFeedbackComponent implements OnInit {
   constructor(private router: Router, private userService: UserDataService) {}
@@ -14,7 +14,7 @@ export class TimeManagementFeedbackComponent implements OnInit {
 
   advanceSite() {
     const id = this.userService.getUserIdFromURL();
-    if (id == -1) {
+    if (id == '') {
       this.router.navigateByUrl('/insights');
     } else {
       this.router.navigateByUrl(`/insights?id=${id}`);

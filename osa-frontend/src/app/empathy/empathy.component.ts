@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-empathy',
   templateUrl: './empathy.component.html',
-  styleUrls: ['./empathy.component.scss']
+  styleUrls: ['./empathy.component.scss'],
 })
 export class EmpathyComponent implements OnInit {
   form: any;
@@ -15,18 +15,16 @@ export class EmpathyComponent implements OnInit {
   @ViewChild('info') info: any;
   @ViewChild('scoreInfo') scoreInfo: any;
 
-
-
-  questionnaire: {[key:string]:string} = {
-    q1:  'Ich kann die Gefühle anderer leich nachempfinden.',
-    q2:  'Bevor ich andere kritisiere, bemühe ich mich um Verständnis für ihre Sicht der Dinge.',
-    q3:  'Wenn Leute ausgenutzt werden, habe ich das Bedürfnis, sie zu schützen.',
-    q4:  'Bei Meinungsverschiedenheiten versetzte ich mich in die Lage des Gegenübers.',
-    q5:  'Ich bin einfühlsam.',
-    q6:  'Ich versuche, meine Mitmenschen besser zu verstehen, indem ich die Dinge aus ihrem Blickwinkel betrachte.',
-    q7:  'Es geht mir nahe, wenn andere ein Missgeschick erleiden.',
+  questionnaire: { [key: string]: string } = {
+    q1: 'Ich kann die Gefühle anderer leich nachempfinden.',
+    q2: 'Bevor ich andere kritisiere, bemühe ich mich um Verständnis für ihre Sicht der Dinge.',
+    q3: 'Wenn Leute ausgenutzt werden, habe ich das Bedürfnis, sie zu schützen.',
+    q4: 'Bei Meinungsverschiedenheiten versetzte ich mich in die Lage des Gegenübers.',
+    q5: 'Ich bin einfühlsam.',
+    q6: 'Ich versuche, meine Mitmenschen besser zu verstehen, indem ich die Dinge aus ihrem Blickwinkel betrachte.',
+    q7: 'Es geht mir nahe, wenn andere ein Missgeschick erleiden.',
     q8: 'Auch wenn ich mir meiner Sache sicher bin, bedenke ich die Argumente der anderen.',
-    q9:  'Ich bin mitfühlend gegenüber Menschen, die Probleme haben.',
+    q9: 'Ich bin mitfühlend gegenüber Menschen, die Probleme haben.',
     q10: 'Bei Auseinandersetzungen bemühe ich mich, die Ansichten aller Beteiligten zu verstehen.',
     q11: 'Die Sorgen und Nöte anderer machen mir zu schaffen.',
     q12: 'Bevor ich mich über jemanden aufrege, versuche ich, das Problem mit seinen Augen zu sehen.',
@@ -35,22 +33,25 @@ export class EmpathyComponent implements OnInit {
     q15: 'Es tut mir weh, wenn andere ungerecht behandelt werden.',
     q16: 'Ich kann die Überlegungen andere gut nachvollziehen.',
     q17: 'Ich denke mich in andere hinein.',
-    q18: 'Ich mache mir Sorgen um Menschen, denen es schlechter geht als mir.'
-  }
+    q18: 'Ich mache mir Sorgen um Menschen, denen es schlechter geht als mir.',
+  };
   keys = Object.keys(this.questionnaire);
 
-  headers = ['nie', 'neutral', 'immer']
+  headers = ['nie', 'neutral', 'immer'];
 
-  naming = {highest: 'immer', lowest: 'nie'}
+  naming = { highest: 'immer', lowest: 'nie' };
 
-  assignValues(event: any)
-{
-  this.form = event.form
-  this.score = event.score
-  this.showResult = true
-}
+  assignValues(event: any) {
+    this.form = event.form;
+    this.score = event.score;
+    this.showResult = true;
+  }
 
-  constructor(private userService: UserDataService,private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private userService: UserDataService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const controls: { [key: string]: any } = {};
@@ -81,20 +82,20 @@ export class EmpathyComponent implements OnInit {
 
   advanceSite() {
     const id = this.userService.getUserIdFromURL();
-    if (id == -1) {
+    if (id == '') {
       this.router.navigateByUrl('/stereotypes');
     } else {
       this.router.navigateByUrl(`/stereotypes?id=${id}`);
     }
   }
 
-
-  toggleScoreInfo(){
-    this.scoreInfo.nativeElement.classList.toggle("active");
-    if (this.scoreInfo.nativeElement.style.maxHeight){
-     this.scoreInfo.nativeElement.style.maxHeight = null;
+  toggleScoreInfo() {
+    this.scoreInfo.nativeElement.classList.toggle('active');
+    if (this.scoreInfo.nativeElement.style.maxHeight) {
+      this.scoreInfo.nativeElement.style.maxHeight = null;
     } else {
-     this.scoreInfo.nativeElement.style.maxHeight = this.scoreInfo.nativeElement.scrollHeight + "px";
+      this.scoreInfo.nativeElement.style.maxHeight =
+        this.scoreInfo.nativeElement.scrollHeight + 'px';
     }
   }
 }

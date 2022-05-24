@@ -9,7 +9,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-time-management-planner',
   templateUrl: './time-management-planner.component.html',
-  styleUrls: ['./time-management-planner.component.scss']
+  styleUrls: ['./time-management-planner.component.scss'],
 })
 export class TimeManagementPlannerComponent implements OnInit {
   form: any;
@@ -102,7 +102,7 @@ export class TimeManagementPlannerComponent implements OnInit {
 
   updateModel() {
     const id = this.userService.getUserIdFromURL();
-    if (id == -1) {
+    if (id == '') {
       this.router.navigateByUrl('/time-management-feedback');
     } else {
       // save user data

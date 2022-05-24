@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-time-management',
   templateUrl: './time-management.component.html',
-  styleUrls: ['./time-management.component.scss']
+  styleUrls: ['./time-management.component.scss'],
 })
 export class TimeManagementComponent implements OnInit {
   form: any;
@@ -26,7 +26,7 @@ export class TimeManagementComponent implements OnInit {
   updateModel() {
     //todo
     const id = this.userService.getUserIdFromURL();
-    if (id == -1) {
+    if (id == '') {
       this.router.navigateByUrl('/time-management-planner');
     } else {
       // save user data
