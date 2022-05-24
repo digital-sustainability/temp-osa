@@ -23,95 +23,22 @@ export class UserDataService {
     return this.http.post(`${environment.apiUrl}/questionnaire`, {});
   }
 
-  // Todo: get existing user by id ()
   getUserById(id: string): Observable<any> {
     return this.http.get(`${environment.apiUrl}/questionnaire/${id}`);
   }
 
   // Todo: patch user object in backend
 
-  // * ProfileComponent: patch profile
-  /*
-    age: number
-    gender: string
-    canton: string
-    city: string
-    */
+  addDataToUser(id: string, data: any): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/questionnaire/${id}`, data);
+  }
 
-  // * InterestComponent: patch interest
   /*
-    checkbox1: boolean,
-    checkbox2: boolean,
-    checkbox3: boolean,
-    checkbox4: boolean
-  */
-
-  // * CurrentOccupationComponent: patch current occupation
-  /*
-    checkbox1: boolean,
-    checkbox2: boolean,
-    checkbox3: boolean,
-    checkbox4: boolean,
-    checkbox5: boolean
-  */
-
-  // * SchoolTypeComponent: patch current occupation
-  /*
-    checkbox1: boolean,
-    checkbox2: boolean,
-    checkbox3: boolean,
-    checkbox4: boolean,
-    checkbox5: boolean
-  */
-
-  // * SelfEfficacyScaleComponent: patch self-efficacy
-  /*
-  q1:  number,
-  q2:  number,
-  q3:  number,
-  q4:  number,
-  q5:  number,
-  q6:  number,
-  q7:  number,
-  q8:  number,
-  q9:  number,
-  q10: number,
-  q11: number,
-  q12: number,
-  q13: number,
-  */
-
-  // * ResilienceComponent: patch resilience
-  /*
-  q1:  number,
-  q2:  number,
-  q3:  number,
-  q4:  number,
-  q5:  number,
-  q6:  number,
-  q7:  number,
-  q8:  number,
-  q9:  number,
-  q10: number,
-  q11: number,
-  q12: number,
-  q13: number,
-  */
-
-  // * EmpathyComponent: patch empathy
-  /*
-  q1:  number,
-  q2:  number,
-  q3:  number,
-  q4:  number,
-  q5:  number,
-  q6:  number,
-  q7:  number,
-  q8:  number,
-  q9:  number,
-  q10: number,
-  q11: number,
-  q12: number,
-  q13: number,
+  ? generic get user code
+    const id = this.userService.getUserIdFromURL();
+    console.log(id);
+    this.userService.getUserById(id).subscribe((user) => {
+      console.log(user);
+    });
   */
 }

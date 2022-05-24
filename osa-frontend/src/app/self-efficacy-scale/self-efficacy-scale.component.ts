@@ -82,6 +82,14 @@ export class SelfEfficacyScaleComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/resilience');
     } else {
+      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+        // console.log(res);
+      });
+      this.userService
+        .addDataToUser(id, { 'self-efficacy-value': this.score })
+        .subscribe((res) => {
+          // console.log(res);
+        });
       this.router.navigateByUrl(`/resilience?id=${id}`);
     }
   }

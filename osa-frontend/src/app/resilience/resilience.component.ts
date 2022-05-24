@@ -80,6 +80,14 @@ export class ResilienceComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/empathy');
     } else {
+      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+        // console.log(res);
+      });
+      this.userService
+        .addDataToUser(id, { 'resilience-value': this.score })
+        .subscribe((res) => {
+          // console.log(res);
+        });
       this.router.navigateByUrl(`/empathy?id=${id}`);
     }
   }

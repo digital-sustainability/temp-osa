@@ -29,7 +29,9 @@ export class TimeManagementComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/time-management-planner');
     } else {
-      // save user data
+      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+        // console.log(res);
+      });
       this.router.navigateByUrl(`/time-management-planner?id=${id}`);
     }
   }

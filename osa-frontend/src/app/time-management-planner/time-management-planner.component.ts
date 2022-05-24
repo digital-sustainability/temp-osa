@@ -105,7 +105,9 @@ export class TimeManagementPlannerComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/time-management-feedback');
     } else {
-      // save user data
+      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+        // console.log(res);
+      });
       this.router.navigateByUrl(`/time-management-feedback?id=${id}`);
     }
   }
