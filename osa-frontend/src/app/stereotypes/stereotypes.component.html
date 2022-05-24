@@ -8,8 +8,8 @@
   <form [formGroup]="form">
     <mat-tab-group #grp class="invisible-tabs" (selectedIndexChange)="setLastTab($event)">
       <mat-tab *ngFor="let claim of claims; let i = index">
-        <h5>Behauptung {{i + 1}}:</h5>
-        <h6>{{claim.claim}}</h6>
+        <h3>Behauptung {{i + 1}}:</h3>
+        <h4>{{claim.claim}}</h4>
         <mat-radio-group [formControlName]="'claim' + i">
           <mat-radio-button labelPosition="before" value="1">Trifft zu:</mat-radio-button>
           <mat-radio-button labelPosition="before" value="2">Trifft teilweise zu:</mat-radio-button>
