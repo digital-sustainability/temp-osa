@@ -9,37 +9,36 @@ import { UpdateQuestionnaireDto } from './dto/update-questionnaire.dto';
 export class QuestionnaireService {
   private readonly COLLECTIONNAME = 'osa-fragebogen';
 
-  constructor (private mongo: MongoService){  
-  }
+  constructor(private mongo: MongoService) {}
 
   async create(createQuestionnaireDto: CreateQuestionnaireDto): Promise<any> {
-    let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
-    let result = await collection.insertOne(createQuestionnaireDto);
-    let id = result.insertedId.valueOf().toString();
-    return {"userId": id};
+    const collection = await this.mongo.getCollection(this.COLLECTIONNAME);
+    const result = await collection.insertOne(createQuestionnaireDto);
+    const id = result.insertedId.valueOf().toString();
+    return { userId: id };
   }
 
   async findAll() {
-    let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
+    const collection = await this.mongo.getCollection(this.COLLECTIONNAME);
     return collection.find().toArray();
   }
 
   async findOne(id: string) {
-    let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
-    let convertedId = new ObjectId(id);
-    let document = collection.findOne({_id: convertedId});
+    const collection = await this.mongo.getCollection(this.COLLECTIONNAME);
+    const convertedId = new ObjectId(id);
+    const document = collection.findOne({ _id: convertedId });
     return document;
   }
 
   async update(id: string, updateQuestionnaireDto: UpdateQuestionnaireDto) {
-    let convertedId = new ObjectId(id);
-    let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
-    let doc = await collection.findOne({_id: convertedId});
+    const convertedId = new ObjectId(id);
+    const collection = await this.mongo.getCollection(this.COLLECTIONNAME);
+    const doc = await collection.findOne({ _id: convertedId });
     let alreadyExisting = false;
-    for (var updateKey in updateQuestionnaireDto){
+    for (const updateKey in updateQuestionnaireDto) {
       alreadyExisting = false;
-      for (var oldKey in doc){
-        if (oldKey == updateKey){
+      for (const oldKey in doc) {
+        if (oldKey == updateKey) {
           doc[oldKey] = updateQuestionnaireDto[updateKey];
           alreadyExisting = true;
         }
@@ -48,7 +47,6 @@ export class QuestionnaireService {
         doc[updateKey] = updateQuestionnaireDto[updateKey];
       }
     }
-    collection.replaceOne({_id: convertedId}, doc);
+    return await collection.replaceOne({ _id: convertedId }, doc);
   }
-  
 }

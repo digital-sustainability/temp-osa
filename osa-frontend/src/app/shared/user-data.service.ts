@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -18,14 +19,8 @@ export class UserDataService {
     return id;
   }
 
-  // Todo: create new user ()
-  createUser(): void {
-    console.log('here');
-    this.http
-      .post(`${environment.apiUrl}/questionnaire`, { name: 'hanspeter' })
-      .subscribe((res) => {
-        console.log(res);
-      });
+  postEmptyUser(): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/questionnaire`, {});
   }
 
   // Todo: get existing user by id ()

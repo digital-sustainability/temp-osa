@@ -1,45 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from "rxjs";
-import { slideInAnimation } from "./animation";
-import { ChildrenOutletContexts, NavigationStart, Router } from "@angular/router";
+import { BehaviorSubject } from 'rxjs';
+import { slideInAnimation } from './animation';
+import {
+  ChildrenOutletContexts,
+  NavigationStart,
+  Router,
+} from '@angular/router';
 import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [slideInAnimation]
+  animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit {
   title = 'OSA-eignungstool';
   currentPage = 'Startseite';
-  progressPercent = new BehaviorSubject<number>(0)
+  progressPercent = new BehaviorSubject<number>(0);
 
-  images: string[] = []
+  images: string[] = [];
 
-  active = false
+  active = false;
 
-  constructor(protected dataService: DataService, private contexts: ChildrenOutletContexts, private router: Router) {
+  constructor(
+    protected dataService: DataService,
+    private contexts: ChildrenOutletContexts,
+    private router: Router
+  ) {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        const currentImages = this.dataService.getCurrentImages()
-        const allImages = this.dataService.getImageList()
-        const newImages: number[] = []
+        const currentImages = this.dataService.getCurrentImages();
+        const allImages = this.dataService.getImageList();
+        const newImages: number[] = [];
         for (let i = 0; i < 4; i += 1) {
-          let notValidImage = true
+          let notValidImage = true;
           while (notValidImage) {
-            debugger
-            const idx = this.getRandomInt(allImages.length)
+            //debugger
+            const idx = this.getRandomInt(allImages.length);
             if (!currentImages.includes(idx) && !newImages.includes(idx)) {
-              newImages.push(idx)
-              notValidImage = false
+              newImages.push(idx);
+              notValidImage = false;
             }
           }
         }
         this.dataService.setCurrentImages(newImages);
-        this.images = []
+        this.images = [];
         for (const img of newImages) {
-          this.images.push(allImages[img])
+          this.images.push(allImages[img]);
         }
       }
     });
@@ -50,24 +58,26 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.progressPercent.subscribe(progress => {
-      const element = document.getElementById('progress-bar-fill')
+    this.progressPercent.subscribe((progress) => {
+      const element = document.getElementById('progress-bar-fill');
       if (element) {
-        element.style.width = `${progress}%`
+        element.style.width = `${progress}%`;
       }
-    })
+    });
   }
 
   add(amount: number) {
-    let val = this.progressPercent.value + amount
+    let val = this.progressPercent.value + amount;
     if (val > 100) {
-      this.progressPercent.next(100)
+      this.progressPercent.next(100);
     } else {
-      this.progressPercent.next(val)
+      this.progressPercent.next(val);
     }
   }
 
   getRouteAnimationData() {
-    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.[
+      'animation'
+    ];
   }
 }

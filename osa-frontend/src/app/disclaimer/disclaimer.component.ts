@@ -6,7 +6,7 @@ import { UserDataService } from '../shared/user-data.service';
 @Component({
   selector: 'app-disclaimer',
   templateUrl: './disclaimer.component.html',
-  styleUrls: ['./disclaimer.component.scss']
+  styleUrls: ['./disclaimer.component.scss'],
 })
 export class DisclaimerComponent implements OnInit {
   // @ts-ignore
@@ -29,13 +29,14 @@ export class DisclaimerComponent implements OnInit {
     if (this.form.value.save_data == 'yes') {
       console.log('saving user data');
 
-      // create new user object in backend
-      this.userService.createUser();
-
-      // display id to user
-
-      // * this.router.navigateByUrl('/information?id=' + id);
+      // create new (empty) user object in backend
+      this.userService.postEmptyUser().subscribe((res) => {
+        let id = res.userId;
+        // Todo: display id to user
+        this.router.navigateByUrl(`/information?id=${id}`);
+      });
+    } else {
+      this.router.navigateByUrl('/information');
     }
-    this.router.navigateByUrl('/information');
   }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Put, Patch} from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Patch } from '@nestjs/common';
 import { QuestionnaireService } from './questionnaire.service';
 import { CreateQuestionnaireDto } from './dto/create-questionnaire.dto';
 import { ReplaceQuestionnaireDto } from './dto/replace-questionnaire.dto';
@@ -25,8 +25,10 @@ export class QuestionnaireController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateQuestionnaireDto: UpdateQuestionnaireDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateQuestionnaireDto: UpdateQuestionnaireDto,
+  ) {
     return this.questionnaireService.update(id, updateQuestionnaireDto);
   }
-
 }
