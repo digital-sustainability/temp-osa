@@ -28,17 +28,16 @@ export class UserDataService {
     return this.http.get(`${environment.apiUrl}/questionnaire/${id}`);
   }
 
-  // Todo: patch user object in backend
 
-  // * ProfileComponent: patch profile
-  /*
-    age: number
-    gender: string
-    canton: string
-    city: string
-    */
+  async updateProfile (_age: number, _gender: string, _canton: string, _city: string){
+    let id = await this.getUserIdFromURL();
+    this.http.put(`${environment.apiUrl}/questionnaire/${id}`, {age: _age, gender: _gender, canton: _canton, city: _city}).subscribe((res) => {
+      console.log(res);
+    });
+;
+  }
 
-  // * InterestComponent: patch interest
+  // * InterestComponent: put interest
   /*
     checkbox1: boolean,
     checkbox2: boolean,
@@ -46,7 +45,7 @@ export class UserDataService {
     checkbox4: boolean
   */
 
-  // * CurrentOccupationComponent: patch current occupation
+  // * CurrentOccupationComponent: put current occupation
   /*
     checkbox1: boolean,
     checkbox2: boolean,
@@ -55,7 +54,7 @@ export class UserDataService {
     checkbox5: boolean
   */
 
-  // * SchoolTypeComponent: patch current occupation
+  // * SchoolTypeComponent: put current occupation
   /*
     checkbox1: boolean,
     checkbox2: boolean,
@@ -64,7 +63,7 @@ export class UserDataService {
     checkbox5: boolean
   */
 
-  // * SelfEfficacyScaleComponent: patch self-efficacy
+  // * SelfEfficacyScaleComponent: put self-efficacy
   /*
   q1:  number,
   q2:  number,
@@ -81,7 +80,7 @@ export class UserDataService {
   q13: number,
   */
 
-  // * ResilienceComponent: patch resilience
+  // * ResilienceComponent: put resilience
   /*
   q1:  number,
   q2:  number,
@@ -98,7 +97,7 @@ export class UserDataService {
   q13: number,
   */
 
-  // * EmpathyComponent: patch empathy
+  // * EmpathyComponent: put empathy
   /*
   q1:  number,
   q2:  number,

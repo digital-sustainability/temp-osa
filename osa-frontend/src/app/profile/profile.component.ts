@@ -27,12 +27,11 @@ export class ProfileComponent implements OnInit {
   }
 
   updateModel() {
-    //todo
     const id = this.userService.getUserIdFromURL();
     if (id == '') {
       this.router.navigateByUrl('/interest');
     } else {
-      // save user data
+      this.userService.updateProfile(this.form.value.age, this.form.value.gender, this.form.value.canton, this.form.value.city);
       this.router.navigateByUrl(`/interest?id=${id}`);
     }
   }
