@@ -24,11 +24,12 @@ export class ModalService {
 
   };
 
-  showVideoModal() {
-    this.modalService.open(
+  showVideoModal(url: string) {
+    const modalRef = this.modalService.open(
       VideoModalComponent,
       this.modalOption3
     )
+    modalRef.componentInstance.url = url
   }
 
   modalClosedEvent() {
