@@ -31,23 +31,24 @@ export class QuestionnaireService {
     return document;
   }
 
-  /*async replace(id: string, replaceQuestionnaireDto: ReplaceQuestionnaireDto) {
-    let convertedId = new ObjectId(id);
-    let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
-    collection.replaceOne({ _id: convertedId}, replaceQuestionnaireDto);
-  }*/
-
   async update(id: string, updateQuestionnaireDto: UpdateQuestionnaireDto) {
     let convertedId = new ObjectId(id);
     let collection = await this.mongo.getCollection(this.COLLECTIONNAME);
     let doc = await collection.findOne({_id: convertedId});
-    for (var oldKey in doc){
-      for (var updateKey in updateQuestionnaireDto){
+    let alreadyExisting = false;
+    for (var updateKey in updateQuestionnaireDto){
+      alreadyExisting = false;
+      for (var oldKey in doc){
         if (oldKey == updateKey){
-          doc[oldKey] = updateQuestionnaireDto[updateKey]
+          doc[oldKey] = updateQuestionnaireDto[updateKey];
+          alreadyExisting = true;
         }
+      }
+      if (alreadyExisting == false) {
+        doc[updateKey] = updateQuestionnaireDto[updateKey];
       }
     }
     collection.replaceOne({_id: convertedId}, doc);
   }
+  
 }
