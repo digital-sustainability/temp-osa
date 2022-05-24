@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   showVideoModal(event: Event) {
     this.modal = true
     event.preventDefault();
-    this.modalService.showVideoModal();
+    this.modalService.showVideoModal('https://mediaspace.bfh.ch/embed/secure/iframe/entryId/0_wpc9vz3a/uiConfId/23488891');
   }
 
 }
