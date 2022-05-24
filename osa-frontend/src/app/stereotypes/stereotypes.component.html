@@ -1,7 +1,10 @@
-<div class="content-wrapper">
+<div class="container content-wrapper">
   <h1>Bewertung Stereotypen zur Sozialen Arbeit</h1>
   <p>Bitte beurteilen Sie die folgenden 12 Behauptungen zur Sozialen Arbeit. Wählen Sie jeweils zwischen "trifft zu", "trifft
     teilweise" und "trifft nicht zu" aus.</p>
+</div>
+<hr>
+<div class="container content-wrapper">
   <form [formGroup]="form">
     <mat-tab-group #grp class="invisible-tabs" (selectedIndexChange)="setLastTab($event)">
       <mat-tab *ngFor="let claim of claims; let i = index">

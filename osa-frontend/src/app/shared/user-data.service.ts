@@ -1,13 +1,11 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {environment} from "../../environments/environment";
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService {
-
   constructor(private http: HttpClient) {}
 
   getUserIdFromURL(): number {
@@ -20,12 +18,11 @@ export class UserDataService {
     return id;
   }
 
-
   // Todo: create new user ()
   createUser(): void {
-    console.log("here")
+    console.log('here');
     this.http
-      .post(`${environment.apiUrl}/questionnaire`, {"name": "hanspeter"})
+      .post(`${environment.apiUrl}/questionnaire`, { name: 'hanspeter' })
       .subscribe((res) => {
         console.log(res);
       });

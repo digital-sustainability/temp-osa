@@ -7,3 +7,10 @@ form {
 button {
   width: fit-content;
 }
+
+.flex-wrapper {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+  // height: 90vh;
+}
