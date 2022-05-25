@@ -26,6 +26,25 @@
   border-right: 2px solid #4a83aa;
 }
 
+
+.overlay{
+  height: 50px;
+  position: absolute;
+  top: 210px;
+  left: 10px;
+  width: 65px;
+
+  border-radius: 10px;
+}
+
+.logo{
+  width: 120px;
+}
+
+mat-drawer-container{
+  z-index: 150;
+}
+
 .backdrop {
   position: fixed !important;
   z-index: 1001;
@@ -38,6 +57,7 @@
 }
 
 .navigation {
+  border-radius: 1px;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -46,9 +66,6 @@
   left: 10px;
 }
 
-.navigation img {
-  width: 6vw;
-}
 
 .toggle {
   margin-top: 15px;

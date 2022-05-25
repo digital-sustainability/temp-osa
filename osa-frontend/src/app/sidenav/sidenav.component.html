@@ -1,5 +1,6 @@
+
 <div class="navigation">
-    <img
+    <img class="logo"
         src="https://www.bfh.ch/dam/jcr:0d9ff345-1271-4195-9908-44f69806a035/Logo%20BFH_dunkler.svg/Logo%20BFH_weiss.svg">
     <div class="toggle">
         <button (click)="toggleSideBar()" [ngClass]="opened ? 'is-active' : ''"
@@ -18,17 +19,20 @@
                 <h3>Berner Fachhochschule</h3>
                 <hr>
                 <ul class="nav-tabs">
-                    <li><a routerLink="/">Home</a></li>
+                    <li><a routerLink="/" (click)="sidenav.close()" (click)="opened = false">Home</a></li>
                     <hr>
-                    <li>Persönliche Angaben</li>
+                    <li><a routerLink="/profile" (click)="sidenav.close()" (click)="opened = false">Persönliche Angaben</a></li>
                     <hr>
-                    <li>Persönlichkeitsmerkmale</li>
+                    <li><a routerLink="/personality-trait-scales"  (click)="sidenav.close()" (click)="opened = false">Persönlichkeitsmerkmale</a></li>
                     <hr>
-                    <li>Vorstellung Soziale Arbeit</li>
+                    <li><a routerLink="/stereotypes"  (click)="sidenav.close()" (click)="opened = false">Vorstellung Soziale Arbeit</a></li>
                     <hr>
-                    <li>Einblich ins Studium - <br> Zeitmanagement</li>
+                    <li><a routerLink="/time-management-planner"  (click)="sidenav.close()" (click)="opened = false">Einblich ins Studium - <br>
+                      Zeitmanagement</a></li>
                     <hr>
-                    <li>Einblich ins Studium <br> Studienalltag</li>
+
+                    <li><a routerLink="/expectations"  (click)="sidenav.close()" (click)="opened = false">Einblich ins Studium - <br>
+                      Studienalltag</a></li>
                     <hr>
                     <li>Anforderungen an Studierende</li>
                     <hr>
