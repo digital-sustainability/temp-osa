@@ -15,7 +15,6 @@ describe('QuestionnaireService', () => {
           useFactory: async () => {
           let mongo = new MongoService();
           await mongo.onModuleInit();
-          const COLLECTIONNAME = "osa-fragebogen";
           await mongo.createCollection(COLLECTIONNAME);
           return mongo;
         },
@@ -32,7 +31,7 @@ describe('QuestionnaireService', () => {
   });
   
   describe ('should be defined', () => {
-  it('should be defined', () => {
+  it('service should be defined', () => {
     expect(service).toBeDefined();
   });
 
