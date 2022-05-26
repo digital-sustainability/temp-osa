@@ -1,27 +1,37 @@
 <div class="content-wrapper">
   <div class="container">
-  <div style="width: 100%;"><h1>Empathie & Perspektivenübernahme</h1></div>
+    <div style="width: 100%;">
+      <h1>Empathie & Perspektivenübernahme</h1>
+    </div>
     <div *ngIf="!showResult">
-      Die folgenden Aussagen beschreiben Handlungen und Empfindungen im Umgang mit anderen Menschen. Kreuzen Sie bitte für jede Aussage an, wie selten oder oft Sie so handeln oder empfinden.
+      Die folgenden Aussagen beschreiben Handlungen und Empfindungen im Umgang mit anderen Menschen. Kreuzen Sie bitte
+      für jede Aussage an, wie selten oder oft Sie so handeln oder empfinden.
       <br>
     </div>
   </div>
   <hr>
   <div class="flex-wrapper">
     <div class="wrap">
-    <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [questions]="questionnaire" [numberOfOptions]="5" [values]="form.value" [naming]="naming" [headers]="headers"></app-questionnaire>
-    <app-result-table *ngIf="showResult" [numberOfOptions]="5" [questions]="questionnaire" [values]="form.value" [naming]="naming"></app-result-table>
-    <div style="margin-top:20px;" class="footnote">
-      <p>
-        Quelle: Maes, J., Schmitt, M. & Schmal, A. (1995). Gerechtigkeit als innerdeutsches Problem: Werthaltungen, Kontrollüberzeugungen, Freiheitsüberzeugungen, Drakonität, Soziale Einstellungen, Empathie und Protestantische Arbeitsethik als Kovariate (Berichte aus der Arbeitsgruppe "Verantwortung, Gerechtigkeit, Moral" Nr.85). Trier: Universität Trier, Fachbereich I - Psychologie.
-      </p>
+      <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [questions]="questionnaire"
+        [numberOfOptions]="5" [values]="form.value" [naming]="naming" [headers]="headers"></app-questionnaire>
+      <app-result-table *ngIf="showResult" [numberOfOptions]="5" [questions]="questionnaire" [values]="form.value"
+        [naming]="naming"></app-result-table>
+      <div style="margin-top:20px;" class="footnote">
+        <p>
+          Quelle: Maes, J., Schmitt, M. & Schmal, A. (1995). Gerechtigkeit als innerdeutsches Problem: Werthaltungen,
+          Kontrollüberzeugungen, Freiheitsüberzeugungen, Drakonität, Soziale Einstellungen, Empathie und Protestantische
+          Arbeitsethik als Kovariate (Berichte aus der Arbeitsgruppe "Verantwortung, Gerechtigkeit, Moral" Nr.85).
+          Trier: Universität Trier, Fachbereich I - Psychologie.
+        </p>
+      </div>
     </div>
-  </div>
 
     <div *ngIf="showResult" class="result">
       <div style="display: flex; align-items: center;">
-          <mat-icon id="info-button" (click)="toggleCollapsible()" style="width: 1.3em; font-size: 40px; margin-bottom: 15px;">info</mat-icon>
-        <h3 style="color: #4b647d;">Ihr Resilienz Wert ist:&nbsp;&nbsp;&nbsp;<span (click)="toggleScoreInfo()" style="font-size: 2.5rem; text-decoration: underline; cursor: pointer;">{{score}}</span></h3>
+        <mat-icon id="info-button" (click)="toggleCollapsible()"
+          style="width: 1.3em; font-size: 40px; margin-bottom: 15px;">info</mat-icon>
+        <h3 style="color: #4b647d;">Ihr Resilienz Wert ist:&nbsp;&nbsp;&nbsp;<span (click)="toggleScoreInfo()"
+            style="font-size: 2.5rem; text-decoration: underline; cursor: pointer;">{{score}}</span></h3>
       </div>
       <hr>
       <h4>Soeben haben Sie einen Fragebogenausgefüllt, mit der Ihre Selbstwirksamkeit bemessen wurde.</h4>
@@ -29,16 +39,20 @@
         <span style="font-weight: bold;">Erläuterung:</span>
         <br>
         <br>
-      Soeben haben Sie einen Fragebogen zur Ermessung ihrer eigenen Resilienz ausgefüllt. Wie sollen Sie ihr Ergebnis nun interpretieren...? Mit der Resilienz Skala können
-          Werte in der Spannbreite von 10 bis 70 erhalten werden. Einen hohen Gesamtwert weist auf eine hohe persönliche Resilienz.
-    <br>
-    <br>
-        Grundsätzlich ist es in der Sozialen Arbeit von Vorteil, wenn sich die einzelnen Werte zur Resilienz im hohen Segment befinden. Resilient zu sein, ist für Sozialarbeitende ausschlaggebend, da sie täglich
-        mit Problemen auf gesellschaftlicher, institutioneller und individueller Ebene konfrontiert werden. Diesen Problemlagen müssen Sozialarbeitende die Stirn bieten und Widerstandsfähgikeit beweisen,
-         um ihre Dienst- und Unterstützungsleistungen sicherzustellen sowie auch ihre eigene Gesundheit zu bewahren.
-         <br>
-         <br>
-         <span class="footnote">(Eggli & Romano, 2022)</span>
+        Soeben haben Sie einen Fragebogen zur Ermessung ihrer eigenen Resilienz ausgefüllt. Wie sollen Sie ihr Ergebnis
+        nun interpretieren...? Mit der Resilienz Skala können
+        Werte in der Spannbreite von 10 bis 70 erhalten werden. Einen hohen Gesamtwert weist auf eine hohe persönliche
+        Resilienz.
+        <br>
+        <br>
+        Grundsätzlich ist es in der Sozialen Arbeit von Vorteil, wenn sich die einzelnen Werte zur Resilienz im hohen
+        Segment befinden. Resilient zu sein, ist für Sozialarbeitende ausschlaggebend, da sie täglich
+        mit Problemen auf gesellschaftlicher, institutioneller und individueller Ebene konfrontiert werden. Diesen
+        Problemlagen müssen Sozialarbeitende die Stirn bieten und Widerstandsfähgikeit beweisen,
+        um ihre Dienst- und Unterstützungsleistungen sicherzustellen sowie auch ihre eigene Gesundheit zu bewahren.
+        <br>
+        <br>
+        <span class="footnote">(Eggli & Romano, 2022)</span>
       </p>
       <p #scoreInfo id="info" style="margin-top: 0">Hinweise zur Auswertung:
         Die Auswertung erfolgt über eine Addition
@@ -50,9 +64,9 @@
         <br>
         Punktwerte 10 - 20 = niedrig<br><br>
         Punktwerte 20 - 30 = moderat<br><br>
-        Punktwerte 30 - 40 = hoch</p>
+        Punktwerte 30 - 40 = hoch
+      </p>
       <button class="primary" routerLink="/stereotypes">Weiter mit Self-Assessment</button>
     </div>
   </div>
 </div>
-
