@@ -42,6 +42,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 const routes: Route[] = [
@@ -99,6 +101,7 @@ const routes: Route[] = [
     SidenavComponent,
   ],
   imports: [
+    MatTooltipModule,
     HttpClientModule,
     FontAwesomeModule,
     MatSidenavModule,

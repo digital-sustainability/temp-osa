@@ -5,5 +5,13 @@ form {
 }
 
 button {
-  width: fit-content;
+  // width: fit-content;
+}
+
+.check{
+  display: flex;
+}
+
+mat-tooltip{
+  font-size: 1rem!important;
 }

@@ -1,18 +1,17 @@
 <div class="container content-wrapper">
-  <h1>Interesse</h1>
+  <h1>Ihr Interesse</h1>
 
 
 
-  <p>Aus welchem Interesse möchte Sie den Test bearbeiten? (Mehrfachnennung möglich)</p>
-  <p><i>Modus: Interessierte wählen (mehrere) vorgegebene Aussagen aus. </i></p>
+  <p>Aus welchem Grund möchte Sie das Self-Assessment bearbeiten? (Mehrfachnennung möglich)</p>
 </div>
   <hr>
   <div class="container content-wrapper">
   <form [formGroup]="form" (submit)="updateModel()">
-    <mat-checkbox formControlName="checkbox1">Ich interessiere mich für das Studium in Sozialer Arbeit allgemein</mat-checkbox>
-    <mat-checkbox formControlName="checkbox2">Ich möchte mir den Test nur aus Interesse anschauen.</mat-checkbox>
-    <mat-checkbox formControlName="checkbox3">Ich interessiere mich für das Studium in Sozialer Arbeit an der Berner Fachhochschule.</mat-checkbox>
-    <mat-checkbox formControlName="checkbox4">Ich interessiere mich für das Studium in Sozialer Arbeit an einer anderen Hochschule oder Höheren Fachschule.</mat-checkbox>
+    <div class="check"><mat-checkbox formControlName="checkbox1">Ich interessiere mich für das Studium in Sozialer Arbeit allgemein</mat-checkbox>  <mat-icon matTooltipClass="tooltip"  matTooltip="Bei Ankreuzen dieser Option werden Ihre Daten in anonymisierter Form gespeichert. Die Daten dienen uns, um die Nutzung des Self-Assessments auszuwerten und das Self-Assessment weiterzuentwickeln. Trotz Speicherung der Daten sind keine Rückschlüsse auf Ihre Person möglich." id="info-button">info</mat-icon></div>
+    <div class="check"><mat-checkbox formControlName="checkbox2">Ich interessiere mich für das Studium in Sozialer Arbeit an der Berner Fachhochschule.</mat-checkbox>  <mat-icon matTooltipClass="tooltip" matTooltip="Bei Ankreuzen dieser Option werden Ihre Daten in anonymisierter Form gespeichert. Die Daten dienen uns, um die Nutzung des Self-Assessments auszuwerten und das Self-Assessment weiterzuentwickeln. Trotz Speicherung der Daten sind keine Rückschlüsse auf Ihre Person möglich." id="info-button">info</mat-icon></div>
+    <div class="check"><mat-checkbox formControlName="checkbox3">Ich interessiere mich für das Studium in Sozialer Arbeit an einer anderen Hochschule oder Höheren Fachschule.</mat-checkbox>  <mat-icon matTooltipClass="tooltip" matTooltip="Bei Ankreuzen dieser Option werden Ihre Daten in anonymisierter Form gespeichert. Die Daten dienen uns, um die Nutzung des Self-Assessments auszuwerten und das Self-Assessment weiterzuentwickeln. Trotz Speicherung der Daten sind keine Rückschlüsse auf Ihre Person möglich." id="info-button">info</mat-icon></div>
+    <div class="check"><mat-checkbox formControlName="checkbox4">Ich mache das Self-Assessment aus Neugier.</mat-checkbox>  <mat-icon matTooltipClass="tooltip" matTooltip="Beim Ankreuzen dieser Option werden keine Daten gespeichert." id="info-button">info</mat-icon></div>
     <button class="primary" type="submit">Weiter</button>
   </form>
 </div>

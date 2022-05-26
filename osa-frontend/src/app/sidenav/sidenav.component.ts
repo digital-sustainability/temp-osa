@@ -18,9 +18,7 @@ export class SidenavComponent implements OnInit {
   opened = false;
 
   toggleSideBar() {
-
     this.opened = !this.opened;
-    console.log(this.opened);
   }
 
 }
