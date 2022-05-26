@@ -41,9 +41,29 @@ export class EmpathyComponent implements OnInit {
 
   naming = { highest: 'immer', lowest: 'nie' };
 
+  firstScore = 0
+
+  secondScore = 0
+
+  overallScore = 0
+
+  firstKeys = ['q1', 'q3', 'q5', 'q7', 'q9', 'q11', 'q13', 'q15', 'q18']
+
+  secondKeys = ['q2', 'q4', 'q6', 'q8', 'q10', 'q12', 'q14', 'q16', 'q17']
+
   assignValues(event: any) {
     this.form = event.form;
+    for (const key in event.form.value) {
+      console.log(key, "key")
+      this.overallScore += this.form.value[key]
+      if (this.firstKeys.includes(key)) this.firstScore += this.form.value[key]
+      if (this.secondKeys.includes(key)) this.secondScore += this.form.value[key]
+    }
+    this.firstScore = this.firstScore / 9
+    this.secondScore = this.secondScore / 9
+    this.overallScore = this.overallScore / 18
     this.score = event.score;
+    console.log(this.firstScore, this.secondScore, this.overallScore)
     this.showResult = true;
   }
 
@@ -51,7 +71,7 @@ export class EmpathyComponent implements OnInit {
     private userService: UserDataService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const controls: { [key: string]: any } = {};
@@ -63,7 +83,10 @@ export class EmpathyComponent implements OnInit {
 
   updateModel() {
     let total = 0;
+    console.log(this.form.value['q1'], "test")
+    console.log(this.form.value['q2'], "test")
     Object.keys(this.form.value).forEach((key) => {
+      console.log(this.form[key])
       total += +this.form.value[key];
     });
     this.score = total;
