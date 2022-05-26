@@ -9,14 +9,11 @@ describe('QuestionnaireService', () => {
   
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
+      providers: [ QuestionnaireService, 
         { provide: MongoService,
           useFactory: async () => {
-          const mongo = new MongoService();
+          let mongo = new MongoService();
           await mongo.onModuleInit();
-          const COLLECTIONNAME = "osa-fragebogen";
-          await mongo.createCollection(COLLECTIONNAME);
-          const document1 = {title: "document1", _id: new ObjectId("507f1f77bcf86cd799439011")};
           return mongo;
         },
       },
