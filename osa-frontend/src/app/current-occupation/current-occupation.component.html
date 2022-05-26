@@ -6,11 +6,14 @@
 <hr>
 <div class="container content-wrapper">
   <form [formGroup]="form" (submit)="updateModel()">
-    <mat-checkbox formControlName="checkbox1">Schüler*in</mat-checkbox>
-    <mat-checkbox formControlName="checkbox2">Student*in</mat-checkbox>
-    <mat-checkbox formControlName="checkbox3">In Berufsausbildung</mat-checkbox>
-    <mat-checkbox formControlName="checkbox4">Berufstätig (Vollzeit / Teilzeit)</mat-checkbox>
-    <mat-checkbox formControlName="checkbox5">Sonstiges</mat-checkbox>
-    <button class="primary" type="submit">Weiter</button>
+    <div class="checkbox_wrapper">
+      <mat-checkbox class="input_element" formControlName="checkbox1">Schüler*in</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox2">Student*in</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox3">In Berufsausbildung</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox4">Berufstätig (Vollzeit / Teilzeit</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox5">Sonstiges</mat-checkbox>
+
+  </div>
+  <button class="primary" type="submit">Weiter</button>
   </form>
 </div>

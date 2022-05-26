@@ -7,3 +7,20 @@ form {
 button {
   width: fit-content;
 }
+
+.checkbox_wrapper{
+  // width: 20em;
+  max-width: 20em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // grid-template-rows: 1fr auto;
+
+}
+.checkbox{
+  display: flex;
+  justify-content: space-around;
+}
+.input_element{
+  margin-right: 10vh;
+  width: 25vh;
+}

@@ -1,7 +1,7 @@
 form {
   display: flex;
   flex-direction: column;
-  width: 20em;
+  width: 100%;
 }
 
 form div {
@@ -20,4 +20,25 @@ button {
 
 .flex-container{
   display: flex;
+}
+
+.input_wrapper{
+  display: flex;
+  width: 20em;
+}
+.input_element{
+  margin-right: 10vh;
+  width: 25vh;
+}
+.checkbox_wrapper{
+  // width: 20em;
+  max-width: 20em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // grid-template-rows: 1fr auto;
+
+}
+.checkbox{
+  display: flex;
+  justify-content: space-around;
 }

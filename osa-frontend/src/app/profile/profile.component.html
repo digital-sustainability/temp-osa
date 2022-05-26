@@ -1,17 +1,14 @@
 <div class="container content-wrapper">
-  <h1>Allgemeine Angaben</h1>
+  <h1>Persönliche Angaben</h1>
 </div>
-<hr>
 <div class="container content-wrapper">
   <p>
-    Diese Angaben sind freiwillig. Sie dienen ausschliesslich der Evaluation des
-    Verfahrens und haben keinerlei Einfluss auf Ihre Ergebnisrückmeldung.
-    Möchten Sie eine Frage nicht beantworten, können Sie diese überspringen,
-    indem Sie auf «Weiter» klicken.
+    Diese Angaben dienen ausschliesslich der Evaluation des Self-Assessments und haben keinerlei Einfluss auf Ihre Ergebnisrückmeldung. Sofern Sie das Self-Assessment rein aus Neugier ausfüllen, werden die Daten nicht gespeichert.
   </p>
+  <hr>
   <form [formGroup]="form" (submit)="updateModel()">
-    <div>
-      <mat-form-field>
+    <div class="input_wrapper">
+      <mat-form-field class="input_element">
         <mat-label>Alter</mat-label>
         <input
           matInput
@@ -20,20 +17,18 @@
           placeholder="Alter"
         />
       </mat-form-field>
-    </div>
-    <div>
-      <div class="flex-spacer"></div>
-      <mat-form-field>
+      <!-- <div class="flex-spacer"></div> -->
+      <mat-form-field class="input_element">
         <mat-label>Geschlecht</mat-label>
         <mat-select formControlName="gender">
           <mat-option [value]="'m'">Männlich</mat-option>
           <mat-option [value]="'w'">Weiblich</mat-option>
-          <mat-option [value]="'d'">Divers</mat-option>
+          <mat-option [value]="'d'">Keine Angaben</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-    <div>
-      <mat-form-field>
+    <div class="input_wrapper">
+      <mat-form-field class="input_element">
         <mat-label>Kanton</mat-label>
         <mat-select formControlName="canton">
           <mat-option [value]="'bern'">Bern</mat-option>
@@ -68,13 +63,24 @@
           <mat-option [value]="'jura'">Jura</mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
+      <!-- <div class="flex-spacer"></div> -->
+      <mat-form-field class="input_element">
         <mat-label>Wohnort</mat-label>
         <input formControlName="city" matInput type="text" />
       </mat-form-field>
     </div>
+    <h3>Welchen Schulabschluss streben Sie aktuell an – bzw. über welchen verfügen Sie?</h3>
+    <div class="checkbox_wrapper">
+      <mat-checkbox class="input_element" formControlName="checkbox1">Gymnasium</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox2">Berufsmaturitätsschule</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox3">Fachmittelschule</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox4">Sonstige</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox5">Keine</mat-checkbox>
+  </div>
+<br>
     <button class="primary" type="submit">Weiter</button>
   </form>
+
+<br>
+  <br>
 </div>
