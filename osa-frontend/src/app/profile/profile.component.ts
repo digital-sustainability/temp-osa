@@ -23,11 +23,11 @@ export class ProfileComponent implements OnInit {
       gender: [],
       canton: [],
       city: [],
-      checkbox1: [false],
-      checkbox2: [false],
-      checkbox3: [false],
-      checkbox4: [false],
-      checkbox5: [false],
+      gymnasium: [false],
+      bms: [false],
+      fms: [false],
+      sonstiger_abschluss: [false],
+      kein_abschluss: [false],
     });
   }
 
@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/interest');
     } else {
-      this.userService.updateProfile(this.form.value.age, this.form.value.gender, this.form.value.canton, this.form.value.city, this.form.value.checkbox1, this.form.value.checkbox2, this.form.value.checkbox3, this.form.value.checkbox4, this.form.value.checkbox5);
+      this.userService.updateProfile(this.form.value.age, this.form.value.gender, this.form.value.canton, this.form.value.city, this.form.value.gymnasium, this.form.value.bms, this.form.value.fms, this.form.value.kein_abschluss, this.form.value.sonstiger_abschluss);
       this.router.navigateByUrl(`/interest?id=${id}`);
     }
   }
