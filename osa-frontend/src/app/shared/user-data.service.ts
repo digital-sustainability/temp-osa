@@ -29,9 +29,9 @@ export class UserDataService {
   }
 
 
-  async updateProfile (_age: number, _gender: string, _canton: string, _city: string){
+  async updateProfile (_age: number, _gender: string, _canton: string, _city: string, _gymnasium: boolean, _bms: boolean, _fms: boolean, _sonstige: boolean, _keine: boolean){
     let id = await this.getUserIdFromURL();
-    this.http.put(`${environment.apiUrl}/questionnaire/${id}`, {age: _age, gender: _gender, canton: _canton, city: _city}).subscribe((res) => {
+    this.http.put(`${environment.apiUrl}/questionnaire/${id}`, {age: _age, gender: _gender, canton: _canton, city: _city, gymnasium: _gymnasium, bms: _bms, fms:_fms, sonstige: _sonstige, keine: _keine}).subscribe((res) => {
       console.log(res);
     });
 ;

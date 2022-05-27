@@ -17,6 +17,7 @@ describe('QuestionnaireController', () => {
         { provide: MongoService,
           useFactory: async () => {
           let mongo = new MongoService();
+          // TODO: fix open handle
           await mongo.onModuleInit();
           await mongo.createCollection(COLLECTIONNAME);
           return mongo;

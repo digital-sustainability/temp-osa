@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/interest');
     } else {
-      this.userService.updateProfile(this.form.value.age, this.form.value.gender, this.form.value.canton, this.form.value.city);
+      this.userService.updateProfile(this.form.value.age, this.form.value.gender, this.form.value.canton, this.form.value.city, this.form.value.checkbox1, this.form.value.checkbox2, this.form.value.checkbox3, this.form.value.checkbox4, this.form.value.checkbox5);
       this.router.navigateByUrl(`/interest?id=${id}`);
     }
   }
