@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { ObjectId } from 'mongodb';
 import { MongoService } from '../mongo/mongo.service';
 import { CreateQuestionnaireDto } from './dto/create-questionnaire.dto';
-import { ReplaceQuestionnaireDto } from './dto/replace-questionnaire.dto';
 import { UpdateQuestionnaireDto } from './dto/update-questionnaire.dto';
 
 @Injectable()
