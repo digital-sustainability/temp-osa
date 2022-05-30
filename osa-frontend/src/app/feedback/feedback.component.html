@@ -6,13 +6,20 @@
   <li>)	Zusammenstellung der Ihrer Ergebnisse des Self-Assessments (PDF) für Ihren persönlichen Gebrauch.</li>
   <li>)	Bestätigung (PDF), dass Sie das Self-Assessment vollständig durchlaufen haben (ohne individuelle Ergebnisse). Sie benötigen diese Bestätigung, um sich für den Bachelor in Sozialer Arbeit an der Berner Fachhochschule anmelden zu können. Laden Sie das PDF herunter, ergänzen Sie Ihren Namen und das Datum der Absolvierung des Self-Assessments und Laden Sie das Dokument anschliessend im Rahmen der Anmeldung (hier Leitfaden zur Bewerbung verlinken) hoch.</li>
 </ol>
-<ul>
-  <li>
-    <a href="assets/pdf/Bestätigung_self-assessment.pdf" target="_blank">Bestätigung</a>
-  </li>
-  <br>
-  <li>
-    <a href="assets/pdf/Bestätigung_self-assessment.pdf" target="_blank">Zusammenfassung</a>
-  </li>
-  <button (click)="generatePDF()">click this</button>
-</ul>
+<form [formGroup]="form">
+  <mat-form-field >
+    <input matInput formControlName="vorname" placeholder="Vorname">
+  </mat-form-field>
+  <mat-form-field >
+    <input matInput formControlName="name" placeholder="Name">
+  </mat-form-field>
+  <ul>
+    <li>
+      <a (click)="generateConfirmationPDF()">Bestätigung</a>
+    </li>
+    <br>
+    <li>
+      <a (click)="generateSummaryPDF()">Zusammenfassung</a>
+    </li>
+  </ul>
+</form>
