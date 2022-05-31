@@ -7,34 +7,54 @@
   </p>
   <p><i>Modus: Interessierte wählen (mehrere) vorgegebene Aussagen aus. </i></p>
 </div>
-<hr>
+<hr />
 <div class="container content-wrapper">
-  <br>
+  <br />
   <form [formGroup]="form" (submit)="updateModel()">
     <div class="check">
-      <mat-checkbox formControlName="checkbox1">Ich interessiere mich für das Studium in Sozialer Arbeit allgemein
+      <mat-checkbox formControlName="interest_general"
+        >Ich interessiere mich für das Studium in Sozialer Arbeit allgemein
       </mat-checkbox>
-      <mat-icon matTooltipClass="tooltip"
+      <mat-icon
+        matTooltipClass="tooltip"
         matTooltip="Bei Ankreuzen dieser Option werden Ihre Daten in anonymisierter Form gespeichert. Die Daten dienen uns, um die Nutzung des Self-Assessments auszuwerten und das Self-Assessment weiterzuentwickeln. Trotz Speicherung der Daten sind keine Rückschlüsse auf Ihre Person möglich."
-        id="info-button">info</mat-icon>
+        id="info-button"
+        >info</mat-icon
+      >
     </div>
     <div class="check">
-      <mat-checkbox formControlName="checkbox2">Ich interessiere mich für das Studium in Sozialer Arbeit an der Berner
-        Fachhochschule.</mat-checkbox>
-      <mat-icon matTooltipClass="tooltip"
+      <mat-checkbox formControlName="interest_bfh"
+        >Ich interessiere mich für das Studium in Sozialer Arbeit an der Berner
+        Fachhochschule.</mat-checkbox
+      >
+      <mat-icon
+        matTooltipClass="tooltip"
         matTooltip="Bei Ankreuzen dieser Option werden Ihre Daten in anonymisierter Form gespeichert. Die Daten dienen uns, um die Nutzung des Self-Assessments auszuwerten und das Self-Assessment weiterzuentwickeln. Trotz Speicherung der Daten sind keine Rückschlüsse auf Ihre Person möglich."
-        id="info-button">info</mat-icon>
+        id="info-button"
+        >info</mat-icon
+      >
     </div>
     <div class="check">
-      <mat-checkbox formControlName="checkbox3">Ich interessiere mich für das Studium in Sozialer Arbeit an einer
-        anderen Hochschule oder <br> Höheren Fachschule. <mat-icon matTooltipClass="tooltip"
+      <mat-checkbox formControlName="interest_other_schoool"
+        >Ich interessiere mich für das Studium in Sozialer Arbeit an einer
+        anderen Hochschule oder <br />
+        Höheren Fachschule.
+        <mat-icon
+          matTooltipClass="tooltip"
           matTooltip="Bei Ankreuzen dieser Option werden Ihre Daten in anonymisierter Form gespeichert. Die Daten dienen uns, um die Nutzung des Self-Assessments auszuwerten und das Self-Assessment weiterzuentwickeln. Trotz Speicherung der Daten sind keine Rückschlüsse auf Ihre Person möglich."
-          id="info-button">info</mat-icon>
+          id="info-button"
+          >info</mat-icon
+        >
       </mat-checkbox>
     </div>
     <div class="check">
-      <mat-checkbox formControlName="checkbox4">Ich mache das Self-Assessment aus Neugier.</mat-checkbox>
-      <mat-icon matTooltip="Beim Ankreuzen dieser Option werden keine Daten gespeichert." id="info-button">info
+      <mat-checkbox formControlName="interest_curiosity"
+        >Ich mache das Self-Assessment aus Neugier.</mat-checkbox
+      >
+      <mat-icon
+        matTooltip="Beim Ankreuzen dieser Option werden keine Daten gespeichert."
+        id="info-button"
+        >info
       </mat-icon>
     </div>
     <mat-error *ngIf="!isValid">Mind. eine Auswahl benötigt</mat-error>

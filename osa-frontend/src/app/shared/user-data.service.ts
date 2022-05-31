@@ -37,8 +37,8 @@ export class UserDataService {
     this.getUserById(id).subscribe((user) => {
       /*
       cascading from last to first page
-      - /profile -> /interest
-      - /interest -> /current-occupation
+      * /profile -> /interest
+      * /interest -> /current-occupation
       - /current-occupation -> /personality-trait-scales
       - /self-efficacy-scale -> /resilience
       - /resilience -> /empathy
@@ -67,7 +67,18 @@ export class UserDataService {
     return false;
   }
 
-  hasInterestData(user: any): boolean | void {}
+  hasInterestData(user: any): boolean {
+    if (
+      user.interest_general ||
+      user.interest_bfh ||
+      user.interest_other_schoool ||
+      user.interest_curiosity
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   hasCurrOppData(user: any): boolean | void {}
   hasSelfEffScaleData(user: any): boolean | void {}
   hasResilienceData(user: any): boolean | void {}

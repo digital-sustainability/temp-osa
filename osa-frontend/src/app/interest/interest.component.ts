@@ -12,40 +12,51 @@ import { UserDataService } from '../shared/user-data.service';
 export class InterestComponent implements OnInit {
   form: any;
 
-  isValid = true
+  isValid = true;
+
+  id: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private userService: UserDataService
-  ) { }
+  ) {
+    this.id = this.userService.getUserIdFromURL();
+  }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      checkbox1: [false],
-      checkbox2: [false],
-      checkbox3: [false],
-      checkbox4: [false],
-    }, { validators: requireCheckboxesToBeCheckedValidator() });
+    this.form = this.formBuilder.group(
+      {
+        interest_general: [false],
+        interest_bfh: [false],
+        interest_other_schoool: [false],
+        interest_curiosity: [false],
+      },
+      { validators: requireCheckboxesToBeCheckedValidator() }
+    );
+    this.userService.getUserById(this.id).subscribe((user) => {
+      if (this.userService.hasInterestData(user)) {
+        this.form.patchValue({
+          interest_general: user.interest_general,
+          interest_bfh: user.interest_bfh,
+          interest_other_schoool: user.interest_other_schoool,
+          interest_curiosity: user.interest_curiosity,
+        });
+      }
+    });
   }
 
   updateModel() {
     if (this.form.valid) {
-
-      this.isValid = true
-      //todo
-      const id = this.userService.getUserIdFromURL();
-      if (id == '') {
+      this.isValid = true;
+      if (this.id == '-1') {
         this.router.navigateByUrl('/current-occupation');
       } else {
         // save user data
-        this.router.navigateByUrl(`/current-occupation?id=${id}`);
-      }
-      switch (id) {
-        case "1": let test = 2
+        this.router.navigateByUrl(`/current-occupation?id=${this.id}`);
       }
     } else {
-      this.isValid = false
+      this.isValid = false;
     }
   }
 }
