@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { requireCheckboxesToBeCheckedValidator } from '../shared/requireCheckboxesToBeChecked';
 import { UserDataService } from '../shared/user-data.service';
 
 @Component({
@@ -11,11 +12,13 @@ import { UserDataService } from '../shared/user-data.service';
 export class CurrentOccupationComponent implements OnInit {
   form: any;
 
+  isValid = true
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private userService: UserDataService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -24,17 +27,24 @@ export class CurrentOccupationComponent implements OnInit {
       checkbox3: [false],
       checkbox4: [false],
       checkbox5: [false],
-    });
+    }, { validators: requireCheckboxesToBeCheckedValidator() }
+    );
   }
 
   updateModel() {
-    //todo
-    const id = this.userService.getUserIdFromURL();
-    if (id == '') {
-      this.router.navigateByUrl('/personality-trait-scales');
-    } else {
-      // save user data
-      this.router.navigateByUrl(`/personality-trait-scales?id=${id}`);
+    if (this.form.valid) {
+      this.isValid = true
+      const id = this.userService.getUserIdFromURL();
+      if (id == '') {
+        this.router.navigateByUrl('/personality-trait-scales');
+      } else {
+        // save user data
+        this.router.navigateByUrl(`/personality-trait-scales?id=${id}`);
+      }
     }
+    else {
+      this.isValid = false
+    }
+    //todo
   }
 }

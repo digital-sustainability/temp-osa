@@ -63,7 +63,6 @@ export class EmpathyComponent implements OnInit {
     this.secondScore = this.secondScore / 9
     this.overallScore = this.overallScore / 18
     this.score = event.score;
-    console.log(this.firstScore, this.secondScore, this.overallScore)
     this.showResult = true;
   }
 
