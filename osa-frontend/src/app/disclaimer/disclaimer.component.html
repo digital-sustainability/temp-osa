@@ -23,12 +23,15 @@
   <p>Möchten Sie mit gespeicherten Daten weitermachen?</p>
   <form [formGroup]="continue_form" (submit)="getUserData()">
     <mat-form-field class="input_element">
-      <mat-label>ID</mat-label>
+      <mat-label>User-ID</mat-label>
       <input formControlName="id" matInput type="text" />
     </mat-form-field>
     <button type="submit" class="primary">Weiter</button>
   </form>
-  <p>Haben Sie vor, den Test wahrheitsgemäss zu beantworten?</p>
+  <p>
+    Falls Sie einen neuen Test starten: Haben Sie vor, den Test wahrheitsgemäss
+    zu beantworten?
+  </p>
   <form [formGroup]="save_data_form" (submit)="updateModel()">
     <mat-radio-group formControlName="save_data">
       <mat-radio-button value="yes"
