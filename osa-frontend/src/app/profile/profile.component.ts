@@ -36,17 +36,8 @@ export class ProfileComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/interest');
     } else {
-      this.userService.updateProfile(
-        this.form.value.age,
-        this.form.value.gender,
-        this.form.value.canton,
-        this.form.value.city,
-        this.form.value.gymnasium,
-        this.form.value.bms,
-        this.form.value.fms,
-        this.form.value.kein_abschluss,
-        this.form.value.sonstiger_abschluss
-      );
+      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+      });
       this.router.navigateByUrl(`/interest?id=${id}`);
     }
   }

@@ -31,35 +31,6 @@ export class UserDataService {
     return this.http.put(`${environment.apiUrl}/questionnaire/${id}`, data);
   }
 
-  async updateProfile(
-    _age: number,
-    _gender: string,
-    _canton: string,
-    _city: string,
-    _gymnasium: boolean,
-    _bms: boolean,
-    _fms: boolean,
-    _sonstige: boolean,
-    _keine: boolean
-  ) {
-    let id = await this.getUserIdFromURL();
-    this.http
-      .put(`${environment.apiUrl}/questionnaire/${id}`, {
-        age: _age,
-        gender: _gender,
-        canton: _canton,
-        city: _city,
-        gymnasium: _gymnasium,
-        bms: _bms,
-        fms: _fms,
-        sonstiger_abschluss: _sonstige,
-        kein_abschluss: _keine,
-      })
-      .subscribe((res) => {
-        console.log(res);
-      });
-  }
-
   /*
   ? generic get user code
     const id = this.userService.getUserIdFromURL();
