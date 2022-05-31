@@ -16,16 +16,24 @@ export class SelfEfficacyScaleComponent implements OnInit {
   @ViewChild('scoreInfo') scoreInfo: any;
 
   questionnaire: { [key: string]: string } = {
-    q1: 'Wenn sich Widerstände auftun, finde ich Mittel und Wege, mich durchzusetzen.',
-    q2: 'Die lösung schwieriger Probleme gelingt mir immer, wenn ich mich darum bemühe.',
-    q3: 'Es bereitet mir keine Schwierigkeiten, meine Absichten und Ziele zu verwirklichen.',
-    q4: 'In unerwarteten Situationen weiss ich immer, wie ich mich verhalten soll.',
-    q5: 'Auch bei überraschenden Ereignissen glaube ich, dass ich gut mit ihnen zurechtkommen kann.',
-    q6: 'Schwierigkeiten sehe ich gelassen entgegen, weil ich meinen Fähigkeiten immer vertrauen kann.',
-    q7: 'Was auch immer passiert, ich werde schon klarkommen.',
-    q8: 'Für jedes Problem kann ich eine Lösung finden.',
-    q9: 'Wenn eine neue Sache auf mich zukommt, weiss ich, wie ich damit umgehen kann.',
-    q10: 'Wenn ein Problem auftaucht kann ich es aus eigener Kraft meistern.',
+    self_eff_scale_1:
+      'Wenn sich Widerstände auftun, finde ich Mittel und Wege, mich durchzusetzen.',
+    self_eff_scale_2:
+      'Die lösung schwieriger Probleme gelingt mir immer, wenn ich mich darum bemühe.',
+    self_eff_scale_3:
+      'Es bereitet mir keine Schwierigkeiten, meine Absichten und Ziele zu verwirklichen.',
+    self_eff_scale_4:
+      'In unerwarteten Situationen weiss ich immer, wie ich mich verhalten soll.',
+    self_eff_scale_5:
+      'Auch bei überraschenden Ereignissen glaube ich, dass ich gut mit ihnen zurechtkommen kann.',
+    self_eff_scale_6:
+      'Schwierigkeiten sehe ich gelassen entgegen, weil ich meinen Fähigkeiten immer vertrauen kann.',
+    self_eff_scale_7: 'Was auch immer passiert, ich werde schon klarkommen.',
+    self_eff_scale_8: 'Für jedes Problem kann ich eine Lösung finden.',
+    self_eff_scale_9:
+      'Wenn eine neue Sache auf mich zukommt, weiss ich, wie ich damit umgehen kann.',
+    self_eff_scale_10:
+      'Wenn ein Problem auftaucht kann ich es aus eigener Kraft meistern.',
   };
 
   keys = Object.keys(this.questionnaire);
@@ -39,11 +47,15 @@ export class SelfEfficacyScaleComponent implements OnInit {
 
   naming = { highest: 'stimmt\ngenau', lowest: 'stimmt\nnicht' };
 
+  id: string;
+
   constructor(
     private userService: UserDataService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) {}
+  ) {
+    this.id = this.userService.getUserIdFromURL();
+  }
 
   ngOnInit(): void {
     const controls: { [key: string]: any } = {};
@@ -78,19 +90,21 @@ export class SelfEfficacyScaleComponent implements OnInit {
   }
 
   advanceSite() {
-    const id = this.userService.getUserIdFromURL();
-    if (id == '') {
+    if (this.id == '-1') {
       this.router.navigateByUrl('/resilience');
     } else {
-      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
-        // console.log(res);
-      });
+      console.log(this.form.value);
       this.userService
-        .addDataToUser(id, { 'self-efficacy-value': this.score })
+        .addDataToUser(this.id, this.form.value)
         .subscribe((res) => {
           // console.log(res);
         });
-      this.router.navigateByUrl(`/resilience?id=${id}`);
+      this.userService
+        .addDataToUser(this.id, { self_efficacy_value: this.score })
+        .subscribe((res) => {
+          // console.log(res);
+        });
+      this.router.navigateByUrl(`/resilience?id=${this.id}`);
     }
   }
 

@@ -135,11 +135,15 @@ export class StereotypesComponent implements OnInit {
   ];
   selectionCorrect?: boolean;
 
+  id: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private userService: UserDataService
-  ) {}
+  ) {
+    this.id = this.userService.getUserIdFromURL();
+  }
 
   ngOnInit(): void {
     const controls: { [key: string]: any } = {};
@@ -174,14 +178,16 @@ export class StereotypesComponent implements OnInit {
   }
 
   advanceSite() {
-    const id = this.userService.getUserIdFromURL();
-    if (id == '') {
+    if (this.id == '-1') {
       this.router.navigateByUrl('/time-management');
     } else {
-      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
-        // console.log(res);
-      });
-      this.router.navigateByUrl(`/time-management?id=${id}`);
+      console.log(this.form.value);
+      this.userService
+        .addDataToUser(this.id, this.form.value)
+        .subscribe((res) => {
+          // console.log(res);
+        });
+      this.router.navigateByUrl(`/time-management?id=${this.id}`);
     }
   }
 }

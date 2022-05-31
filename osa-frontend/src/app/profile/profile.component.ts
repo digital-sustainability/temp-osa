@@ -59,7 +59,7 @@ export class ProfileComponent implements OnInit {
   updateModel() {
     if (this.form.valid) {
       this.isValid = true;
-      if (this.id == '') {
+      if (this.id == '-1') {
         this.router.navigateByUrl('/interest');
       } else {
         console.log(this.form.value);

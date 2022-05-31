@@ -39,10 +39,10 @@ export class UserDataService {
       cascading from last to first page
       * /profile -> /interest
       * /interest -> /current-occupation
-      - /current-occupation -> /personality-trait-scales
-      - /self-efficacy-scale -> /resilience
-      - /resilience -> /empathy
-      - /empathy -> /stereotypes
+      * /current-occupation -> /personality-trait-scales
+      * /self-efficacy-scale -> /resilience
+      * /resilience -> /empathy
+      * /empathy -> /stereotypes
       - /stereotypes -> /time-management 
       - /time-management -> /time-management-planner
       - /time-management-planner -> /time-management-feedback
@@ -79,10 +79,86 @@ export class UserDataService {
     return false;
   }
 
-  hasCurrOppData(user: any): boolean | void {}
-  hasSelfEffScaleData(user: any): boolean | void {}
-  hasResilienceData(user: any): boolean | void {}
-  hasEmpathyData(user: any): boolean | void {}
+  hasCurrOppData(user: any): boolean {
+    if (
+      user.occupation_school ||
+      user.occupation_university ||
+      user.occupation_apprenticeship ||
+      user.occupation_working ||
+      user.occupation_other
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  hasSelfEffScaleData(user: any): boolean {
+    if (
+      user.self_eff_scale_1 &&
+      user.self_eff_scale_2 &&
+      user.self_eff_scale_3 &&
+      user.self_eff_scale_4 &&
+      user.self_eff_scale_5 &&
+      user.self_eff_scale_6 &&
+      user.self_eff_scale_7 &&
+      user.self_eff_scale_8 &&
+      user.self_eff_scale_9 &&
+      user.self_eff_scale_10 &&
+      user.self_efficacy_value
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  hasResilienceData(user: any): boolean {
+    if (
+      user.resilience_1 &&
+      user.resilience_2 &&
+      user.resilience_3 &&
+      user.resilience_4 &&
+      user.resilience_5 &&
+      user.resilience_6 &&
+      user.resilience_7 &&
+      user.resilience_8 &&
+      user.resilience_9 &&
+      user.resilience_10 &&
+      user.resilience_11 &&
+      user.resilience_12 &&
+      user.resilience_13 &&
+      user.resilience_value
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  hasEmpathyData(user: any): boolean | void {
+    if (
+      user.empathy_1 &&
+      user.empathy_2 &&
+      user.empathy_3 &&
+      user.empathy_4 &&
+      user.empathy_5 &&
+      user.empathy_6 &&
+      user.empathy_7 &&
+      user.empathy_8 &&
+      user.empathy_9 &&
+      user.empathy_10 &&
+      user.empathy_11 &&
+      user.empathy_12 &&
+      user.empathy_13 &&
+      user.empathy_14 &&
+      user.empathy_15 &&
+      user.empathy_16 &&
+      user.empathy_17 &&
+      user.empathy_18 &&
+      user.empathy_value
+    ) {
+      return true;
+    }
+    return false;
+  }
   hasStereotypesData(user: any): boolean | void {}
   hasTimeManagementData(user: any): boolean | void {}
   hasTimeManagementPlannerData(user: any): boolean | void {}

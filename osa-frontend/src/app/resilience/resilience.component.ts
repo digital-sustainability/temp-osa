@@ -15,22 +15,28 @@ export class ResilienceComponent implements OnInit {
   @ViewChild('info') info: any;
   @ViewChild('scoreInfo') scoreInfo: any;
 
+  id: string;
+
   naming = { highest: 'ich stimme\nvöllig zu', lowest: 'ich stimme\nnicht zu' };
 
   questionnaire: { [key: string]: string } = {
-    q1: 'Wenn ich Pläne habe, verfolge ich sie auch.',
-    q2: 'Normalerweise schaffe ich alles irgendwie.',
-    q3: 'Ich lasse mich nicht so schnell aus der Bahn werfen.',
-    q4: 'Ich mag mich.',
-    q5: 'Ich kann mehrere Dinge gleichzeitig bewältigen.',
-    q6: 'Ich bin entschlossen.',
-    q7: 'Ich nehme Dinge wie sie kommen.',
-    q8: 'Ich behalte an vielen Dingen Interesse.',
-    q9: 'Normalerweise kann ich die Situation aus mehreren Perspektiven betrachten.',
-    q10: 'Ich kann mich auch überwinden, Dinge zu tun die ich eigentlich nicht machen will.',
-    q11: 'Wenn ich in einer schwierigen Situation bin finde ich gewöhnlich einen Weg heraus.',
-    q12: 'In mir steckt genügend Energie, um alles zu machen was ich machen muss.',
-    q13: 'Ich kann es akzeptieren, wenn mich nicht alle Leute mögen.',
+    resilience_1: 'Wenn ich Pläne habe, verfolge ich sie auch.',
+    resilience_2: 'Normalerweise schaffe ich alles irgendwie.',
+    resilience_3: 'Ich lasse mich nicht so schnell aus der Bahn werfen.',
+    resilience_4: 'Ich mag mich.',
+    resilience_5: 'Ich kann mehrere Dinge gleichzeitig bewältigen.',
+    resilience_6: 'Ich bin entschlossen.',
+    resilience_7: 'Ich nehme Dinge wie sie kommen.',
+    resilience_8: 'Ich behalte an vielen Dingen Interesse.',
+    resilience_9:
+      'Normalerweise kann ich die Situation aus mehreren Perspektiven betrachten.',
+    resilience_10:
+      'Ich kann mich auch überwinden, Dinge zu tun die ich eigentlich nicht machen will.',
+    resilience_11:
+      'Wenn ich in einer schwierigen Situation bin finde ich gewöhnlich einen Weg heraus.',
+    resilience_12:
+      'In mir steckt genügend Energie, um alles zu machen was ich machen muss.',
+    resilience_13: 'Ich kann es akzeptieren, wenn mich nicht alle Leute mögen.',
   };
   keys = Object.keys(this.questionnaire);
 
@@ -40,7 +46,9 @@ export class ResilienceComponent implements OnInit {
     private userService: UserDataService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) {}
+  ) {
+    this.id = this.userService.getUserIdFromURL();
+  }
 
   ngOnInit(): void {
     const controls: { [key: string]: any } = {};
@@ -76,19 +84,23 @@ export class ResilienceComponent implements OnInit {
   }
 
   advanceSite() {
-    const id = this.userService.getUserIdFromURL();
-    if (id == '') {
+    if (this.id == '-1') {
       this.router.navigateByUrl('/empathy');
     } else {
-      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
-        // console.log(res);
-      });
       this.userService
-        .addDataToUser(id, { 'resilience-value': this.score })
+        .addDataToUser(this.id, this.form.value)
         .subscribe((res) => {
           // console.log(res);
         });
-      this.router.navigateByUrl(`/empathy?id=${id}`);
+      this.userService.getUserById(this.id).subscribe((user) => {
+        console.log(user);
+      });
+      this.userService
+        .addDataToUser(this.id, { resilience_value: this.score })
+        .subscribe((res) => {
+          // console.log(res);
+        });
+      this.router.navigateByUrl(`/empathy?id=${this.id}`);
     }
   }
 
