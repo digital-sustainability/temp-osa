@@ -16,14 +16,21 @@
     Zulassungsvoraussetzungen, Anforderungen für ein Studium und die
     verschiedenen Berufsfelder der Sozialen Arbeit.
   </p>
-  <h2>Dauer und Unterbruch des Self-Assessments</h2>
-  <p>Die Bearbeitung des Self-Assessments dauert 30 Minuten.</p>
+  <div *ngIf="isIdAvailable(); else elseBlock">
+    <h2>Dauer und Unterbruch des Self-Assessments</h2>
+    <p>Die Bearbeitung des Self-Assessments dauert 30 Minuten.</p>
 
-  <p>
-    Sie haben die Möglichkeit, das Self-Assessment zu unterbrechen und zu einem
-    späteren Zeitpunkt fortzufahren. Bei einem Unterbruch werden Sie einen Code
-    erhalten, den Sie bei Wiederaufnahme eingeben können.
-  </p>
+    <p>
+      Sie haben die Möglichkeit, das Self-Assessment zu unterbrechen und zu
+      einem späteren Zeitpunkt fortzufahren. Verwenden Sie für eine
+      Wiederaufnahme Ihre persönliche User-ID.
+    </p>
 
+    <p>Ihre persönliche User-ID: {{ this.id }}</p>
+  </div>
+  <ng-template #elseBlock>
+    <h2>Dauer des Self-Assessments</h2>
+    <p>Die Bearbeitung des Self-Assessments dauert 30 Minuten.</p>
+  </ng-template>
   <button class="primary" (click)="advanceSite()">Nächste Seite</button>
 </div>
