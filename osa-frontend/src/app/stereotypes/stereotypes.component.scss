@@ -46,3 +46,7 @@
 .explanation p {
   max-width: 50ch;
 }
+
+::ng-deep .mat-tab-header {
+  display: none!important;
+  }
