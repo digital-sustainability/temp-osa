@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {jsPDF, jsPDFOptions} from "jspdf";
+import {startWith} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class PdfGeneratorService {
     canton: 'Bern',
     city: 'Bern',
     schoolDegrees: [
+      'gymnasium',
       'gymnasium'
     ],
     interests: [
@@ -43,7 +45,6 @@ export class PdfGeneratorService {
 
 
   }
-
 
   constructor() {
   }
@@ -107,8 +108,68 @@ export class PdfGeneratorService {
   }
 
   private addPersonalDetails(summary: jsPDF) {
+    let currentY = 60
     summary.setFontSize(11)
-    summary.text(`Name: ${this.user.vorname} ${this.user.name}`, 20, 60)
-    summary.text(`Alter: ${this.user.age}`, 100, 60)
+    summary.text(`Name: ${this.user.vorname} ${this.user.name}`, 20, currentY)
+    summary.text(`Alter: ${this.user.age}`, 100, currentY)
+    const prettyGender = this.getGender()
+    currentY += 5
+    summary.text(`Geschlecht: ${prettyGender}`, 20, currentY)
+    summary.text(`Kanton: ${this.user.canton}`, 100, currentY)
+    currentY += 5
+    summary.text(`Wohnort: ${this.user.city}`, 20, currentY)
+    currentY = this.addDegrees(summary, currentY);
+    currentY += 5
+    currentY = this.addInterests(summary, currentY);
+  }
+
+  private addDegrees(summary: jsPDF, currentY: number) {
+    this.user.schoolDegrees.forEach((degree: string, index: number) => {
+      if (index === 0) {
+        summary.text(`Abschlüsse: ${degree}`, 100, currentY)
+      } else {
+        summary.text(`${degree}`, 122, currentY)
+      }
+      currentY += 5
+    })
+    return currentY;
+  }
+
+  private addInterests(summary: jsPDF, currentY: number) {
+    this.user.interests.forEach((interest: string, index: number) => {
+      const formattedInterest = this.formatInterest(interest)
+      if (index === 0) {
+        summary.text(`Interessen am Studium: ${formattedInterest}`, 100, currentY)
+      } else {
+        summary.text(`${formattedInterest}`, 122, currentY)
+      }
+      currentY += 5
+    })
+    return currentY;
+  }
+
+  getGender(): string {
+    switch (this.user.gender) {
+      case 'm':
+        return 'Männlich'
+      case 'f':
+        return 'Weiblich'
+      case 'd':
+        return 'Divers'
+      default:
+        throw new Error('invalid gender')
+    }
+  }
+
+  private formatInterest(interest: string) {
+    switch (interest) {
+      case 'other_school':
+        return 'Interessiert am Studiengang einer anderen Schule'
+      case 'general':
+        return 'Generell interessiert am Studium'
+      default: {
+        throw new Error('invalid interest')
+      }
+    }
   }
 }
