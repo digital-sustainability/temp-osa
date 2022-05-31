@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { SeedService } from './seed.service';
 import { MongoService} from '../mongo/mongo.service'
-import { async } from 'rxjs';
 
 describe('SeedService', () => {
   let service: SeedService;

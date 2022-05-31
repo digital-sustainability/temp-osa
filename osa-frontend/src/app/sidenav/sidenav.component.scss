@@ -26,6 +26,16 @@
   border-right: 2px solid #4a83aa;
 }
 
+
+
+.logo{
+  width: 120px;
+}
+
+mat-drawer-container{
+  z-index: 150;
+}
+
 .backdrop {
   position: fixed !important;
   z-index: 1001;
@@ -38,6 +48,7 @@
 }
 
 .navigation {
+  border-radius: 1px;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -46,9 +57,6 @@
   left: 10px;
 }
 
-.navigation img {
-  width: 6vw;
-}
 
 .toggle {
   margin-top: 15px;

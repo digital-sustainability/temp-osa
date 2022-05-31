@@ -30,12 +30,12 @@ export class CurrentOccupationComponent implements OnInit {
   updateModel() {
     const id = this.userService.getUserIdFromURL();
     if (id == '') {
-      this.router.navigateByUrl('/school-type');
+      this.router.navigateByUrl('/personality-trait-scales');
     } else {
       this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
         // console.log(res);
       });
-      this.router.navigateByUrl(`/school-type?id=${id}`);
+      this.router.navigateByUrl(`/personality-trait-scales?id=${id}`);
     }
   }
 }

@@ -23,6 +23,11 @@ export class ProfileComponent implements OnInit {
       gender: [],
       canton: [],
       city: [],
+      gymnasium: [false],
+      bms: [false],
+      fms: [false],
+      sonstiger_abschluss: [false],
+      kein_abschluss: [false],
     });
   }
 
@@ -31,9 +36,17 @@ export class ProfileComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/interest');
     } else {
-      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
-        // console.log(res);
-      });
+      this.userService.updateProfile(
+        this.form.value.age,
+        this.form.value.gender,
+        this.form.value.canton,
+        this.form.value.city,
+        this.form.value.gymnasium,
+        this.form.value.bms,
+        this.form.value.fms,
+        this.form.value.kein_abschluss,
+        this.form.value.sonstiger_abschluss
+      );
       this.router.navigateByUrl(`/interest?id=${id}`);
     }
   }

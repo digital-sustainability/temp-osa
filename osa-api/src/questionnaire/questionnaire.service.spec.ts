@@ -6,17 +6,16 @@ import { QuestionnaireService } from './questionnaire.service';
 describe('QuestionnaireService', () => {
   let service: QuestionnaireService;
   let mongo: MongoService;
+  const COLLECTIONNAME = "osa-fragebogen";
   
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
+      providers: [ QuestionnaireService, 
         { provide: MongoService,
           useFactory: async () => {
-          const mongo = new MongoService();
+          let mongo = new MongoService();
           await mongo.onModuleInit();
-          const COLLECTIONNAME = "osa-fragebogen";
           await mongo.createCollection(COLLECTIONNAME);
-          const document1 = {title: "document1", _id: new ObjectId("507f1f77bcf86cd799439011")};
           return mongo;
         },
       },
@@ -25,26 +24,42 @@ describe('QuestionnaireService', () => {
 
     service = module.get<QuestionnaireService>(QuestionnaireService);
     mongo = await module.resolve<MongoService>(MongoService);
-    
   });
 
   afterEach(async () => {
     await mongo.onModuleDestroy();
   });
   
-
-  it('should be defined', () => {
+  describe ('should be defined', () => {
+  it('service should be defined', () => {
     expect(service).toBeDefined();
   });
 
   it('mongo should be defined', () => {
-    expect(mongo).toBeDefined();
+    expect(mongo).toBeUndefined;
   });
+  })
 
-  it ('service should call mongoService getCollection', async() =>{
+  describe ('service should call mongoService getCollection', () => {
+  it ('findOne should call mongoService getCollection', async () => {
     const spy = jest.spyOn (mongo, 'getCollection');
-    await service.findAll();
+    await service.findOne("507f1f77bcf86cd799439011");
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
+  it ('create should call mongoService getCollection', async () => {
+    const spy = jest.spyOn (mongo, 'getCollection');
+    await service.create({});
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it ('update should call mongoService getCollection', async () => {
+    let collection = mongo.getCollection(COLLECTIONNAME);
+    let id = new ObjectId("507f1f77bcf86cd799439011");
+    collection.insertOne({_id: id});
+    const spy = jest.spyOn (mongo, 'getCollection');
+    await service.update("507f1f77bcf86cd799439011",{"age": 23});
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+  })
 });

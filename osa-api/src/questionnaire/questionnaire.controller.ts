@@ -25,10 +25,7 @@ export class QuestionnaireController {
   }
 
   @Put(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateQuestionnaireDto: UpdateQuestionnaireDto,
-  ) {
+  update(@Param('id') id: string, @Body() updateQuestionnaireDto: UpdateQuestionnaireDto) {
     return this.questionnaireService.update(id, updateQuestionnaireDto);
   }
 }

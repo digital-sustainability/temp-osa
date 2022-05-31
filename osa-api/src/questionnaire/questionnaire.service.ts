@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { ObjectId } from 'mongodb';
 import { MongoService } from '../mongo/mongo.service';
 import { CreateQuestionnaireDto } from './dto/create-questionnaire.dto';
-import { ReplaceQuestionnaireDto } from './dto/replace-questionnaire.dto';
 import { UpdateQuestionnaireDto } from './dto/update-questionnaire.dto';
 
 @Injectable()
@@ -34,18 +33,8 @@ export class QuestionnaireService {
     const convertedId = new ObjectId(id);
     const collection = await this.mongo.getCollection(this.COLLECTIONNAME);
     const doc = await collection.findOne({ _id: convertedId });
-    let alreadyExisting = false;
     for (const updateKey in updateQuestionnaireDto) {
-      alreadyExisting = false;
-      for (const oldKey in doc) {
-        if (oldKey == updateKey) {
-          doc[oldKey] = updateQuestionnaireDto[updateKey];
-          alreadyExisting = true;
-        }
-      }
-      if (alreadyExisting == false) {
-        doc[updateKey] = updateQuestionnaireDto[updateKey];
-      }
+      doc[updateKey] = updateQuestionnaireDto[updateKey];
     }
     return await collection.replaceOne({ _id: convertedId }, doc);
   }
