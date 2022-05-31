@@ -19,20 +19,21 @@ export class InterestComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      checkbox1: [false],
-      checkbox2: [false],
-      checkbox3: [false],
-      checkbox4: [false],
+      interested_in_studies: [false],
+      interested_in_test: [false],
+      interested_in_studies_at_bfh: [false],
+      interested_in_studies_elsewhere: [false],
     });
   }
 
   updateModel() {
-    //todo
     const id = this.userService.getUserIdFromURL();
     if (id == '') {
       this.router.navigateByUrl('/current-occupation');
     } else {
-      // save user data
+      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+        // console.log(res);
+      });
       this.router.navigateByUrl(`/current-occupation?id=${id}`);
     }
   }

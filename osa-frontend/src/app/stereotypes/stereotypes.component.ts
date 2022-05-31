@@ -178,6 +178,9 @@ export class StereotypesComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/time-management');
     } else {
+      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+        // console.log(res);
+      });
       this.router.navigateByUrl(`/time-management?id=${id}`);
     }
   }

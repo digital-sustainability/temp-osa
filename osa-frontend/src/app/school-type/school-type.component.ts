@@ -19,21 +19,22 @@ export class SchoolTypeComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      checkbox1: [false],
-      checkbox2: [false],
-      checkbox3: [false],
-      checkbox4: [false],
-      checkbox5: [false],
+      high_school_gymnasium: [false],
+      vocational_school_bms: [false],
+      technical_school_fms: [false],
+      other: [false],
+      none: [false],
     });
   }
 
   updateModel() {
-    //todo
     const id = this.userService.getUserIdFromURL();
     if (id == '') {
       this.router.navigateByUrl('/personality-trait-scales');
     } else {
-      // save user data
+      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+        // console.log(res);
+      });
       this.router.navigateByUrl(`/personality-trait-scales?id=${id}`);
     }
   }
