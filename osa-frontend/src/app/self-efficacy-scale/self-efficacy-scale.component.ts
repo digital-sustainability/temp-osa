@@ -63,6 +63,22 @@ export class SelfEfficacyScaleComponent implements OnInit {
       controls[key] = [null, Validators.required];
     });
     this.form = this.formBuilder.group(controls);
+    this.userService.getUserById(this.id).subscribe((user) => {
+      if (this.userService.hasSelfEffScaleData(user)) {
+        this.form.patchValue({
+          self_eff_scale_1: user.self_eff_scale_1,
+          self_eff_scale_2: user.self_eff_scale_2,
+          self_eff_scale_3: user.self_eff_scale_3,
+          self_eff_scale_4: user.self_eff_scale_4,
+          self_eff_scale_5: user.self_eff_scale_5,
+          self_eff_scale_6: user.self_eff_scale_6,
+          self_eff_scale_7: user.self_eff_scale_7,
+          self_eff_scale_8: user.self_eff_scale_8,
+          self_eff_scale_9: user.self_eff_scale_9,
+          self_eff_scale_10: user.self_eff_scale_10,
+        });
+      }
+    });
   }
 
   updateModel() {

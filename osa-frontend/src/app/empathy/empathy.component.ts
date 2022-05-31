@@ -92,6 +92,30 @@ export class EmpathyComponent implements OnInit {
       controls[key] = [null, Validators.required];
     });
     this.form = this.formBuilder.group(controls);
+    this.userService.getUserById(this.id).subscribe((user) => {
+      if (this.userService.hasEmpathyData(user)) {
+        this.form.patchValue({
+          empathy_1: user.empathy_1,
+          empathy_2: user.empathy_2,
+          empathy_3: user.empathy_3,
+          empathy_4: user.empathy_4,
+          empathy_5: user.empathy_5,
+          empathy_6: user.empathy_6,
+          empathy_7: user.empathy_7,
+          empathy_8: user.empathy_8,
+          empathy_9: user.empathy_9,
+          empathy_10: user.empathy_10,
+          empathy_11: user.empathy_11,
+          empathy_12: user.empathy_12,
+          empathy_13: user.empathy_13,
+          empathy_14: user.empathy_14,
+          empathy_15: user.empathy_15,
+          empathy_16: user.empathy_16,
+          empathy_17: user.empathy_17,
+          empathy_18: user.empathy_18,
+        });
+      }
+    });
   }
 
   updateModel() {

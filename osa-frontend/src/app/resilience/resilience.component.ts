@@ -56,6 +56,25 @@ export class ResilienceComponent implements OnInit {
       controls[key] = [null, Validators.required];
     });
     this.form = this.formBuilder.group(controls);
+    this.userService.getUserById(this.id).subscribe((user) => {
+      if (this.userService.hasResilienceData(user)) {
+        this.form.patchValue({
+          resilience_1: user.resilience_1,
+          resilience_2: user.resilience_2,
+          resilience_3: user.resilience_3,
+          resilience_4: user.resilience_4,
+          resilience_5: user.resilience_5,
+          resilience_6: user.resilience_6,
+          resilience_7: user.resilience_7,
+          resilience_8: user.resilience_8,
+          resilience_9: user.resilience_9,
+          resilience_10: user.resilience_10,
+          resilience_11: user.resilience_11,
+          resilience_12: user.resilience_12,
+          resilience_13: user.resilience_13,
+        });
+      }
+    });
   }
 
   updateModel() {
