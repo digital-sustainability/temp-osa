@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { requireCheckboxesToBeCheckedValidator } from '../shared/requireCheckboxesToBeChecked';
 import { UserDataService } from '../shared/user-data.service';
 
 @Component({
@@ -11,11 +12,13 @@ import { UserDataService } from '../shared/user-data.service';
 export class ProfileComponent implements OnInit {
   form: any;
 
+  isValid = true
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private userService: UserDataService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -28,17 +31,22 @@ export class ProfileComponent implements OnInit {
       fms: [false],
       sonstiger_abschluss: [false],
       kein_abschluss: [false],
-    });
+    }, { validators: requireCheckboxesToBeCheckedValidator() });
   }
 
   updateModel() {
-    const id = this.userService.getUserIdFromURL();
-    if (id == '') {
-      this.router.navigateByUrl('/interest');
+    if (this.form.valid) {
+      this.isValid = true
+      const id = this.userService.getUserIdFromURL();
+      if (id == '') {
+        this.router.navigateByUrl('/interest');
+      } else {
+        this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+        });
+        this.router.navigateByUrl(`/interest?id=${id}`);
+      }
     } else {
-      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
-      });
-      this.router.navigateByUrl(`/interest?id=${id}`);
+      this.isValid = false
     }
   }
 }
