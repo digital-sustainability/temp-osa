@@ -24,7 +24,6 @@ export class TimeManagementComponent implements OnInit {
   }
 
   updateModel() {
-    //todo
     const id = this.userService.getUserIdFromURL();
     if (id == '') {
       this.router.navigateByUrl('/time-management-planner');
