@@ -13,6 +13,7 @@ export class PdfGeneratorService {
     format: 'a4'
   }
 
+  //todo sync with model
   user: any = {
     vorname: undefined,
     name: undefined,
@@ -42,8 +43,6 @@ export class PdfGeneratorService {
       necessities: 9,
       commute: 0
     },
-
-
   }
 
   constructor() {
@@ -109,47 +108,112 @@ export class PdfGeneratorService {
 
   private addPersonalDetails(summary: jsPDF) {
     let currentY = 60
+    const yIncrease = 6
+    currentY += yIncrease
     summary.setFontSize(11)
     summary.text(`Name: ${this.user.vorname} ${this.user.name}`, 20, currentY)
-    summary.text(`Alter: ${this.user.age}`, 100, currentY)
-    const prettyGender = this.getGender()
-    currentY += 5
+    currentY += yIncrease
+    summary.text(`Alter: ${this.user.age}`, 20, currentY)
+    const prettyGender = PdfGeneratorService.formatGender(this.user.gender)
+    currentY += yIncrease
     summary.text(`Geschlecht: ${prettyGender}`, 20, currentY)
-    summary.text(`Kanton: ${this.user.canton}`, 100, currentY)
-    currentY += 5
+    currentY += yIncrease
+    summary.text(`Kanton: ${this.user.canton}`, 20, currentY)
+    currentY += yIncrease
     summary.text(`Wohnort: ${this.user.city}`, 20, currentY)
-    currentY = this.addDegrees(summary, currentY);
-    currentY += 5
-    currentY = this.addInterests(summary, currentY);
+    currentY += yIncrease
+    currentY = this.addInterests(summary, currentY, yIncrease)
+    currentY = this.addCurrentOccupations(summary, currentY, yIncrease)
+    currentY = this.addDegrees(summary, currentY, yIncrease)
+    summary.text(`Selbstwirksamkeits Wert: ${this.user.selfEfficacyValue}`, 20, currentY)
+    currentY += yIncrease
+    summary.text(`Empathie Wert: ${this.user.empathyValue}`, 20, currentY)
+    currentY += yIncrease
+    summary.text(`Pensum: ${this.user.pensum}`, 20, currentY)
+    currentY += yIncrease
+    currentY = this.addStereotypes(summary, currentY, yIncrease)
   }
 
-  private addDegrees(summary: jsPDF, currentY: number) {
+
+  private addDegrees(summary: jsPDF, currentY: number, yIncrease: number) {
     this.user.schoolDegrees.forEach((degree: string, index: number) => {
       if (index === 0) {
-        summary.text(`Abschlüsse: ${degree}`, 100, currentY)
+        summary.text(`Abschlüsse:`, 20, currentY)
+        currentY += yIncrease
+        summary.text(`- ${degree}`, 27, currentY)
+
       } else {
-        summary.text(`${degree}`, 122, currentY)
+        summary.text(`- ${degree}`, 27, currentY)
       }
-      currentY += 5
+      currentY += yIncrease
     })
     return currentY;
   }
 
-  private addInterests(summary: jsPDF, currentY: number) {
+  private addInterests(summary: jsPDF, currentY: number, yIncrease: number) {
     this.user.interests.forEach((interest: string, index: number) => {
-      const formattedInterest = this.formatInterest(interest)
+      const formattedInterest = PdfGeneratorService.formatInterest(interest)
       if (index === 0) {
-        summary.text(`Interessen am Studium: ${formattedInterest}`, 100, currentY)
+        summary.text(`Interessen am Studium:`, 20, currentY)
+        currentY += yIncrease
+        summary.text(`- ${formattedInterest}`, 27, currentY)
       } else {
-        summary.text(`${formattedInterest}`, 122, currentY)
+        summary.text(`- ${formattedInterest}`, 27, currentY)
       }
-      currentY += 5
+      currentY += yIncrease
     })
     return currentY;
   }
 
-  getGender(): string {
-    switch (this.user.gender) {
+  private addCurrentOccupations(summary: jsPDF, currentY: number, yIncrease: number) {
+    this.user.currentOccupation.forEach((occupation: string, index: number) => {
+      const formattedInterest = PdfGeneratorService.formatOccupation(occupation)
+      if (index === 0) {
+        summary.text(`Momentane Tätigkeiten:`, 20, currentY)
+        currentY += yIncrease
+        summary.text(`- ${formattedInterest}`, 27, currentY)
+      } else {
+        summary.text(`- ${formattedInterest}`, 27, currentY)
+      }
+      currentY += yIncrease
+    })
+    return currentY;
+  }
+
+  private addStereotypes(summary: jsPDF, currentY: number, yIncrease: number) {
+    const claims: any[] = [
+      'Als Sozialarbeiter*in werde ich hauptsächlich mit Menschen, welche von Armut betroffen sind, arbeiten können:',
+      'Als Fachperson der Sozialen Arbeit analysiere ich individuelle und gesellschaftliche Probleme und suche nach Lösungen:',
+      'Als Fachperson der Sozialen Arbeit arbeite ich mit unterschiedlichen Methoden und Techniken, welche auf die jeweiligen Arbeitsfelder angepasst sind:',
+      'Als Fachperson der Sozialen Arbeit erledige ich auch administrative Tätigkeiten:',
+      'Als Fachperson der Sozialen Arbeit arbeite ich mit anderen Berufsgruppen zusammen:',
+      'Soziale Arbeit ist, wenn ich allen helfen kann:',
+      'Soziale Arbeit ist, auch Menschen am Rande der Gesellschaft zu integrieren:',
+      'Soziale Arbeit ist, einfach «darüber sprechen». Als Fachperson der Sozialen Arbeit muss ich mich in andere Menschen hineinversetzen können:',
+      'Als Fachperson der Sozialen Arbeit arbeite ich auch an Projekten:',
+      'Als Fachperson der Sozialen Arbeit, setze ich mich mit Forschung auseinandersetzen:',
+      'Als Fachperson der Sozialen Arbeit setze ich meine Persönlichkeit als Arbeitsinstrument ein:',
+      'Soziale Arbeit ist das Erkennen von Bedürfnissen sowie das Entwickeln von neuen Lösungsansätzen dazu:',
+    ];
+    this.user.stereotypeAnswers.forEach((answer: number, index: number) => {
+      const lines = summary.setFontSize(11).splitTextToSize(claims[index], 140)
+      if (index === 0) {
+        summary.text(`Stereotypen Überblick:`, 20, currentY)
+        currentY += yIncrease
+        summary.text(lines, 27, currentY)
+        summary.text(PdfGeneratorService.formatAnswer(answer), 166, currentY)
+      } else {
+        summary.text(lines, 27, currentY)
+        summary.text(PdfGeneratorService.formatAnswer(answer), 166, currentY)
+      }
+      currentY += yIncrease * lines.length
+    })
+    return currentY;
+  }
+
+  private static formatGender(gender: string): string {
+    //todo sync with model
+    switch (gender) {
       case 'm':
         return 'Männlich'
       case 'f':
@@ -161,15 +225,39 @@ export class PdfGeneratorService {
     }
   }
 
-  private formatInterest(interest: string) {
+  private static formatInterest(interest: string) {
+    //todo sync with model
     switch (interest) {
       case 'other_school':
-        return 'Interessiert am Studiengang einer anderen Schule'
+        return 'Interessiert an einer anderen Schule'
       case 'general':
         return 'Generell interessiert am Studium'
       default: {
         throw new Error('invalid interest')
       }
+    }
+  }
+
+  private static formatOccupation(occupation: string) {
+    //todo sync with model
+    switch (occupation) {
+      case 'berufstaetig':
+        return 'Berufstätig'
+      default:
+        throw new Error('invalid occupation')
+    }
+  }
+
+  private static formatAnswer(answer: number) {
+    switch (answer){
+      case 1:
+        return 'Trifft zu'
+      case 2:
+        return 'Trifft teilweise zu'
+      case 3:
+        return 'Trifft nicht zu'
+      default:
+        throw new Error('invalid answer')
     }
   }
 }
