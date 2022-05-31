@@ -6,15 +6,15 @@
 <hr />
 <div class="container content-wrapper">
   <form [formGroup]="form" (submit)="updateModel()">
-    <mat-checkbox formControlName="student">Schüler*in</mat-checkbox>
-    <mat-checkbox formControlName="university_student">Student*in</mat-checkbox>
-    <mat-checkbox formControlName="apprentice"
-      >In Berufsausbildung</mat-checkbox
-    >
-    <mat-checkbox formControlName="working_fulltime_parttime"
-      >Berufstätig (Vollzeit / Teilzeit)</mat-checkbox
-    >
-    <mat-checkbox formControlName="other">Sonstiges</mat-checkbox>
+    <div class="checkbox_wrapper">
+      <mat-checkbox class="input_element" formControlName="checkbox1">Schüler*in</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox2">Student*in</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox3">In Berufsausbildung</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox4">Berufstätig (Vollzeit / Teilzeit</mat-checkbox>
+      <mat-checkbox class="input_element" formControlName="checkbox5">Sonstiges</mat-checkbox>
+
+    </div>
+    <mat-error *ngIf="!isValid">Mind. eine Auswahl benötigt</mat-error>
     <button class="primary" type="submit">Weiter</button>
   </form>
 </div>

@@ -10,7 +10,7 @@ export class UserDataService {
   constructor(private http: HttpClient) {}
 
   getUserIdFromURL(): string {
-    let id = '';
+    let id = '-1';
     let url = window.location;
     let params = new URLSearchParams(url.search);
     if (!(params.get('id') === null)) {

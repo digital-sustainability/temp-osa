@@ -1,6 +1,8 @@
 <div class="content-wrapper">
   <div class="container">
-    <div style="width: 100%"><h1>Empathie & Perspektivenübernahme</h1></div>
+    <div style="width: 100%">
+      <h1>Empathie & Perspektivenübernahme</h1>
+    </div>
     <div *ngIf="!showResult">
       Die folgenden Aussagen beschreiben Handlungen und Empfindungen im Umgang
       mit anderen Menschen. Kreuzen Sie bitte für jede Aussage an, wie selten
@@ -11,22 +13,10 @@
   <hr />
   <div class="flex-wrapper">
     <div class="wrap">
-      <app-questionnaire
-        *ngIf="!showResult"
-        (outputEvent)="assignValues($event)"
-        [questions]="questionnaire"
-        [numberOfOptions]="5"
-        [values]="form.value"
-        [naming]="naming"
-        [headers]="headers"
-      ></app-questionnaire>
-      <app-result-table
-        *ngIf="showResult"
-        [numberOfOptions]="5"
-        [questions]="questionnaire"
-        [values]="form.value"
-        [naming]="naming"
-      ></app-result-table>
+      <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [questions]="questionnaire"
+        [numberOfOptions]="5" [values]="form.value" [naming]="naming" [headers]="headers"></app-questionnaire>
+      <app-result-table *ngIf="showResult" [numberOfOptions]="5" [questions]="questionnaire" [values]="form.value"
+        [naming]="naming"></app-result-table>
       <div style="margin-top: 20px" class="footnote">
         <p>
           Quelle: Maes, J., Schmitt, M. & Schmal, A. (1995). Gerechtigkeit als
@@ -37,64 +27,53 @@
           Universität Trier, Fachbereich I - Psychologie.
         </p>
       </div>
+      <div *ngIf="showResult" style="margin-top:20px;" class="footnote">
+        <p>
+          Sachse, R. (2022). Empathie. In Verhaltenstherapiemanual–Erwachsene (pp. 99-105). Springer, Berlin,
+          Heidelberg.
+        </p>
+      </div>
+      <div *ngIf="showResult" style="margin-top:20px;" class="footnote">
+        <p>
+          Schmitt, M., Altstötter-Gleich, C., & Platzer, C. (2010). Differentielle Psychologie und
+          Persönlichkeitspsychologie. Beltz PVU.
+        </p>
+      </div>
     </div>
 
     <div *ngIf="showResult" class="result">
-      <div style="display: flex; align-items: center">
-        <mat-icon
-          id="info-button"
-          (click)="toggleCollapsible()"
-          style="width: 1.3em; font-size: 40px; margin-bottom: 15px"
-          >info</mat-icon
-        >
-        <h3 style="color: #4b647d">
-          Ihr Resilienz Wert ist:&nbsp;&nbsp;&nbsp;<span
-            (click)="toggleScoreInfo()"
-            style="
-              font-size: 2.5rem;
-              text-decoration: underline;
-              cursor: pointer;
-            "
-            >{{ score }}</span
-          >
-        </h3>
+      <div style="display: flex; align-items: center;">
+        <mat-icon id="info-button" (click)="toggleCollapsible()"
+          style="width: 1.3em; font-size: 40px; margin-bottom: 15px;">info</mat-icon>
+        <h3 style="color: #4b647d;">Ihr Gesamtwert ist:&nbsp;&nbsp;&nbsp;<span (click)="toggleScoreInfo()"
+            style="font-size: 2.5rem; text-decoration: underline; cursor: pointer;">{{overallScore}}</span></h3>
       </div>
-      <hr />
-      <h4>
-        Soeben haben Sie einen Fragebogenausgefüllt, mit der Ihre
-        Selbstwirksamkeit bemessen wurde.
-      </h4>
+      <div>
+        <h5 style="font-style: italic">Ihr erreichter Wert für Empathie: {{firstScore}}</h5>
+      </div>
+      <div>
+        <h5 style="font-style: italic">Ihr erreichter Wert für Perspektivenübernahme: {{secondScore}}</h5>
+      </div>
+      <hr>
       <p id="info" #info>
-        <span style="font-weight: bold">Erläuterung:</span>
-        <br />
-        <br />
-        Soeben haben Sie einen Fragebogen zur Ermessung ihrer eigenen Resilienz
-        ausgefüllt. Wie sollen Sie ihr Ergebnis nun interpretieren...? Mit der
-        Resilienz Skala können Werte in der Spannbreite von 10 bis 70 erhalten
-        werden. Einen hohen Gesamtwert weist auf eine hohe persönliche
-        Resilienz.
-        <br />
-        <br />
-        Grundsätzlich ist es in der Sozialen Arbeit von Vorteil, wenn sich die
-        einzelnen Werte zur Resilienz im hohen Segment befinden. Resilient zu
-        sein, ist für Sozialarbeitende ausschlaggebend, da sie täglich mit
-        Problemen auf gesellschaftlicher, institutioneller und individueller
-        Ebene konfrontiert werden. Diesen Problemlagen müssen Sozialarbeitende
-        die Stirn bieten und Widerstandsfähgikeit beweisen, um ihre Dienst- und
-        Unterstützungsleistungen sicherzustellen sowie auch ihre eigene
-        Gesundheit zu bewahren.
-        <br />
-        <br />
-        <span class="footnote">(Eggli & Romano, 2022)</span>
+        <span style="font-weight: bold;">Erläuterung:</span>
+        <br>
+        <br>
+        Von Empathie spricht man, wenn eine Person versucht, die Aussagen, Verhaltensweisen oder Empfindungen einer
+        anderen Person zu erkennen, zu verstehen und nachzuvollziehen, und zwar aus der Perspektive bzw. aus den
+        Voraussetzungen dieser Person heraus (Sachse, 2022). Die Perspektivenübernahme repräsentiert die Neigung einer
+        Person, eine Angelegenheit (auch) mit den Augen des Gegenübers zu betrachten (Maes et al., 1995).
+        <br>
+        <br>
+        Empathie und Perspektivenübernahme sind wichtige Persönlichkeitseigenschaften, die das Verhalten eines Menschen
+        grundlegend beeinflussen. Beispielsweise sind empathische Menschen hilfsbereiter, weil sie die Nöte
+        Hilfsbedürftiger besser nachempfinden können. Besonders Fachpersonen der Sozialen Arbeit müssen in der Lage
+        sein, sich in ihre Adressat*innen hineinzuversetzen und deren Bedürfnisse und Gefühle zu verstehen. Ein hohes
+        Mass an Empathie und Perspektivenübernahme erlaubt es Fachpersonen der Sozialen Arbeit, auf die
+        Hilfsbedürftigkeit ihrer Adressat*innen mit besonders passender Unterstützung reagieren können.
       </p>
-      <p #scoreInfo id="info" style="margin-top: 0">
-        Hinweise zur Auswertung: Die Auswertung erfolgt über eine Addition der
-        Punktwerte. Für die Interpretation der Merkmalsausprägung für
-        Selbstwirksamkeit empfiehlt sich folgendes Schema:<br />
-        <br />
-        Punktwerte 10 - 20 = niedrig<br /><br />
-        Punktwerte 20 - 30 = moderat<br /><br />
-        Punktwerte 30 - 40 = hoch
+      <p #scoreInfo id="info" style="margin-top: 0">Mit dem Fragebogen können Gesamtwerte in der Spannbreite von 18 bis
+        90 erhalten werden. Ein hoher Testwert steht dabei für eine hohe Empathie und Perspektivenübernahme.
       </p>
       <button class="primary" (click)="advanceSite()">
         Weiter mit Self-Assessment

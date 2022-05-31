@@ -1,4 +1,4 @@
-.header{
+.header {
   padding: 18px 5px 16px 30px;
   background-color: #4b647d;
   color: rgb(211, 211, 211);
@@ -6,38 +6,47 @@
   text-align: middle;
   position: relative;
   margin-top: 15px;
-  font-family: "UnitRoundedPro","Helvetica","Arial",sans-serif;
+  font-family: "UnitRoundedPro", "Helvetica", "Arial", sans-serif;
   font-weight: bold;
 }
 
-.options{
+.options {
   display: flex;
   padding-right: 1px;
 }
-.wrapping{
+.wrapping {
   width: 100%;
   font-size: 1rem;
   display: flex;
   justify-content: center;
 }
-.option{
+.option {
   white-space: pre;
   margin-left: 14.5em;
 }
 
-.option-seven{
+.red {
+  color: red;
+}
+
+.error {
+  position: absolute;
+  right: 10%;
+}
+
+.option-seven {
   white-space: pre;
   margin-left: 14.5em;
 }
 
-.option-four{
+.option-four {
   white-space: pre;
-  margin-left: 3em
+  margin-left: 3em;
 }
 
-.option-five{
+.option-five {
   white-space: pre;
-  margin-left: 10.2em
+  margin-left: 10.2em;
 }
 
 .formheader {
@@ -45,13 +54,12 @@
   gap: 1.19em;
 }
 
-
 .mat-radio-group {
   padding: 0.5em 0;
   border-bottom: 1px solid #eee;
 }
 
-.mat-radio-button{
+.mat-radio-button {
   margin-left: 5em;
 }
 
@@ -70,5 +78,3 @@ form {
   display: flex;
   gap: 1.19em;
 }
-
-

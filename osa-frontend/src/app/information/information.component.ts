@@ -8,17 +8,27 @@ import { UserDataService } from '../shared/user-data.service';
   styleUrls: ['./information.component.scss'],
 })
 export class InformationComponent implements OnInit {
+  public id = '-1';
+
   constructor(private router: Router, private userService: UserDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.id = this.userService.getUserIdFromURL();
+  }
 
   advanceSite() {
-    const id = this.userService.getUserIdFromURL();
-    console.log(id);
-    if (id == '-1') {
+    console.log(this.id);
+    if (this.id == '-1') {
       this.router.navigateByUrl('/profile');
     } else {
-      this.router.navigateByUrl(`/profile?id=${id}`);
+      this.router.navigateByUrl(`/profile?id=${this.id}`);
     }
+  }
+
+  isIdAvailable(): boolean {
+    if (this.id == '-1' || this.id == '' || this.id.length < 4) {
+      return false;
+    }
+    return true;
   }
 }
