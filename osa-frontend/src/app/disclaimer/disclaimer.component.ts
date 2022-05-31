@@ -35,7 +35,6 @@ export class DisclaimerComponent implements OnInit {
       // create new (empty) user object in backend
       this.userService.postEmptyUser().subscribe((res) => {
         let id = res.userId;
-        // Todo: display id to user
         this.router.navigateByUrl(`/information?id=${id}`);
       });
     } else {
@@ -45,6 +44,23 @@ export class DisclaimerComponent implements OnInit {
 
   getUserData(): void {
     // try getting user from id
+    const id = this.continue_form.value.id;
+    let user_local: any;
+    // console.log(id);
+    this.userService.getUserById(id).subscribe((user) => {
+      console.log(user);
+      user_local = user;
+    });
+
+    setTimeout(() => {
+      if (user_local) {
+        //console.log(user_local);
+        const link = this.userService.getNextPage(id);
+        console.log(link);
+        // this.router.navigateByUrl(link);
+      }
+    }, 250);
+
     // if user could not be identified show error message
   }
 }

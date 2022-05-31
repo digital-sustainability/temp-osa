@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -33,7 +33,9 @@ export class UserDataService {
     return this.http.put(`${environment.apiUrl}/questionnaire/${id}`, data);
   }
 
-  getNextPage(id: string) {
+  getNextPage(id: string): string | void {
+    let user_local: any;
+    let link: string = `/information?id=${id}`; // default fallback link if no data was inserted
     this.getUserById(id).subscribe((user) => {
       /*
       cascading from last to first page
@@ -46,7 +48,35 @@ export class UserDataService {
       - /stereotypes -> /time-management 
       - /time-management -> /time-management-planner
       - /time-management-planner -> /time-management-feedback
-       */
+
+      if (this.hasTimeManagementPlannerData(user)) {
+        return `/time-management-feedback?id=${id}`;
+      }
+      if (this.hasTimeManagementData(user)) {
+        return `/time-management-planner?id=${id}`;
+      }
+      if (this.hasStereotypesData(user)) {
+        return `/time-management?id=${id}`;
+      }
+        */
+      if (this.hasEmpathyData(user)) {
+        link = `/stereotypes?id=${id}`;
+      }
+      if (this.hasResilienceData(user)) {
+        link = `/empathy?id=${id}`;
+      }
+      if (this.hasSelfEffScaleData(user)) {
+        link = `/resilience?id=${id}`;
+      }
+      if (this.hasCurrOppData(user)) {
+        link = `/personality-trait-scales?id=${id}`;
+      }
+      if (this.hasInterestData(user)) {
+        link = `/current-occupation?id=${id}`;
+      }
+      if (this.hasProfileData(user)) {
+        link = `/interest?id=${id}`;
+      }
     });
   }
 
@@ -133,7 +163,7 @@ export class UserDataService {
     return false;
   }
 
-  hasEmpathyData(user: any): boolean | void {
+  hasEmpathyData(user: any): boolean {
     if (
       user.empathy_1 &&
       user.empathy_2 &&
