@@ -9,24 +9,27 @@ import { UserDataService } from '../shared/user-data.service';
   styleUrls: ['./disclaimer.component.scss'],
 })
 export class DisclaimerComponent implements OnInit {
-  // @ts-ignore
-  form: FormGroup;
+  continue_form: FormGroup;
+  save_data_form: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private userService: UserDataService
-  ) {}
-
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({
+  ) {
+    this.continue_form = this.formBuilder.group({
+      id: [''],
+    });
+    this.save_data_form = this.formBuilder.group({
       save_data: ['no'],
     });
   }
 
+  ngOnInit(): void {}
+
   updateModel() {
     // console.log(this.form.value.save_data);
-    if (this.form.value.save_data == 'yes') {
+    if (this.save_data_form.value.save_data == 'yes') {
       console.log('saving user data');
 
       // create new (empty) user object in backend
@@ -38,5 +41,10 @@ export class DisclaimerComponent implements OnInit {
     } else {
       this.router.navigateByUrl('/information');
     }
+  }
+
+  getUserData(): void {
+    // try getting user from id
+    // if user could not be identified show error message
   }
 }

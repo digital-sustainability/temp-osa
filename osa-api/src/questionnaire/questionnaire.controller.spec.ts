@@ -13,20 +13,14 @@ describe('QuestionnaireController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [QuestionnaireController],
-      providers: [ QuestionnaireService, 
-        { provide: MongoService,
-          useFactory: async () => {
-          let mongo = new MongoService();
-          await mongo.onModuleInit();
-          await mongo.createCollection(COLLECTIONNAME);
-          return mongo;
-        },
-      },
+      providers: [ QuestionnaireService, MongoService
       ],
     }).compile();
     controller = module.get<QuestionnaireController>(QuestionnaireController);
-    mongo = await module.resolve<MongoService>(MongoService);
+    mongo = module.get<MongoService>(MongoService);
     service = module.get<QuestionnaireService>(QuestionnaireService);
+    await mongo.onModuleInit();
+    await mongo.createCollection(COLLECTIONNAME);
   });
 
   describe ('should be defined', () => {
@@ -37,7 +31,7 @@ describe('QuestionnaireController', () => {
     it('mongo should be defined', () => {
       expect(mongo).toBeUndefined;
     });
-    })
+    });
 
 
   describe ('controller should call questionnaireService', () => {
@@ -61,5 +55,10 @@ describe('QuestionnaireController', () => {
       await controller.update("507f1f77bcf86cd799439011",{"age": 23} );
       expect(spy).toHaveBeenCalledTimes(1);
     });
+    });
+
+    afterEach(async () =>{
+      await mongo.onModuleDestroy();
     })
+
 });

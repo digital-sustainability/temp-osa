@@ -1,27 +1,30 @@
 <div class="content-wrapper">
   <div class="container">
-    <div style="width: 100%;">
+    <div style="width: 100%">
       <h1>Empathie & Perspektivenübernahme</h1>
     </div>
     <div *ngIf="!showResult">
-      Die folgenden Aussagen beschreiben Handlungen und Empfindungen im Umgang mit anderen Menschen. Kreuzen Sie bitte
-      für jede Aussage an, wie selten oder oft Sie so handeln oder empfinden.
-      <br>
+      Die folgenden Aussagen beschreiben Handlungen und Empfindungen im Umgang
+      mit anderen Menschen. Kreuzen Sie bitte für jede Aussage an, wie selten
+      oder oft Sie so handeln oder empfinden.
+      <br />
     </div>
   </div>
-  <hr>
+  <hr />
   <div class="flex-wrapper">
     <div class="wrap">
       <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [questions]="questionnaire"
         [numberOfOptions]="5" [values]="form.value" [naming]="naming" [headers]="headers"></app-questionnaire>
       <app-result-table *ngIf="showResult" [numberOfOptions]="5" [questions]="questionnaire" [values]="form.value"
         [naming]="naming"></app-result-table>
-      <div style="margin-top:20px;" class="footnote">
+      <div style="margin-top: 20px" class="footnote">
         <p>
-          Quelle: Maes, J., Schmitt, M. & Schmal, A. (1995). Gerechtigkeit als innerdeutsches Problem: Werthaltungen,
-          Kontrollüberzeugungen, Freiheitsüberzeugungen, Drakonität, Soziale Einstellungen, Empathie und Protestantische
-          Arbeitsethik als Kovariate (Berichte aus der Arbeitsgruppe "Verantwortung, Gerechtigkeit, Moral" Nr.85).
-          Trier: Universität Trier, Fachbereich I - Psychologie.
+          Quelle: Maes, J., Schmitt, M. & Schmal, A. (1995). Gerechtigkeit als
+          innerdeutsches Problem: Werthaltungen, Kontrollüberzeugungen,
+          Freiheitsüberzeugungen, Drakonität, Soziale Einstellungen, Empathie
+          und Protestantische Arbeitsethik als Kovariate (Berichte aus der
+          Arbeitsgruppe "Verantwortung, Gerechtigkeit, Moral" Nr.85). Trier:
+          Universität Trier, Fachbereich I - Psychologie.
         </p>
       </div>
       <div *ngIf="showResult" style="margin-top:20px;" class="footnote">
@@ -72,7 +75,9 @@
       <p #scoreInfo id="info" style="margin-top: 0">Mit dem Fragebogen können Gesamtwerte in der Spannbreite von 18 bis
         90 erhalten werden. Ein hoher Testwert steht dabei für eine hohe Empathie und Perspektivenübernahme.
       </p>
-      <button class="primary" routerLink="/stereotypes">Weiter mit Self-Assessment</button>
+      <button class="primary" (click)="advanceSite()">
+        Weiter mit Self-Assessment
+      </button>
     </div>
   </div>
 </div>

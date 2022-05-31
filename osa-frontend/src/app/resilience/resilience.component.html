@@ -1,56 +1,85 @@
 <div class="content-wrapper">
-  <div style="width: 100%;"><h1>Resilienz Skala</h1></div>
-  <hr>
+  <div style="width: 100%"><h1>Resilienz Skala</h1></div>
+  <hr />
   <div class="flex-wrapper">
     <div class="wrap">
-    <p *ngIf="!showResult">Folgend finden Sie eine Reihe von Feststellungen. Bitte lesen Sie sich jede Feststellung durch und kreuzen Sie an, wie sehr die
-      Aussagen im Allgemeinen auf Sie zutreffen, d.h. wie sehr Ihr Denken und Handeln durch diese Aussagen beschrieben wird. </p>
-    <!-- <p class="footnote">Quelle: Leppert, K., Koch, B., Brähler, E. & Strauß, B., (2008). Die Resilienzskala (RS) – Überprüfung der
+      <p *ngIf="!showResult">
+        Folgend finden Sie eine Reihe von Feststellungen. Bitte lesen Sie sich
+        jede Feststellung durch und kreuzen Sie an, wie sehr die Aussagen im
+        Allgemeinen auf Sie zutreffen, d.h. wie sehr Ihr Denken und Handeln
+        durch diese Aussagen beschrieben wird.
+      </p>
+      <!-- <p class="footnote">Quelle: Leppert, K., Koch, B., Brähler, E. & Strauß, B., (2008). Die Resilienzskala (RS) – Überprüfung der
       Langform RS-25 und einer Kurzform RS-13. Klin. Diagnostik u. Evaluation, 1. Jg., 226‐243, 2008.</p> -->
-      <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [headers]="headers" [numberOfOptions]="7" [questions]="questionnaire" [values]="form.value" [naming]="naming"></app-questionnaire>
-    <app-result-table *ngIf="showResult" [numberOfOptions]="7" [questions]="questionnaire" [values]="form.value" [naming]="naming"></app-result-table>
-  </div>
+      <app-questionnaire
+        *ngIf="!showResult"
+        (outputEvent)="assignValues($event)"
+        [headers]="headers"
+        [numberOfOptions]="7"
+        [questions]="questionnaire"
+        [values]="form.value"
+        [naming]="naming"
+      ></app-questionnaire>
+      <app-result-table
+        *ngIf="showResult"
+        [numberOfOptions]="7"
+        [questions]="questionnaire"
+        [values]="form.value"
+        [naming]="naming"
+      ></app-result-table>
+    </div>
 
     <div *ngIf="showResult" class="result">
-      <div style="display: flex; align-items: center;">
-          <mat-icon id="info-button" (click)="toggleCollapsible()" style="width: 1.3em; font-size: 40px; margin-bottom: 15px;">info</mat-icon>
-        <h3 style="color: #4b647d;">Ihr Resilienz Wert ist:&nbsp;&nbsp;&nbsp;<span (click)="toggleScoreInfo()" style="font-size: 2.5rem; text-decoration: underline; cursor: pointer;">{{score}}</span></h3>
+      <div style="display: flex; align-items: center">
+        <mat-icon
+          id="info-button"
+          (click)="toggleCollapsible()"
+          style="width: 1.3em; font-size: 40px; margin-bottom: 15px"
+          >info</mat-icon
+        >
+        <h3 style="color: #4b647d">
+          Ihr Resilienz Wert ist:&nbsp;&nbsp;&nbsp;<span
+            (click)="toggleScoreInfo()"
+            style="
+              font-size: 2.5rem;
+              text-decoration: underline;
+              cursor: pointer;
+            "
+            >{{ score }}</span
+          >
+        </h3>
       </div>
-      <hr>
-      <h3>Soeben haben Sie einen Fragebogenausgefüllt, mit der Ihre Selbstwirksamkeit bemessen wurde.</h3>
-      <p id="info" #info>Erläuterung:
-        Soeben haben Sie einen Fragebogen zur
-        Ermessung ihrer eigenen Resilienz ausgefüllt.
-        Wie sollen Sie Ihr Ergebnis nun interpretieren...?
-        Mit der Resilienz Skala können Werte in der
-        Spannbreite von 10 bis 70 erhalten werden.
-        Einen hohen Gesamtwert weist auf eine hohe
-        persönliche Resilienz.
-        Grundsätzlich ist es in der Sozialen Arbeit von
-        Vorteil, wenn sich die einzelnen Werte zur
-        Resilienz im hohen Segment befinden. Resilient zu
-        sein, ist für Sozialarbeitende ausschlaggeben, da
-        sie täglich mit Problemen auf gesellschaftlicher,
-        institutioneller und individueller Ebene
-        konfrontiert werden. Diesen Problemlagen müssen
-        Sozialarbeitende die Stirn bieten und
-        Widerstandsfähigkeit beweisen, um ihre Dienst-
-        und Unterstützungsleistungen sicherzustellen
-        sowie auch ihre eigene Gesundheit zu bewahren
-        (Eggli & Romano, 2022).
+      <hr />
+      <h3>
+        Soeben haben Sie einen Fragebogenausgefüllt, mit der Ihre
+        Selbstwirksamkeit bemessen wurde.
+      </h3>
+      <p id="info" #info>
+        Erläuterung: Soeben haben Sie einen Fragebogen zur Ermessung ihrer
+        eigenen Resilienz ausgefüllt. Wie sollen Sie Ihr Ergebnis nun
+        interpretieren...? Mit der Resilienz Skala können Werte in der
+        Spannbreite von 10 bis 70 erhalten werden. Einen hohen Gesamtwert weist
+        auf eine hohe persönliche Resilienz. Grundsätzlich ist es in der
+        Sozialen Arbeit von Vorteil, wenn sich die einzelnen Werte zur Resilienz
+        im hohen Segment befinden. Resilient zu sein, ist für Sozialarbeitende
+        ausschlaggeben, da sie täglich mit Problemen auf gesellschaftlicher,
+        institutioneller und individueller Ebene konfrontiert werden. Diesen
+        Problemlagen müssen Sozialarbeitende die Stirn bieten und
+        Widerstandsfähigkeit beweisen, um ihre Dienst- und
+        Unterstützungsleistungen sicherzustellen sowie auch ihre eigene
+        Gesundheit zu bewahren (Eggli & Romano, 2022).
       </p>
-      <p #scoreInfo id="info" style="margin-top: 0">Hinweise zur Auswertung:
-        Die Auswertung erfolgt über eine Addition
-        der Punktwerte.
-        Für die Interpretation der
-        Merkmalsausprägung für Resilienz
-        empfiehlt sich folgendes
-        Schema:<br>
-        Punktwerte 13‐63 & 64‐66 = niedrig<br>
-        Punktwerte 67‐69 & 70‐72 = moderat<br>
-        Punktwerte 73‐76 & 77‐91 = hoch</p>
-      <button class="primary" routerLink="/empathy">Weiter mit Self-Assessment</button>
+      <p #scoreInfo id="info" style="margin-top: 0">
+        Hinweise zur Auswertung: Die Auswertung erfolgt über eine Addition der
+        Punktwerte. Für die Interpretation der Merkmalsausprägung für Resilienz
+        empfiehlt sich folgendes Schema:<br />
+        Punktwerte 13‐63 & 64‐66 = niedrig<br />
+        Punktwerte 67‐69 & 70‐72 = moderat<br />
+        Punktwerte 73‐76 & 77‐91 = hoch
+      </p>
+      <button class="primary" (click)="advanceSite()">
+        Weiter mit Self-Assessment
+      </button>
     </div>
   </div>
-
 </div>

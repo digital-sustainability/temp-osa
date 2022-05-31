@@ -107,6 +107,14 @@ export class EmpathyComponent implements OnInit {
     if (id == '') {
       this.router.navigateByUrl('/stereotypes');
     } else {
+      this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
+        // console.log(res);
+      });
+      this.userService
+        .addDataToUser(id, { 'empathy-value': this.score })
+        .subscribe((res) => {
+          // console.log(res);
+        });
       this.router.navigateByUrl(`/stereotypes?id=${id}`);
     }
   }
