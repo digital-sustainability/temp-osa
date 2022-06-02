@@ -58,22 +58,22 @@ export class EmpathyComponent implements OnInit {
 
   overallScore = 0;
 
-  firstKeys = ['q1', 'q3', 'q5', 'q7', 'q9', 'q11', 'q13', 'q15', 'q18'];
+  firstKeys = [1, 3, 5, 7, 9, 11, 13, 15, 18];
 
-  secondKeys = ['q2', 'q4', 'q6', 'q8', 'q10', 'q12', 'q14', 'q16', 'q17'];
+  secondKeys = [2, 4, 6, 8, 10, 12, 14, 16, 17];
 
   assignValues(event: any) {
     this.form = event.form;
+    const firstSet = this.firstKeys.map(index => this.keys[index])
+    const secondSet = this.secondKeys.map(index => this.keys[index])
     for (const key in event.form.value) {
       console.log(key, 'key');
       this.overallScore += this.form.value[key];
-      if (this.firstKeys.includes(key)) this.firstScore += this.form.value[key];
-      if (this.secondKeys.includes(key))
+      if (firstSet.includes(key)) this.firstScore += this.form.value[key];
+      if (secondSet.includes(key))
         this.secondScore += this.form.value[key];
     }
-    this.firstScore = this.firstScore / 9;
-    this.secondScore = this.secondScore / 9;
-    this.overallScore = this.overallScore / 18;
+    debugger
     this.score = event.score;
     this.showResult = true;
   }

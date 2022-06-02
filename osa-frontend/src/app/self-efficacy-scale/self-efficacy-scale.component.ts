@@ -107,7 +107,7 @@ export class SelfEfficacyScaleComponent implements OnInit {
 
   advanceSite() {
     if (this.id == '-1') {
-      this.router.navigateByUrl('/resilience');
+      this.router.navigateByUrl('/empathy');
     } else {
       console.log(this.form.value);
       this.userService
@@ -120,7 +120,7 @@ export class SelfEfficacyScaleComponent implements OnInit {
         .subscribe((res) => {
           // console.log(res);
         });
-      this.router.navigateByUrl(`/resilience?id=${this.id}`);
+      this.router.navigateByUrl(`/empathy?id=${this.id}`);
     }
   }
 

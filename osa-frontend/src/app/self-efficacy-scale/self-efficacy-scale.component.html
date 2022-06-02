@@ -1,6 +1,8 @@
 <div class="content-wrapper">
   <div class="container">
-    <div style="width: 100%"><h1>Selbstwirksamkeit</h1></div>
+    <div style="width: 100%">
+      <h1>Selbstwirksamkeit</h1>
+    </div>
     <div *ngIf="!showResult">
       Folgend finden Sie eine Reihe von Aussagen. Bitte lesen Sie sich jede
       Aussage durch und kreuzen Sie an, inwiefern diese Aussage auf Sie
@@ -11,22 +13,10 @@
   <hr />
   <div class="flex-wrapper">
     <div class="wrap">
-      <app-questionnaire
-        *ngIf="!showResult"
-        (outputEvent)="assignValues($event)"
-        [questions]="questionnaire"
-        [numberOfOptions]="4"
-        [values]="form.value"
-        [naming]="naming"
-        [headers]="headers"
-      ></app-questionnaire>
-      <app-result-table
-        *ngIf="showResult"
-        [numberOfOptions]="4"
-        [questions]="questionnaire"
-        [values]="form.value"
-        [naming]="naming"
-      ></app-result-table>
+      <app-questionnaire *ngIf="!showResult" (outputEvent)="assignValues($event)" [questions]="questionnaire"
+        [numberOfOptions]="4" [values]="form.value" [naming]="naming" [headers]="headers"></app-questionnaire>
+      <app-result-table *ngIf="showResult" [numberOfOptions]="4" [questions]="questionnaire" [values]="form.value"
+        [naming]="naming"></app-result-table>
       <div class="footnote" style="margin-top: 20px">
         <p>
           Schwarzer, R., & Jerusalem, M. (1995). Generalized Self-Efficacy
@@ -39,22 +29,14 @@
 
     <div *ngIf="showResult" class="result">
       <div style="display: flex; align-items: center">
-        <mat-icon
-          id="info-button"
-          (click)="toggleCollapsible()"
-          style="width: 1.3em; font-size: 40px; margin-bottom: 15px"
-          >info</mat-icon
-        >
+        <mat-icon id="info-button" (click)="toggleCollapsible()"
+          style="width: 1.3em; font-size: 40px; margin-bottom: 15px">info</mat-icon>
         <h3 style="color: #4b647d">
-          Ihr Resilienz Wert ist:&nbsp;&nbsp;&nbsp;<span
-            (click)="toggleScoreInfo()"
-            style="
+          Ihr Selbstwirksamskeits Wert ist:&nbsp;&nbsp;&nbsp;<span (click)="toggleScoreInfo()" style="
               font-size: 2.5rem;
               text-decoration: underline;
               cursor: pointer;
-            "
-            >{{ score }}</span
-          >
+            ">{{ score }}</span>
         </h3>
       </div>
       <hr />
@@ -64,36 +46,26 @@
       </h4>
       <p id="info" #info>
         <span style="font-weight: bold">Erläuterung:</span>
-        <br />
-        Soeben haben Sie einen Fragebogen zur Ermessung ihrer eigenen Resilienz
-        ausgefüllt. Wie sollen Sie ihr Ergebnis nun interpretieren...? Mit der
-        Resilienz Skala können Werte in der Spannbreite von 10 bis 70 erhalten
-        werden. Einen hohen Gesamtwert weist auf eine hohe persönliche
-        Resilienz.
-        <br />
-        Grundsätzlich ist es in der Sozialen Arbeit von Vorteil, wenn sich die
-        einzelnen Werte zur Resilienz im hohen Segment befinden. Resilient zu
-        sein, ist für Sozialarbeitende ausschlaggebend, da sie täglich mit
-        Problemen auf gesellschaftlicher, institutioneller und individueller
-        Ebene konfrontiert werden. Diesen Problemlagen müssen Sozialarbeitende
-        die Stirn bieten und Widerstandsfähgikeit beweisen, um ihre Dienst- und
-        Unterstützungsleistungen sicherzustellen sowie auch ihre eigene
-        Gesundheit zu bewahren.
-        <br />
-        <span class="footnote"> (Eggli & Romano, 2022) </span>
+        <br>
+        Selbstwirksamkeit ist die Überzeugung, dass man sich in einer bestimmten Situation angemessen verhalten und
+        angemessene Leistung erbringen kann (Gerrig, 2018).
+        <br><br>
+        Selbstwirksamkeit ist eine wichtige Eigenschaft in der Sozialen Arbeit. Fachpersonen der Sozialen Arbeit, die
+        über ein hohes Mass an Selbstwirksamkeit verfügen, sind nicht nur in der Lage, sich selbst, sondern auch andere,
+        d.h. Adressat*innen und Adressaten und Arbeitskolleg*innen zu motivieren. Vor allem, wenn sie mit
+        Herausforderungen konfrontiert sind, sind Fachpersonen der Sozialen Arbeit mit hoher Selbstwirksamkeit in der
+        Lage, durchzuhalten und Widerstandsfähigkeit gegenüber Widrigkeiten zu zeigen. (Pedrazza et al., 2013)
+        <br>
       </p>
       <p #scoreInfo id="info" style="margin-top: 0">
-        Hinweise zur Auswertung: Die Auswertung erfolgt über eine Addition der
-        Punktwerte. Für die Interpretation der Merkmalsausprägung für
-        Selbstwirksamkeit empfiehlt sich folgendes Schema:<br />
-        <br />
-        Punktwerte 10 - 20 = niedrig<br /><br />
-        Punktwerte 20 - 30 = moderat<br /><br />
-        Punktwerte 30 - 40 = hoch
+        Mit der Selbstwirksamkeits-Skala können Werte in der Spannbreite von 10 bis 40 erhalten werden. Ein hoher
+        Testwert steht dabei für eine hohe Selbstwirksamkeit. Das bedeutet, diese Menschen haben Vertrauen in sich
+        selbst und in ihre Kompetenz, schwierige Situationen erfolgreich meistern zu können.
       </p>
       <button class="primary" (click)="advanceSite()">
         Weiter mit Self-Assessment
       </button>
     </div>
+
   </div>
 </div>
