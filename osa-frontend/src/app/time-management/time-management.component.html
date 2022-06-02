@@ -17,11 +17,11 @@
   <p>Haben Sie vor, Vollzeit oder Teilzeit zu studieren?</p>
 
   <form [formGroup]="form" (submit)="updateModel()">
-    <mat-radio-group>
-      <mat-radio-button value="'vollzeit'"
+    <mat-radio-group formControlName="pensum">
+      <mat-radio-button value="vollzeit"
         >Vollzeit (100% Studium)</mat-radio-button
       >
-      <mat-radio-button value="'teilzeit'"
+      <mat-radio-button value="teilzeit"
         >Teilzeit (in der Regel ca. 60% Studium)</mat-radio-button
       >
     </mat-radio-group>

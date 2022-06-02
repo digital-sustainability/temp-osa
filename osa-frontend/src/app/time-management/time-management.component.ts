@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDataService } from '../shared/user-data.service';
 
@@ -24,7 +24,7 @@ export class TimeManagementComponent implements OnInit {
   }
 
   updateModel() {
-    this.userService.setVollzeit(this.form.value == 'vollzeit' ? true : false);
+    this.userService.setVollzeit(this.form.value.pensum == 'vollzeit' ? true : false);
     const id = this.userService.getUserIdFromURL(); 
     if (id == '') {
       this.router.navigateByUrl('/time-management-planner');
