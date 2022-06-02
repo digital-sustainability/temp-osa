@@ -473,9 +473,9 @@ export class RequirementsComponent implements OnInit {
   advanceSite() {
     const id = this.userService.getUserIdFromURL();
     if (id == '') {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/feedback');
     } else {
-      this.router.navigateByUrl(`/home?id=${id}`);
+      this.router.navigateByUrl(`/feedback?id=${id}`);
     }
   }
 }
