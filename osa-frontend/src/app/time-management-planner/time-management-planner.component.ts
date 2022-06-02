@@ -50,7 +50,7 @@ export class TimeManagementPlannerComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       studies: [
-        { value: this.model.pensum === 'vollzeit' ? 7 : 4, disabled: true },
+        { value: this.model.pensum === 'vollzeit' ? 8 : 4, disabled: true },
       ],
       work: [0, Validators.required],
       leisure: [0, Validators.required],
