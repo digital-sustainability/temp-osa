@@ -9,6 +9,8 @@ import { environment } from '../../environments/environment';
 export class UserDataService {
   constructor(private http: HttpClient) {}
 
+  vollzeit: boolean = true;
+
   getUserIdFromURL(): string {
     let id = '-1';
     let url = window.location;
@@ -31,6 +33,14 @@ export class UserDataService {
 
   addDataToUser(id: string, data: any): Observable<any> {
     return this.http.put(`${environment.apiUrl}/questionnaire/${id}`, data);
+  }
+
+  getVollzeit(): boolean {
+    return this.vollzeit;
+  }
+
+  setVollzeit(_vollzeit: boolean){
+    this.vollzeit = _vollzeit;
   }
 
   getNextPage(id: string): string | void {

@@ -25,7 +25,7 @@ export class TimeManagementPlannerComponent implements OnInit {
     },
   };
   model: any = {
-    pensum: 'vollzeit',
+    pensum: 'vollzeit'
   };
 
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
@@ -48,6 +48,7 @@ export class TimeManagementPlannerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.userService.getVollzeit() ? this.model.pensum = 'vollzeit' : this.model.pensum = 'teilzeit';
     this.form = this.formBuilder.group({
       studies: [
         { value: this.model.pensum === 'vollzeit' ? 8 : 4, disabled: true },

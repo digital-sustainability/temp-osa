@@ -24,12 +24,12 @@ export class TimeManagementComponent implements OnInit {
   }
 
   updateModel() {
-    const id = this.userService.getUserIdFromURL();
+    this.userService.setVollzeit(this.form.value == 'vollzeit' ? true : false);
+    const id = this.userService.getUserIdFromURL(); 
     if (id == '') {
       this.router.navigateByUrl('/time-management-planner');
     } else {
       this.userService.addDataToUser(id, this.form.value).subscribe((res) => {
-        // console.log(res);
       });
       this.router.navigateByUrl(`/time-management-planner?id=${id}`);
     }
