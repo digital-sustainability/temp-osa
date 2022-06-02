@@ -15,9 +15,9 @@ export class InsightsComponent implements OnInit {
   advanceSite() {
     const id = this.userService.getUserIdFromURL();
     if (id == '') {
-      this.router.navigateByUrl('/expectations');
+      this.router.navigateByUrl('/requirements');
     } else {
-      this.router.navigateByUrl(`/expectations?id=${id}`);
+      this.router.navigateByUrl(`/requirements?id=${id}`);
     }
   }
 

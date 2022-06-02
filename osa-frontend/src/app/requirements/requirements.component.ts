@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SVG } from '@svgdotjs/svg.js';
+import { UserDataService } from '../shared/user-data.service';
 
 const TEXTS = {
   requirements:
@@ -22,7 +24,7 @@ const TEXTS = {
   styleUrls: ['./requirements.component.css'],
 })
 export class RequirementsComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router, private userService: UserDataService) {}
   TEXT_GREY = '#4b647d';
   TEXT_LIGHT = '#eff1f3';
   GREY = '#697d91';
@@ -466,5 +468,14 @@ export class RequirementsComponent implements OnInit {
     document
       .getElementById('svg')
       ?.removeEventListener('click', this.clickFunction);
+  }
+
+  advanceSite() {
+    const id = this.userService.getUserIdFromURL();
+    if (id == '') {
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl(`/home?id=${id}`);
+    }
   }
 }

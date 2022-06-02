@@ -44,6 +44,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { RequirementsComponent } from './requirements/requirements.component';
 
 
 
@@ -64,11 +65,13 @@ const routes: Route[] = [
   { path: 'time-management', component: TimeManagementComponent, data: { animation: 'timemanagement' } },
   { path: 'time-management-planner', component: TimeManagementPlannerComponent, data: { animation: 'timemanagementplanner' } },
   { path: 'time-management-feedback', component: TimeManagementFeedbackComponent, data: { animation: 'timemanagementfeedback' } },
+  { path: 'requirements', component: RequirementsComponent, data: {animation: 'requirements'}},
   { path: 'insights', component: InsightsComponent, data: { animation: 'insights' } },
   { path: 'expectations', component: ExpectationsComponent, data: { animation: 'expectations' } },
   { path: 'feedback', component: FeedbackComponent, data: { animation: 'feedback' } },
   { path: '**', redirectTo: 'home', pathMatch: 'full', data: { animation: 'any' } },
   { path: '', redirectTo: 'home', pathMatch: 'full', data: { animation: 'any' } },
+
 ]
 
 
