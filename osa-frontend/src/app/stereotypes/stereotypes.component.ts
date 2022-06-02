@@ -135,6 +135,8 @@ export class StereotypesComponent implements OnInit {
   ];
   selectionCorrect?: boolean;
 
+  answers = [{ correct: false, wrong: false }, { correct: false, wrong: false }, { correct: false, wrong: false }]
+
   id: string;
 
   constructor(
@@ -156,6 +158,7 @@ export class StereotypesComponent implements OnInit {
   isLastTab: boolean = false;
 
   next(element: any) {
+    this.resetAnswers()
     this.selectionCorrect = undefined;
     element.selectedIndex += 1;
     if (this.isLastTab) {
@@ -164,13 +167,27 @@ export class StereotypesComponent implements OnInit {
   }
 
   prev(element: any) {
+    this.resetAnswers()
     this.selectionCorrect = undefined;
     element.selectedIndex -= 1;
   }
 
   check(claim: any, index: number) {
+    this.resetAnswers()
     this.selectionCorrect =
       +this.form.value['claim' + index] === claim.correctAnswer;
+    if (this.form.value['claim' + index] == claim.correctAnswer) {
+      this.answers[this.form.value['claim' + index] - 1].correct = true
+    } else {
+      this.answers[this.form.value['claim' + index] - 1].wrong = true
+    }
+  }
+
+  resetAnswers() {
+    for (const el of this.answers) {
+      el.correct = false
+      el.wrong = false
+    }
   }
 
   setLastTab(event: any) {

@@ -14,7 +14,8 @@
   gap: 1em;
 }
 
-.wrong, .correct {
+.wrong,
+.correct {
   display: flex;
   gap: 0.5em;
   place-items: center;
@@ -23,14 +24,28 @@
   width: fit-content;
 }
 
+.wrapper {
+  justify-content: space-between;
+  display: flex;
+}
+
 .wrong {
   color: #d25a50;
-  border: 2px solid #d25a50;
+  margin: 0;
+  padding: 0;
 }
 
 .correct {
   color: #699673;
-  border: 2px solid #699673;
+  margin: 0;
+  padding: 0;
+}
+
+.desc {
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+  font-size: 1.5rem;
 }
 
 .explanation {
@@ -48,5 +63,5 @@
 }
 
 ::ng-deep .mat-tab-header {
-  display: none!important;
-  }
+  display: none !important;
+}
