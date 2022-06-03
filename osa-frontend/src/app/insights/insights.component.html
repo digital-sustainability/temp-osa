@@ -8,23 +8,19 @@
     sich in unterschiedlichen Lebenssituationen.
     Wir wünschen viel Vergnügen beim Anschauen der Videos!
   </p>
-  <div id="horizontal-scroller">
-    <button id="left" (click)="scroll('left', 800)"><mat-icon>arrow_left</mat-icon></button>
-    <div id="videos">
-      <div class="video-placeholder">
-        <p>video1</p>
-      </div>
-      <div class="video-placeholder">
-        <p>video2</p>
-      </div>
-      <div class="video-placeholder">
-        <p>video3</p>
-      </div>
-      <div class="video-placeholder">
-        <p>video4</p>
-      </div>
-    </div>
-    <button id="right" (click)="scroll('right', 800)"><mat-icon>arrow_right</mat-icon></button>
+  <div>
+    <video width="320" height="240" controls>
+      <source src="assets/videos/Johanna.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video width="320" height="240" controls>
+      <source src="assets/videos/Beatrice.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video width="320" height="240" controls>
+      <source src="assets/videos/t_schalk.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
   <button class="primary" (click)="advanceSite()">Weiter</button>
 </div>
